@@ -784,7 +784,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     var etabVal = document.getElementById('etab') ? document.getElementById('etab').value : '';
     var emailVal = document.getElementById('email-input') ? document.getElementById('email-input').value : '';
     if(emailVal){
-      envoyerEmail({ nom: nomVal, etab: etabVal, email: emailVal, detail: detail.replace(/<[^>]*>/g,''), ttc: ttc.toFixed(2)+' €' });
+      envoyerEmail({ nom: nomVal, etab: etabVal, email: emailVal, detail: detail.replace(/<[^>]*>/g,''), ttc: ttc.toFixed(2)+' €' }
     }
     document.getElementById('recapOv').classList.remove('open');
     document.getElementById('succOv').classList.add('open');
@@ -805,7 +805,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     var sujetClient = 'Confirmation de commande — Froidepannagebar Glace';
     var sujetAdmin = '🧊 Nouvelle commande — ' + dataCommande.etab;
     var corpsClient = 'Bonjour ' + dataCommande.nom + ',\n\nVotre commande a bien été enregistrée !\n\n' + dataCommande.detail + '\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02';
-    var corpsAdmin = 'Nouvelle commande reçue !\n\nClient : ' + dataCommande.nom + '\nÉtablissement : ' + dataCommande.etab + '\nEmail : ' + dataCommande.email + '\n\n' + dataCommande.detail + '\n\nTotal TTC : ' + dataCommande.ttc;
+    var corpsAdmin = 'Nouvelle commande reçue !\n\nClient : ' + dataCommande.nom + '\nÉtablissement : ' + dataCommande.etab + '\nEmail : ' + dataCommande.email + '\nTéléphone : ' + dataCommande.tel + '\nAdresse de livraison : ' + dataCommande.adresse + '\n\n' + dataCommande.detail + '\n\nTotal TTC : ' + dataCommande.ttc;
+
 
     var payload = {
       sender: { name: 'Froidepannagebar Glace', email: 'd.depannage13@gmail.com' },
