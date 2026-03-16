@@ -779,7 +779,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     if(q2>0) detail+='Glace pilée × '+q2+' cartons<br>';
     if(q3>0) detail+='Glace CO₂ × '+q3+' kg<br>';
     detail+='<br>Total TTC : <strong>'+ttc.toFixed(2)+' €</strong><br>Livraison sous 24h · Paiement à la livraison.';
-    document.getElementById('succDetail').innerHTML=detail;var nomVal = document.getElementById('nom') ? document.getElementById('nom').value : '';
+    document.getElementById('succDetail').innerHTML=detail;
+    var nomVal = document.getElementById('nom') ? document.getElementById('nom').value : '';
     var etabVal = document.getElementById('etab') ? document.getElementById('etab').value : '';
     var emailVal = document.getElementById('email-input') ? document.getElementById('email-input').value : '';
     if(emailVal){
