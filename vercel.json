@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "name": "froidepannage-glace-app",
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "routes": [
+    {
+      "src": "/sw.js",
+      "headers": {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Service-Worker-Allowed": "/",
+        "Content-Type": "application/javascript"
+      },
+      "dest": "/sw.js"
+    },
+    {
+      "src": "/manifest.json",
+      "headers": {
+        "Content-Type": "application/manifest+json",
+        "Cache-Control": "public, max-age=86400"
+      },
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "/icons/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      },
+      "dest": "/icons/$1"
+    },
+    {
+      "src": "/sw-register.js",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/javascript"
+      },
+      "dest": "/sw-register.js"
+    },
+    {
+      "src": "/(.*)",
+      "headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "geolocation=(self), camera=(), microphone=()"
+      },
+      "dest": "/index.html"
+    }
+  ]
+}

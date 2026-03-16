@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Froidepannagebar Glace — Commandez vos glaçons à Marseille. Livraison sous 24h.">
+<meta name="theme-color" content="#0d3d5e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Glace">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Froidepannagebar "Glace"</title>
+
+  <!-- ===== PWA MANIFEST ===== -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- ===== APPLE / iOS ===== -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Glace">
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
+
+  <!-- ===== ANDROID / CHROME ===== -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Glace">
+
+  <!-- ===== SEO & Open Graph ===== -->
+  <meta property="og:title" content="Froidepannagebar Glace — Livraison glaçons Marseille">
+  <meta property="og:description" content="Commandez vos glaçons à Marseille. Livraison sous 24h. Pros et particuliers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://livraison-glacons-marseille.fr">
+  <meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+:root{
+  --deep:#0d3d5e;--blue:#1a7abf;--sky:#7ec8e3;
+  --gold:#d4a843;--gold-l:#fef7e6;--ice:#e8f6fc;
+  --off:#f5fafd;--muted:#6a8fa8;--text:#0d2133;
+  --grad-top:linear-gradient(135deg,#0d3d5e 0%,#1a5a8a 100%);
+}
+html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
+.app{max-width:430px;margin:0 auto;height:100vh;display:flex;flex-direction:column;position:relative;background:#f0f7fb;overflow:hidden;}
+
+/* STATUS BAR */
+.status{background:#0d3d5e;padding:env(safe-area-inset-top,8px) 16px 4px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.st-t{font-size:12px;font-weight:600;color:rgba(255,255,255,.75);}
+.st-i{font-size:11px;color:rgba(255,255,255,.55);}
+
+/* TOPNAV */
+.topnav{background:var(--grad-top);padding:10px 16px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;position:relative;z-index:10;}
+.topnav::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(126,200,227,.3),transparent);}
+.tn-logo{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:#fff;letter-spacing:-.2px;}
+.tn-logo em{color:#ffd97a;font-style:normal;}
+.tn-r{display:flex;align-items:center;gap:10px;}
+.tn-bell{width:32px;height:32px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;border:1px solid rgba(255,255,255,.08);}
+.hbg{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:rgba(255,255,255,.08);border-radius:10px;border:1px solid rgba(255,255,255,.1);min-width:36px;min-height:36px;align-items:center;justify-content:center;}
+.hb{width:18px;height:2px;background:rgba(255,255,255,.8);border-radius:1px;pointer-events:none;}
+
+/* MENU SLIDE */
+.mbg{position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:50;display:none;}
+.mbg.open{display:block;}
+.mpanel{position:absolute;top:0;right:0;width:82%;max-width:320px;height:100%;background:#fff;display:flex;flex-direction:column;overflow-y:auto;box-shadow:-4px 0 20px rgba(0,0,0,.2);}
+.mpanel::-webkit-scrollbar{display:none;}
+.mp-top{background:var(--grad-top);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.mp-t{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:#fff;}
+.mp-x{color:rgba(255,255,255,.7);font-size:18px;cursor:pointer;background:none;border:none;padding:4px 8px;line-height:1;}
+.acc-item{border-bottom:0.5px solid rgba(126,200,227,.15);}
+.acc-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:none;border:none;cursor:pointer;text-align:left;}
+.acc-lbl{font-size:13px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:10px;}
+.acc-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.ai-b{background:var(--ice);}.ai-g{background:var(--gold-l);}.ai-d{background:rgba(13,61,94,.07);}
+.acc-arr{font-size:10px;color:var(--muted);transition:transform .22s;}
+.acc-arr.open{transform:rotate(180deg);}
+.acc-body{display:none;padding:0 16px 12px;}
+.acc-body.open{display:block;}
+.pline{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:0.5px solid rgba(126,200,227,.1);}
+.pline:last-child{border-bottom:none;}
+.pl-l{display:flex;align-items:center;gap:8px;}
+.pl-n{font-size:12px;font-weight:600;color:var(--text);}
+.pl-d{font-size:10px;color:var(--muted);}
+.pl-p{font-size:12px;font-weight:700;color:var(--blue);}
+.svline{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:0.5px solid rgba(126,200,227,.1);}
+.svline:last-child{border-bottom:none;}
+.svline span:first-child{font-size:14px;}
+.svline span:last-child{font-size:12px;font-weight:600;color:var(--text);}
+.ci{display:flex;align-items:center;gap:10px;padding:8px 0;}
+.ci-ico{width:26px;height:26px;border-radius:8px;background:var(--ice);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.ci-l{font-size:10px;color:var(--muted);}
+.ci-v{font-size:12px;font-weight:600;color:var(--text);}
+.about-txt{font-size:12px;color:var(--muted);line-height:1.7;}
+.about-txt strong{color:var(--text);font-weight:600;}
+.about-badge{display:inline-flex;align-items:center;gap:5px;background:var(--gold-l);border-radius:100px;padding:4px 10px;font-size:10px;font-weight:600;color:#b8860b;margin-top:8px;}
+.cgv-ln{padding:7px 0;border-bottom:0.5px solid rgba(126,200,227,.1);}
+.cgv-ln:last-child{border-bottom:none;}
+.cgv-hd{display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+.cgv-t{font-size:11px;font-weight:600;color:var(--text);}
+.cgv-b{font-size:10px;color:var(--muted);line-height:1.65;padding-top:6px;display:none;}
+.cgv-b.open{display:block;}
+
+/* BOTTOM NAV */
+.bnav{background:rgba(13,61,94,.97);padding:8px 6px 12px;padding-bottom:calc(12px + env(safe-area-inset-bottom, 20px));display:flex;align-items:center;justify-content:space-around;flex-shrink:0;border-top:1px solid rgba(126,200,227,.12);}
+.bn{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:5px 14px;border-radius:12px;transition:background .15s;}
+.bn.on{background:rgba(126,200,227,.14);}
+.bn-i{font-size:20px;}
+.bn-l{font-size:9px;font-weight:500;color:rgba(255,255,255,.4);}
+.bn.on .bn-l{color:var(--sky);}
+.bn-dot{width:5px;height:5px;border-radius:50%;background:var(--sky);margin-top:1px;}
+
+/* SCREENS */
+.scr{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.scr::-webkit-scrollbar{display:none;}
+.scr.hide{display:none;}
+
+/* BOUTONS PRINCIPAUX — TEXTE BLANC FORCÉ */
+.btn-ice{
+  background:linear-gradient(135deg,#7ec8e3 0%,#4aafd0 50%,#2589d0 100%);
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  font-family:'DM Sans',sans-serif;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  border-radius:100px;
+  box-shadow:0 4px 0 rgba(13,61,94,.4),0 6px 16px rgba(37,137,208,.3);
+  transition:transform .1s,box-shadow .1s;
+  text-shadow:0 1px 3px rgba(13,61,94,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+}
+.btn-ice:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(13,61,94,.4);}
+.btn-ghost-w{
+  background:rgba(255,255,255,.12);
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  font-family:'DM Sans',sans-serif;
+  font-weight:600;
+  border:1.5px solid rgba(255,255,255,.28);
+  cursor:pointer;
+  border-radius:100px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.btn-ghost-w:active{transform:translateY(1px);}
+
+/* ANIMATIONS */
+@keyframes liquidFill{0%{transform:scaleY(0);transform-origin:bottom;}100%{transform:scaleY(1);transform-origin:bottom;}}
+@keyframes dropIn{0%{opacity:0;transform:translateY(-20px) scale(.4);}70%{transform:translateY(4px) scale(1.06);}100%{opacity:1;transform:translateY(0) scale(1);}}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+@keyframes bobR{0%,100%{transform:translateY(0) rotate(10deg);}50%{transform:translateY(-7px) rotate(10deg);}}
+@keyframes floatBubble{0%{opacity:.7;transform:translateY(0);}100%{opacity:0;transform:translateY(-28px);}}
+@keyframes lemonSpin{0%,100%{transform:rotate(-15deg);}50%{transform:rotate(-4deg);}}
+@keyframes straw{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}
+@keyframes iceGlow{0%,100%{filter:drop-shadow(0 0 6px rgba(126,200,227,.5));}50%{filter:drop-shadow(0 0 18px rgba(126,200,227,.9));}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* HERO */
+.hero-bg{background:var(--grad-top);padding:24px 18px 26px;position:relative;overflow:hidden;}
+.hero-bg::before{content:'';position:absolute;top:-50px;right:-50px;width:160px;height:160px;border-radius:50%;background:rgba(126,200,227,.07);}
+.hero-bg::after{content:'';position:absolute;bottom:-25px;left:-25px;width:110px;height:110px;border-radius:50%;background:rgba(212,168,67,.05);}
+.hero-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(168,221,245,.15);border:1px solid rgba(126,200,227,.3);border-radius:100px;padding:4px 10px;font-size:10px;font-weight:600;color:var(--sky);margin-bottom:10px;}
+.hero-tag::before{content:'●';font-size:7px;animation:pulse 2s infinite;}
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:1;}
+.hero-l{flex:1;}
+.hero-h1{font-family:'Syne',sans-serif;font-weight:800;font-size:26px;line-height:1.1;color:#fff;margin-bottom:8px;letter-spacing:-.5px;}
+.hero-h1 span{color:var(--sky);}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:16px;}
+.hero-btns{display:flex;flex-direction:column;gap:8px;}
+.hbtn-main{padding:13px 16px;font-size:14px;width:100%;}
+.hbtn-urg{padding:11px 16px;font-size:13px;width:100%;}
+
+/* PILLS */
+.pills-row{display:flex;gap:6px;padding:10px 16px;background:#fff;border-bottom:0.5px solid rgba(126,200,227,.12);flex-wrap:wrap;}
+.pill{display:flex;align-items:center;gap:5px;background:var(--off);border-radius:100px;padding:5px 10px;font-size:11px;font-weight:500;color:var(--text);}
+.pdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.pd-sky{background:var(--sky);}.pd-gold{background:var(--gold);}.pd-blue{background:var(--blue);}
+
+/* HOME BODY */
+.home-body{padding:16px 16px 80px;}
+.sec-pill{display:inline-flex;align-items:center;gap:6px;background:var(--deep);border-radius:100px;padding:5px 12px;font-size:10px;font-weight:600;color:var(--sky);letter-spacing:.5px;margin-bottom:12px;}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.pg{background:#fff;border-radius:16px;padding:14px 8px;text-align:center;box-shadow:0 2px 12px rgba(13,61,94,.06);border:1px solid rgba(126,200,227,.1);}
+.pg-i{font-size:24px;margin-bottom:6px;}
+.pg-n{font-size:11px;font-weight:600;color:var(--deep);margin-bottom:3px;}
+.pg-p{font-size:14px;font-weight:800;color:var(--blue);}
+.pg-u{font-size:9px;color:var(--muted);}
+.info-card{background:#fff;border-radius:16px;padding:14px 14px;margin-bottom:12px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(13,61,94,.05);border:1px solid rgba(126,200,227,.1);}
+.ic-ico{width:40px;height:40px;border-radius:12px;background:var(--ice);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.ic-t{font-size:13px;font-weight:600;color:var(--deep);margin-bottom:3px;}
+.ic-s{font-size:11px;color:var(--muted);line-height:1.45;}
+
+/* COMPTE REQUIS */
+.acct-req{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:30px 24px;text-align:center;background:#f0f7fb;}
+.ar-ico{font-size:56px;margin-bottom:18px;animation:bob 2s ease-in-out infinite;}
+.ar-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--deep);margin-bottom:8px;}
+.ar-sub{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:24px;}
+.ar-btn{padding:13px 28px;font-size:14px;}
+
+/* ORDER */
+.order-h{background:var(--grad-top);padding:18px 18px;}
+.oh-g{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:3px;}
+.oh-t{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff;}
+.oh-s{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px;}
+.order-body{padding:14px 16px 100px;}
+.sec-lbl{font-size:12px;font-weight:600;color:var(--deep);margin-bottom:10px;}
+.pcs{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+.pc{background:#fff;border-radius:16px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;border:1.5px solid rgba(126,200,227,.15);box-shadow:0 2px 8px rgba(13,61,94,.04);transition:border-color .2s,background .2s;}
+.pc.sel{border-color:var(--blue);background:var(--ice);}
+.pcl{display:flex;align-items:center;gap:10px;}
+.pc-ico{width:38px;height:38px;border-radius:11px;background:var(--ice);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.pc.sel .pc-ico{background:#fff;}
+.pcn{font-size:13px;font-weight:600;color:var(--text);}
+.pcp{font-size:10px;color:var(--muted);}
+.qc{display:flex;align-items:center;gap:6px;}
+.qbtn{width:30px;height:30px;border-radius:9px;background:linear-gradient(180deg,#ffffff,#e8f4fc);border:1px solid rgba(126,200,227,.35);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#0d3d5e;box-shadow:0 2px 0 rgba(126,200,227,.25);font-family:'DM Sans',sans-serif;font-weight:600;line-height:1;user-select:none;}
+.qbtn:active{transform:translateY(1px);box-shadow:0 1px 0 rgba(126,200,227,.2);}
+.qnum{font-size:15px;font-weight:700;color:var(--text);min-width:22px;text-align:center;}
+.svc-r{background:#fff;border-radius:14px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;border:1px solid rgba(126,200,227,.12);}
+.sr-l{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--muted);}
+.sr-l span:first-child{font-size:16px;}
+.sr-b{font-size:11px;padding:6px 13px;border-radius:100px;border:1px solid rgba(126,200,227,.22);background:linear-gradient(180deg,#fff,var(--off));color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+/* RECAP */
+.recap-ov{position:absolute;inset:0;background:rgba(8,18,32,.65);z-index:40;display:none;align-items:flex-end;}
+.recap-ov.open{display:flex;}
+.rs{background:#fff;border-radius:28px 28px 0 0;width:100%;padding:22px 20px calc(env(safe-area-inset-bottom,0px) + 24px);animation:slideUp .3s ease-out;}
+.rs-handle{width:40px;height:4px;background:#dce8f0;border-radius:2px;margin:0 auto 18px;}
+.rs-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--deep);margin-bottom:16px;text-align:center;}
+.rs-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;}
+.rs-lbl{font-size:13px;color:var(--muted);}
+.rs-val{font-size:13px;font-weight:600;color:var(--text);}
+.rs-div{height:1px;background:#e8f0f5;margin:9px 0;}
+.rs-tl{font-size:14px;font-weight:700;color:var(--text);}
+.rs-tv{font-size:22px;font-weight:800;color:var(--blue);}
+.rs-note{font-size:10px;color:var(--muted);text-align:center;margin:10px 0 16px;line-height:1.55;}
+.rs-confirm{width:100%;padding:15px;font-size:15px;margin-bottom:10px;}
+.rs-cancel{width:100%;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;padding:12px;border-radius:100px;border:1px solid rgba(126,200,227,.22);cursor:pointer;}
+
+/* SUCCESS */
+.succ-ov{position:absolute;inset:0;background:var(--grad-top);z-index:50;display:none;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;}
+.succ-ov.open{display:flex;}
+.s-ico{font-size:64px;margin-bottom:18px;animation:bob 2s ease-in-out infinite;}
+.s-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;margin-bottom:9px;}
+.s-sub{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:20px;}
+.s-email{background:rgba(255,255,255,.09);border-radius:16px;padding:14px 16px;border:1px solid rgba(255,255,255,.12);margin-bottom:22px;width:100%;text-align:left;}
+.se-l{font-size:10px;color:rgba(255,255,255,.4);margin-bottom:5px;}
+.se-v{font-size:12px;color:rgba(255,255,255,.78);line-height:1.6;}
+.s-back{padding:13px 28px;font-size:14px;}
+
+/* SIGNUP */
+.sh-wrap{background:var(--grad-top);padding:22px 18px;position:relative;overflow:hidden;}
+.sh-wrap::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(126,200,227,.07);}
+.sh-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(168,221,245,.15);border-radius:100px;padding:4px 10px;font-size:10px;font-weight:600;color:var(--sky);margin-bottom:9px;}
+.sh-h{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:4px;}
+.sh-s{font-size:12px;color:rgba(255,255,255,.45);line-height:1.55;}
+.sb{padding:16px 18px 100px;}
+.fg{margin-bottom:12px;}
+.fl{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;display:block;}
+.req{color:#e24b4a;}.opt{font-weight:400;font-size:10px;}
+.fi{width:100%;background:var(--off);border:1.5px solid rgba(126,200,227,.22);border-radius:13px;padding:11px 13px;font-size:13px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
+.fi:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(126,200,227,.12);}
+.gr{display:flex;gap:7px;}
+.gi{flex:1;background:var(--off);border:1.5px solid rgba(126,200,227,.22);border-radius:13px;padding:11px 13px;font-size:12px;color:var(--muted);font-family:'DM Sans',sans-serif;}
+.tvab{background:var(--gold-l);border:1px solid rgba(212,168,67,.2);border-radius:13px;padding:10px 12px;margin-bottom:10px;}
+.tvab p{font-size:11px;color:#b8860b;line-height:1.55;}
+.sub-btn{width:100%;padding:14px;font-size:14px;}
+
+/* HISTORY */
+.hh{background:var(--grad-top);padding:18px 18px;}
+.hh-t{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff;}
+.hh-s{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px;}
+.hist-body{padding:14px 16px 100px;}
+.hc{background:#fff;border-radius:16px;padding:14px 15px;margin-bottom:10px;border:1px solid rgba(126,200,227,.12);box-shadow:0 2px 8px rgba(13,61,94,.04);}
+.hc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;}
+.hc-d{font-size:13px;font-weight:600;color:var(--text);}
+.hc-s{font-size:10px;padding:3px 8px;border-radius:100px;background:#e8f9f0;color:#1a7a4a;font-weight:500;}
+.hc-dt{font-size:12px;color:var(--muted);}
+.hc-am{font-size:13px;font-weight:600;color:var(--blue);margin-top:4px;}
+
+/* UPDATE POPUP */
+.upop{position:absolute;bottom:90px;left:16px;right:16px;background:#fff;border-radius:20px;box-shadow:0 10px 35px rgba(0,0,0,.15);padding:16px 18px;z-index:25;border:1px solid rgba(126,200,227,.2);}
+.up-t{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.up-s{font-size:11px;color:var(--muted);margin-bottom:12px;line-height:1.5;}
+.up-btns{display:flex;gap:8px;}
+.up-main{flex:1;padding:9px;font-size:12px;}
+.up-later{flex:1;background:var(--off);color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:500;font-size:12px;padding:9px;border-radius:100px;border:1px solid rgba(126,200,227,.2);cursor:pointer;}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- STATUS BAR -->
+  <div class="status">
+    <span class="st-t" id="clock">9:41</span>
+    <span class="st-i">●●● WiFi 🔋</span>
+  </div>
+
+  <!-- TOP NAV -->
+  <div class="topnav">
+    <div class="tn-logo">Froidepannage <em>"Glace"</em></div>
+    <div class="tn-r">
+      <div class="tn-bell">🔔</div>
+      <div class="hbg" id="hamburgerBtn">
+        <div class="hb"></div>
+        <div class="hb"></div>
+        <div class="hb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MENU SLIDE ===== -->
+  <div class="mbg" id="menuBg">
+    <div class="mpanel" id="menuPanel">
+      <div class="mp-top">
+        <span class="mp-t">Menu</span>
+        <button class="mp-x" id="menuClose">✕</button>
+      </div>
+
+      <!-- PRODUITS -->
+      <div class="acc-item">
+        <button class="acc-btn" id="acc-p">
+          <span class="acc-lbl"><span class="acc-ico ai-b">🧊</span>Nos produits</span>
+          <span class="acc-arr" id="acc-p-arr">▼</span>
+        </button>
+        <div class="acc-body" id="acc-p-body">
+          <div class="pline"><div class="pl-l"><span style="font-size:16px;">🧊</span><div><div class="pl-n">Glaçons</div><div class="pl-d">Carton 12 kg · 6 sacs × 2 kg</div></div></div><span class="pl-p">0,95€/kg</span></div>
+          <div class="pline"><div class="pl-l"><span style="font-size:16px;">❄️</span><div><div class="pl-n">Glace pilée</div><div class="pl-d">Carton 12 kg · 6 sacs × 2 kg</div></div></div><span class="pl-p">1,10€/kg</span></div>
+          <div class="pline"><div class="pl-l"><span style="font-size:16px;">💨</span><div><div class="pl-n">Glace carbonique CO₂</div><div class="pl-d">Sur devis volume</div></div></div><span class="pl-p">6,00€/kg</span></div>
+          <div style="height:6px;"></div>
+          <div class="svline"><span>🔧</span><span>Dépannage froid & clim</span></div>
+          <div class="svline"><span>⚙️</span><span>Entretien équipements froid</span></div>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="acc-item">
+        <button class="acc-btn" id="acc-c">
+          <span class="acc-lbl"><span class="acc-ico ai-g">📞</span>Contact</span>
+          <span class="acc-arr" id="acc-c-arr">▼</span>
+        </button>
+        <div class="acc-body" id="acc-c-body">
+          <div class="ci"><div class="ci-ico">🌐</div><div><div class="ci-l">Site internet</div><div class="ci-v">livraison-glacons-marseille.fr</div></div></div>
+          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e98dc78d8c99888787888e8cd8daa98e84888085c78a8684">[email&#160;protected]</a></div></div></div>
+          <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-l">Téléphone commandes</div><div class="ci-v">04.84.89.68.02</div></div></div>
+        </div>
+      </div>
+
+      <!-- QUI SOMMES-NOUS -->
+      <div class="acc-item">
+        <button class="acc-btn" id="acc-q">
+          <span class="acc-lbl"><span class="acc-ico ai-d">🏢</span>Qui sommes-nous</span>
+          <span class="acc-arr" id="acc-q-arr">▼</span>
+        </button>
+        <div class="acc-body" id="acc-q-body">
+          <div class="about-txt">
+            <strong>Spécialistes du froid depuis des années</strong>, nous avons bâti notre réputation sur la confiance de nos clients professionnels à Marseille et dans les Bouches-du-Rhône.<br><br>
+            Forts de cette expérience et de votre fidélité, notre activité évolue naturellement : nous sommes fiers de vous proposer désormais la vente et la livraison de glaçons — pour devenir votre <strong>partenaire 360°</strong>, toujours disponible, sur tous vos besoins.
+          </div>
+          <div class="about-badge">🔵 Un seul interlocuteur · Froid, clim & glace</div>
+        </div>
+      </div>
+
+      <!-- CGV -->
+      <div class="acc-item">
+        <button class="acc-btn" id="acc-g">
+          <span class="acc-lbl"><span class="acc-ico ai-d">📄</span>Conditions Générales de Vente</span>
+          <span class="acc-arr" id="acc-g-arr">▼</span>
+        </button>
+        <div class="acc-body" id="acc-g-body">
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv1-hd"><span class="cgv-t">Art. 1 — Objet & identification du vendeur</span><span style="font-size:10px;color:var(--muted);" id="cgv1-arr">▼</span></div><div class="cgv-b" id="cgv1">Les présentes CGV régissent les ventes de glaçons, glace pilée et glace carbonique réalisées par la société Froidepannagebar, 9 Impasse Tontini, 13012 Marseille. Elles s'appliquent à tout achat effectué par un client professionnel ou particulier auprès de Froidepannagebar.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv2-hd"><span class="cgv-t">Art. 2 — Produits & tarifs</span><span style="font-size:10px;color:var(--muted);" id="cgv2-arr">▼</span></div><div class="cgv-b" id="cgv2">Les produits sont vendus aux tarifs en vigueur au moment de la commande. Les prix sont indiqués en euros. Froidepannagebar se réserve le droit de modifier ses tarifs à tout moment. Les glaçons sont conditionnés en cartons de 12 kg (6 sacs × 2 kg). Des tarifs préférentiels peuvent être accordés dans le cadre d'un contrat de partenariat annuel. La TVA au taux de 5,5% est applicable sur les glaçons et la glace pilée.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv3-hd"><span class="cgv-t">Art. 3 — Commandes & confirmation</span><span style="font-size:10px;color:var(--muted);" id="cgv3-arr">▼</span></div><div class="cgv-b" id="cgv3">Toute commande peut être passée par téléphone, email ou via le formulaire en ligne. La commande est confirmée par Froidepannagebar par retour d'appel ou de message. Froidepannagebar se réserve le droit de refuser toute commande pour des motifs légitimes (rupture de stock, zone non desservie, etc.).</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv4-hd"><span class="cgv-t">Art. 4 — Livraison</span><span style="font-size:10px;color:var(--muted);" id="cgv4-arr">▼</span></div><div class="cgv-b" id="cgv4">La livraison est assurée par Froidepannagebar ou ses sous-traitants dans les Bouches-du-Rhône (13). Les délais de livraison sont communiqués lors de la confirmation de commande. En cas d'absence ou d'impossibilité de livraison, un nouveau créneau sera convenu avec le client. Froidepannagebar ne pourra être tenue responsable d'un retard dû à un cas de force majeure.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv5-hd"><span class="cgv-t">Art. 5 — Paiement</span><span style="font-size:10px;color:var(--muted);" id="cgv5-arr">▼</span></div><div class="cgv-b" id="cgv5">Le paiement est exigible à la livraison, sans escompte. Les modes de paiement acceptés sont : espèces, virement bancaire et paiement par carte bancaire (via terminal mobile). Tout retard ou défaut de paiement entraînera l'application de pénalités de retard au taux légal en vigueur, ainsi que d'une indemnité forfaitaire de recouvrement de 40 €.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv6-hd"><span class="cgv-t">Art. 6 — Retours & réclamations</span><span style="font-size:10px;color:var(--muted);" id="cgv6-arr">▼</span></div><div class="cgv-b" id="cgv6">Compte tenu de la nature périssable des produits, aucun retour ne sera accepté après livraison. Toute réclamation relative à la qualité ou à la quantité doit être formulée au moment de la livraison, en présence du livreur. Passé ce délai, aucune réclamation ne pourra être prise en compte.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv7-hd"><span class="cgv-t">Art. 7 — Responsabilité & conservation</span><span style="font-size:10px;color:var(--muted);" id="cgv7-arr">▼</span></div><div class="cgv-b" id="cgv7">Froidepannagebar garantit la qualité de ses produits (eau pure filtrée UV, certifiés IFS & HACCP, sans allergènes). La responsabilité de Froidepannagebar cesse dès la livraison. Le client est seul responsable des conditions de conservation après réception (conservation à -18°C recommandée, ne pas recongeler).</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv8-hd"><span class="cgv-t">Art. 8 — Droit applicable & litiges</span><span style="font-size:10px;color:var(--muted);" id="cgv8-arr">▼</span></div><div class="cgv-b" id="cgv8">Les présentes CGV sont soumises au droit français. En cas de litige, une solution amiable sera recherchée en priorité. À défaut, les tribunaux compétents de Marseille seront seuls habilités à connaître du différend.</div></div>
+        </div>
+      </div>
+
+      <div style="padding:14px 16px;font-size:11px;color:var(--muted);">© 2025 Froidepannagebar — 9 Imp. Tontini, 13012 Marseille</div>
+    </div>
+  </div>
+
+  <!-- ===== BOTTOM NAV ===== -->
+  <div class="bnav" style="order:99;">
+    <div class="bn on" id="bn-home"><div class="bn-i">🏠</div><div class="bn-l">Accueil</div><div class="bn-dot"></div></div>
+    <div class="bn" id="bn-order"><div class="bn-i">🧊</div><div class="bn-l">Commander</div></div>
+    <div class="bn" id="bn-signup"><div class="bn-i">👤</div><div class="bn-l">Mon compte</div></div>
+    <div class="bn" id="bn-history"><div class="bn-i">📋</div><div class="bn-l">Historique</div></div>
+  </div>
+
+  <!-- ===== HOME ===== -->
+  <div class="scr" id="s-home" style="order:2;">
+    <div class="hero-bg">
+      <div class="hero-tag">✦ Livraison glaçons disponible</div>
+      <div class="hero-inner">
+        <div class="hero-l">
+          <div class="hero-h1">Froid, <span>glace</span><br>& confiance</div>
+          <div class="hero-sub">Pros & particuliers — livraison sous 24h sur Marseille & alentours. Votre partenaire de confiance.</div>
+          <div class="hero-btns">
+            <button class="btn-ice hbtn-main" id="btn-commander-home">🧊 Commander vos glaçons →</button>
+            <button class="btn-ghost-w hbtn-urg" id="btn-urgence">📞 Urgence froid</button>
+          </div>
+        </div>
+        <svg width="100" height="128" viewBox="0 0 120 155" xmlns="http://www.w3.org/2000/svg" style="animation:iceGlow 3s ease-in-out infinite;flex-shrink:0;" aria-hidden="true">
+          <defs>
+            <linearGradient id="lF" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a8ddf5" stop-opacity=".9"/><stop offset="100%" stop-color="#2589d0" stop-opacity=".8"/></linearGradient>
+            <linearGradient id="cF" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0faff"/><stop offset="100%" stop-color="#dff4fc"/></linearGradient>
+            <clipPath id="ccF"><path d="M26,32 Q26,22 60,22 Q94,22 94,32 L86,132 Q86,142 60,142 Q34,142 34,132 Z"/></clipPath>
+          </defs>
+          <g clip-path="url(#ccF)">
+            <rect x="26" y="22" width="68" height="120" fill="url(#lF)" style="animation:liquidFill 1.8s .3s cubic-bezier(.4,0,.2,1) both;"/>
+          </g>
+          <path d="M26,32 Q26,22 60,22 Q94,22 94,32 L86,132 Q86,142 60,142 Q34,142 34,132 Z" fill="url(#cF)" stroke="#0d3d5e" stroke-width="3.5" fill-opacity=".4" stroke-linejoin="round"/>
+          <ellipse cx="60" cy="28" rx="34" ry="8" fill="#e8f7fd" stroke="#0d3d5e" stroke-width="3.5"/>
+          <rect x="34" y="72" width="22" height="22" rx="8" fill="#dff4fc" stroke="#0d3d5e" stroke-width="3" style="animation:dropIn .5s 1.9s cubic-bezier(.34,1.56,.64,1) both, bobR 3s 2.5s ease-in-out infinite;transform-origin:45px 83px;transform-box:fill-box;"/>
+          <ellipse cx="40" cy="77" rx="6" ry="3.5" fill="white" opacity=".55" style="animation:dropIn .5s 1.9s both;"/>
+          <rect x="64" y="80" width="18" height="18" rx="7" fill="#c2eaf8" stroke="#0d3d5e" stroke-width="2.5" style="animation:dropIn .5s 2.1s cubic-bezier(.34,1.56,.64,1) both, bob 3.5s 2.7s ease-in-out infinite;transform-origin:73px 89px;transform-box:fill-box;"/>
+          <circle cx="44" cy="108" r="3.5" fill="white" opacity=".5" style="animation:floatBubble 2.2s 2.6s ease-out infinite;"/>
+          <circle cx="66" cy="118" r="2.5" fill="white" opacity=".4" style="animation:floatBubble 2.8s 3s ease-out infinite;"/>
+          <circle cx="55" cy="128" r="2" fill="white" opacity=".35" style="animation:floatBubble 3.2s 2.9s ease-out infinite;"/>
+          <rect x="78" y="8" width="7" height="75" rx="3.5" fill="#d4a843" stroke="#0d3d5e" stroke-width="2.5" style="animation:straw 3s ease-in-out infinite;transform-origin:81px 45px;transform-box:fill-box;"/>
+          <rect x="78" y="14" width="7" height="6" fill="#f5c842" opacity=".55"/>
+          <rect x="78" y="28" width="7" height="6" fill="#f5c842" opacity=".55"/>
+          <rect x="78" y="44" width="7" height="6" fill="#f5c842" opacity=".55"/>
+          <g style="animation:lemonSpin 3s ease-in-out infinite;transform-origin:95px 18px;transform-box:fill-box;">
+            <circle cx="95" cy="18" r="14" fill="#ffe84d" stroke="#0d3d5e" stroke-width="3"/>
+            <circle cx="95" cy="18" r="9" fill="#ffd700" opacity=".35"/>
+            <line x1="95" y1="5" x2="95" y2="31" stroke="#0d3d5e" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="82" y1="18" x2="108" y2="18" stroke="#0d3d5e" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="pills-row">
+      <div class="pill"><span class="pdot pd-sky"></span>Dès 0,75€/kg</div>
+      <div class="pill"><span class="pdot pd-gold"></span>Carton 12 kg</div>
+      <div class="pill"><span class="pdot pd-blue"></span>Livraison 24h</div>
+    </div>
+    <div class="home-body">
+      <div class="sec-pill">🧊 Nos produits</div>
+      <div class="prod-grid">
+        <div class="pg"><div class="pg-i">🧊</div><div class="pg-n">Glaçons</div><div class="pg-p">0,95€</div><div class="pg-u">/kg</div></div>
+        <div class="pg"><div class="pg-i">❄️</div><div class="pg-n">Glace pilée</div><div class="pg-p">1,10€</div><div class="pg-u">/kg</div></div>
+        <div class="pg"><div class="pg-i">💨</div><div class="pg-n">Glace CO₂</div><div class="pg-p">6,00€</div><div class="pg-u">/kg</div></div>
+      </div>
+      <div class="info-card"><div class="ic-ico">🔧</div><div><div class="ic-t">Besoin d'un dépannage froid ?</div><div class="ic-s">Frigos, clim, machines à glaçons — intervention rapide sur le 13 · 04.84.89.68.02</div></div></div>
+      <div class="info-card"><div class="ic-ico">🤝</div><div><div class="ic-t">Partenariat annuel</div><div class="ic-s">Tarifs préférentiels toute l'année — contactez-nous pour un devis sur mesure</div></div></div>
+    </div>
+    <!-- UPDATE POPUP -->
+    <div class="upop" id="upop">
+      <div class="up-t">🆕 Mise à jour disponible</div>
+      <div class="up-s">Une nouvelle version de l'app est disponible avec de nouvelles fonctionnalités.</div>
+      <div class="up-btns">
+        <button class="btn-ice up-main" id="btn-update">Mettre à jour</button>
+        <button class="up-later" id="btn-later">Plus tard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== COMPTE REQUIS ===== -->
+  <div class="scr hide" id="s-acctreq" style="order:2;">
+    <div class="acct-req">
+      <div class="ar-ico">👤</div>
+      <div class="ar-title">Compte requis</div>
+      <div class="ar-sub">Pour passer commande, créez votre compte client. Cela nous permet de gérer votre livraison et de vous envoyer votre confirmation.</div>
+      <button class="btn-ice ar-btn" id="btn-goto-signup">Créer mon compte →</button>
+      <div style="margin-top:14px;font-size:12px;color:var(--muted);">Déjà un compte ? <span style="color:var(--blue);cursor:pointer;font-weight:600;" id="btn-already-account">Commander directement</span></div>
+    </div>
+  </div>
+
+  <!-- ===== ORDER ===== -->
+  <div class="scr hide" id="s-order" style="order:2;">
+    <div class="order-h">
+      <div class="oh-g">Bonjour 👋</div>
+      <div class="oh-t">Commander vos glaçons</div>
+      <div class="oh-s">Livraison sous 24h · Marseille & alentours</div>
+    </div>
+    <div class="order-body">
+      <div class="sec-lbl">Choisissez vos produits</div>
+      <div class="pcs">
+        <div class="pc" id="pc1">
+          <div class="pcl"><div class="pc-ico">🧊</div><div><div class="pcn">Glaçons</div><div class="pcp">0,95 €/kg · carton 12 kg</div></div></div>
+          <div class="qc">
+            <button class="qbtn" id="q1-minus">−</button>
+            <span class="qnum" id="q1">0</span>
+            <button class="qbtn" id="q1-plus">+</button>
+          </div>
+        </div>
+        <div class="pc" id="pc2">
+          <div class="pcl"><div class="pc-ico">❄️</div><div><div class="pcn">Glace pilée</div><div class="pcp">1,10 €/kg · carton 12 kg</div></div></div>
+          <div class="qc">
+            <button class="qbtn" id="q2-minus">−</button>
+            <span class="qnum" id="q2">0</span>
+            <button class="qbtn" id="q2-plus">+</button>
+          </div>
+        </div>
+        <div class="pc" id="pc3">
+          <div class="pcl"><div class="pc-ico">💨</div><div><div class="pcn">Glace CO₂</div><div class="pcp">6,00 €/kg · sur devis</div></div></div>
+          <div class="qc">
+            <button class="qbtn" id="q3-minus">−</button>
+            <span class="qnum" id="q3">0</span>
+            <button class="qbtn" id="q3-plus">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="sec-lbl">Autres besoins ?</div>
+      <div class="svc-r"><div class="sr-l"><span>🔧</span>Dépannage froid / clim</div><button class="sr-b">Demander</button></div>
+      <div class="svc-r"><div class="sr-l"><span>⚙️</span>Entretien équipements</div><button class="sr-b">Demander</button></div>
+      <button class="btn-ice rs-confirm" id="btn-confirm-order" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">Confirmer ma commande →</button>
+    </div>
+
+    <!-- RECAP BOTTOM SHEET -->
+    <div class="recap-ov" id="recapOv">
+      <div class="rs">
+        <div class="rs-handle"></div>
+        <div class="rs-title">Récapitulatif de commande</div>
+        <div id="rsItems"></div>
+        <div class="rs-div"></div>
+        <div class="rs-row"><span class="rs-lbl">Sous-total HT</span><span class="rs-val" id="rht">—</span></div>
+        <div class="rs-row"><span class="rs-lbl">TVA 5,5%</span><span class="rs-val" id="rtva">—</span></div>
+        <div class="rs-div"></div>
+        <div class="rs-row"><span class="rs-tl">Total TTC</span><span class="rs-tv" id="rttc">—</span></div>
+        <div class="rs-note">TVA 5,5% applicable sur produits alimentaires conditionnés<br>Livraison sous 24h · Paiement à la livraison (CB, espèces ou virement)<br>Un email de confirmation vous sera envoyé immédiatement.</div>
+        <button class="btn-ice rs-confirm" id="btn-validate-order" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">✓ Valider ma commande</button>
+        <button class="rs-cancel" id="btn-cancel-recap">← Modifier ma commande</button>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="succ-ov" id="succOv">
+      <div class="s-ico">🧊</div>
+      <div class="s-title">Commande confirmée !</div>
+      <div class="s-sub">Merci pour votre confiance.<br>Nous faisons tout notre possible pour vous livrer dans les meilleurs délais.</div>
+      <div class="s-email">
+        <div class="se-l">📧 Email de confirmation envoyé à</div>
+        <div class="se-v" id="succDetail">Votre commande est bien enregistrée. Notre équipe prend en charge votre livraison sous 24h.</div>
+      </div>
+      <button class="btn-ice s-back" id="btn-back-home" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">🏠 Retour à l'accueil</button>
+    </div>
+  </div>
+
+  <!-- ===== SIGNUP ===== -->
+  <div class="scr hide" id="s-signup" style="order:2;">
+    <div class="sh-wrap">
+      <div class="sh-tag">✦ Rejoignez-nous</div>
+      <div class="sh-h">Créer mon compte</div>
+      <div class="sh-s">Renseignez vos informations pour commander facilement à tout moment.</div>
+    </div>
+    <div class="sb">
+      <div class="fg"><label class="fl">Nom gérant / responsable <span class="req">*</span></label><input class="fi" id="nom" placeholder="Jean Dupont"></div>
+      <div class="fg"><label class="fl">Nom de l'établissement <span class="req">*</span></label><input class="fi" id="etab" placeholder="Bar Le Mistral"></div>
+      <div class="fg"><label class="fl">Téléphone <span class="req">*</span></label><input class="fi" type="tel" placeholder="06 12 34 56 78"></div>
+      <div class="fg"><label class="fl">Email <span class="req">*</span></label><input class="fi" id="email-input" placeholder="contact@lemistral.fr"></div>
+      <div class="fg"><label class="fl">Adresse de livraison <span class="req">*</span></label><input class="fi" placeholder="36 rue Canebière, 13001 Marseille"></div>
+      <div class="fg">
+        <label class="fl">Position GPS exacte</label>
+        <div class="gr">
+          <input class="gi" id="geoIn" placeholder="Appuyez pour me localiser" readonly>
+          <button class="btn-ice" id="geoBtn" style="padding:11px 14px;font-size:12px;border-radius:13px;color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">📍 Me localiser</button>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">N° TVA intracommunautaire <span class="opt">(optionnel — conseillé pour facturation pro)</span></label>
+        <div class="tvab"><p><strong>Conseillé :</strong> permet d'émettre des factures électroniques professionnelles conformes à la réglementation française.</p></div>
+        <input class="fi" placeholder="FR 12 345678901">
+      </div>
+      <button class="btn-ice sub-btn" id="btn-create-account" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">Créer mon compte →</button>
+    </div>
+  </div>
+
+  <!-- ===== HISTORY ===== -->
+  <div class="scr hide" id="s-history" style="order:2;">
+    <div class="hh">
+      <div class="hh-t">Mes commandes</div>
+      <div class="hh-s">Historique de vos livraisons</div>
+    </div>
+    <div class="hist-body">
+      <div class="hc"><div class="hc-top"><span class="hc-d">Lundi 10 mars 2025</span><span class="hc-s">Livré</span></div><div class="hc-dt">Glaçons × 3 cartons · 36 kg</div><div class="hc-am">34,20 € HT · 36,08 € TTC</div></div>
+      <div class="hc"><div class="hc-top"><span class="hc-d">Vendredi 7 mars 2025</span><span class="hc-s">Livré</span></div><div class="hc-dt">Glaçons × 5 + Pilée × 2 · 84 kg</div><div class="hc-am">71,40 € HT · 75,33 € TTC</div></div>
+      <div class="hc"><div class="hc-top"><span class="hc-d">Mardi 4 mars 2025</span><span class="hc-s">Livré</span></div><div class="hc-dt">Glaçons × 4 cartons · 48 kg</div><div class="hc-am">45,60 € HT · 48,11 € TTC</div></div>
+      <div class="hc"><div class="hc-top"><span class="hc-d">Samedi 1 mars 2025</span><span class="hc-s">Livré</span></div><div class="hc-dt">Glaçons × 6 cartons · 72 kg</div><div class="hc-am">68,40 € HT · 72,16 € TTC</div></div>
+      <div class="hc"><div class="hc-top"><span class="hc-d">Mercredi 26 fév. 2025</span><span class="hc-s">Livré</span></div><div class="hc-dt">Glaçons × 2 cartons · 24 kg</div><div class="hc-am">22,80 € HT · 24,05 € TTC</div></div>
+    </div>
+  </div>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+
+  // ÉTAT
+  var accountCreated = false;
+
+  // HORLOGE
+  function updateClock(){
+    var now = new Date();
+    var h = now.getHours().toString().padStart(2,'0');
+    var m = now.getMinutes().toString().padStart(2,'0');
+    var el = document.getElementById('clock');
+    if(el) el.textContent = h+':'+m;
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  // NAVIGATION PRINCIPALE
+  function showScreen(id){
+    var all = ['home','order','signup','history','acctreq'];
+    for(var i=0;i<all.length;i++){
+      var el = document.getElementById('s-'+all[i]);
+      if(el){ el.classList.toggle('hide', all[i]!==id); }
+    }
+    var navMap = ['home','order','signup','history'];
+    for(var j=0;j<navMap.length;j++){
+      var bn = document.getElementById('bn-'+navMap[j]);
+      if(!bn) continue;
+      bn.classList.toggle('on', navMap[j]===id);
+      var dot = bn.querySelector('.bn-dot');
+      if(dot) dot.parentNode.removeChild(dot);
+      if(navMap[j]===id){
+        var d = document.createElement('div');
+        d.className = 'bn-dot';
+        bn.appendChild(d);
+      }
+    }
+  }
+
+  function goOrder(){
+    if(!accountCreated){ showScreen('acctreq'); }
+    else { showScreen('order'); }
+  }
+  function goHistory(){
+    if(!accountCreated){ showScreen('acctreq'); }
+    else { showScreen('history'); }
+  }
+
+  // BOTTOM NAV
+  document.getElementById('bn-home').addEventListener('click', function(){ showScreen('home'); });
+  document.getElementById('bn-order').addEventListener('click', function(){ goOrder(); });
+  document.getElementById('bn-signup').addEventListener('click', function(){ showScreen('signup'); });
+  document.getElementById('bn-history').addEventListener('click', function(){ goHistory(); });
+
+  // HOME BTNS
+  document.getElementById('btn-commander-home').addEventListener('click', function(){ goOrder(); });
+  document.getElementById('btn-urgence').addEventListener('click', function(){ window.location.href='tel:0484896802'; });
+
+  // COMPTE REQUIS
+  document.getElementById('btn-goto-signup').addEventListener('click', function(){ showScreen('signup'); });
+  document.getElementById('btn-already-account').addEventListener('click', function(){ showScreen('order'); });
+
+  // CRÉER COMPTE
+  document.getElementById('btn-create-account').addEventListener('click', function(){
+    accountCreated = true;
+    showScreen('order');
+  });
+
+  // GÉOLOCALISATION
+  document.getElementById('geoBtn').addEventListener('click', function(){
+    var btn = this;
+    btn.textContent = '...';
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(
+        function(pos){ document.getElementById('geoIn').value = pos.coords.latitude.toFixed(4)+', '+pos.coords.longitude.toFixed(4); btn.textContent='✓ Localisé'; },
+        function(){ document.getElementById('geoIn').value='43.2965, 5.3698'; btn.textContent='✓ Ok'; }
+      );
+    } else {
+      document.getElementById('geoIn').value='43.2965, 5.3698'; btn.textContent='✓ Ok';
+    }
+  });
+
+  // ===== MENU HAMBURGER =====
+  var menuBg = document.getElementById('menuBg');
+  var menuPanel = document.getElementById('menuPanel');
+
+  document.getElementById('hamburgerBtn').addEventListener('click', function(e){
+    e.stopPropagation();
+    menuBg.classList.add('open');
+  });
+  document.getElementById('menuClose').addEventListener('click', function(){
+    menuBg.classList.remove('open');
+  });
+  menuBg.addEventListener('click', function(e){
+    if(e.target === menuBg){ menuBg.classList.remove('open'); }
+  });
+  menuPanel.addEventListener('click', function(e){ e.stopPropagation(); });
+
+  // ACCORDÉONS MENU
+  function setupAccordion(btnId, bodyId, arrId){
+    document.getElementById(btnId).addEventListener('click', function(){
+      var body = document.getElementById(bodyId);
+      var arr = document.getElementById(arrId);
+      var isOpen = body.classList.contains('open');
+      body.classList.toggle('open', !isOpen);
+      arr.classList.toggle('open', !isOpen);
+    });
+  }
+  setupAccordion('acc-p','acc-p-body','acc-p-arr');
+  setupAccordion('acc-c','acc-c-body','acc-c-arr');
+  setupAccordion('acc-q','acc-q-body','acc-q-arr');
+  setupAccordion('acc-g','acc-g-body','acc-g-arr');
+
+  // CGV ACCORDÉONS
+  for(var n=1;n<=8;n++){
+    (function(num){
+      var hd = document.getElementById('cgv'+num+'-hd');
+      if(hd) hd.addEventListener('click', function(){
+        var b = document.getElementById('cgv'+num);
+        var a = document.getElementById('cgv'+num+'-arr');
+        var open = b.classList.toggle('open');
+        if(a) a.textContent = open?'▲':'▼';
+      });
+    })(n);
+  }
+
+  // ===== QUANTITÉS =====
+  function setupQty(plusId, minusId, spanId, pcId){
+    document.getElementById(plusId).addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var span = document.getElementById(spanId);
+      var v = parseInt(span.textContent)||0;
+      span.textContent = v+1;
+      document.getElementById(pcId).classList.add('sel');
+    });
+    document.getElementById(minusId).addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var span = document.getElementById(spanId);
+      var v = parseInt(span.textContent)||0;
+      if(v>0) v--;
+      span.textContent = v;
+      if(v===0) document.getElementById(pcId).classList.remove('sel');
+    });
+  }
+  setupQty('q1-plus','q1-minus','q1','pc1');
+  setupQty('q2-plus','q2-minus','q2','pc2');
+  setupQty('q3-plus','q3-minus','q3','pc3');
+
+  // ===== RÉCAPITULATIF =====
+  document.getElementById('btn-confirm-order').addEventListener('click', function(){
+    var q1=parseInt(document.getElementById('q1').textContent)||0;
+    var q2=parseInt(document.getElementById('q2').textContent)||0;
+    var q3=parseInt(document.getElementById('q3').textContent)||0;
+    if(q1===0&&q2===0&&q3===0){ alert('Veuillez sélectionner au moins un produit.'); return; }
+    var ht = Math.round((q1*12*0.95 + q2*12*1.10 + q3*6)*100)/100;
+    var tva = Math.round(ht*0.055*100)/100;
+    var ttc = Math.round((ht+tva)*100)/100;
+    var html='';
+    if(q1>0) html+='<div class="rs-row"><span class="rs-lbl">Glaçons × '+q1+' carton'+(q1>1?'s':'')+' ('+q1*12+' kg)</span><span class="rs-val">'+( Math.round(q1*12*0.95*100)/100).toFixed(2)+' €</span></div>';
+    if(q2>0) html+='<div class="rs-row"><span class="rs-lbl">Glace pilée × '+q2+' carton'+(q2>1?'s':'')+' ('+q2*12+' kg)</span><span class="rs-val">'+( Math.round(q2*12*1.10*100)/100).toFixed(2)+' €</span></div>';
+    if(q3>0) html+='<div class="rs-row"><span class="rs-lbl">Glace CO₂ × '+q3+' kg</span><span class="rs-val">'+( Math.round(q3*6*100)/100).toFixed(2)+' €</span></div>';
+    document.getElementById('rsItems').innerHTML=html;
+    document.getElementById('rht').textContent=ht.toFixed(2)+' €';
+    document.getElementById('rtva').textContent=tva.toFixed(2)+' €';
+    document.getElementById('rttc').textContent=ttc.toFixed(2)+' €';
+    document.getElementById('recapOv').classList.add('open');
+  });
+
+  document.getElementById('btn-cancel-recap').addEventListener('click', function(){
+    document.getElementById('recapOv').classList.remove('open');
+  });
+
+  document.getElementById('btn-validate-order').addEventListener('click', function(){
+    var q1=parseInt(document.getElementById('q1').textContent)||0;
+    var q2=parseInt(document.getElementById('q2').textContent)||0;
+    var q3=parseInt(document.getElementById('q3').textContent)||0;
+    var ht=Math.round((q1*12*0.95+q2*12*1.10+q3*6)*100)/100;
+    var tva=Math.round(ht*0.055*100)/100;
+    var ttc=Math.round((ht+tva)*100)/100;
+    var emailInput = document.getElementById('email-input');
+    var email = emailInput ? emailInput.value : 'votre email';
+    var detail = (email||'votre email')+'<br><br>';
+    if(q1>0) detail+='Glaçons × '+q1+' cartons ('+q1*12+' kg)<br>';
+    if(q2>0) detail+='Glace pilée × '+q2+' cartons<br>';
+    if(q3>0) detail+='Glace CO₂ × '+q3+' kg<br>';
+    detail+='<br>Total TTC : <strong>'+ttc.toFixed(2)+' €</strong><br>Livraison sous 24h · Paiement à la livraison.';
+    document.getElementById('succDetail').innerHTML=detail;
+    document.getElementById('recapOv').classList.remove('open');
+    document.getElementById('succOv').classList.add('open');
+  });
+
+  document.getElementById('btn-back-home').addEventListener('click', function(){
+    document.getElementById('succOv').classList.remove('open');
+    document.getElementById('q1').textContent='0';
+    document.getElementById('q2').textContent='0';
+    document.getElementById('q3').textContent='0';
+    document.getElementById('pc1').classList.remove('sel');
+    document.getElementById('pc2').classList.remove('sel');
+    document.getElementById('pc3').classList.remove('sel');
+    showScreen('home');
+  });
+
+  // UPDATE POPUP
+  document.getElementById('btn-update').addEventListener('click', func
