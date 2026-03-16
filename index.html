@@ -779,7 +779,12 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     if(q2>0) detail+='Glace pilée × '+q2+' cartons<br>';
     if(q3>0) detail+='Glace CO₂ × '+q3+' kg<br>';
     detail+='<br>Total TTC : <strong>'+ttc.toFixed(2)+' €</strong><br>Livraison sous 24h · Paiement à la livraison.';
-    document.getElementById('succDetail').innerHTML=detail;
+    document.getElementById('succDetail').innerHTML=detail;var nomVal = document.getElementById('nom') ? document.getElementById('nom').value : '';
+    var etabVal = document.getElementById('etab') ? document.getElementById('etab').value : '';
+    var emailVal = document.getElementById('email-input') ? document.getElementById('email-input').value : '';
+    if(emailVal){
+      envoyerEmail({ nom: nomVal, etab: etabVal, email: emailVal, detail: detail.replace(/<[^>]*>/g,''), ttc: ttc.toFixed(2)+' €' });
+    }
     document.getElementById('recapOv').classList.remove('open');
     document.getElementById('succOv').classList.add('open');
   });
@@ -794,7 +799,42 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     document.getElementById('pc3').classList.remove('sel');
     showScreen('home');
   });
+// ===== ENVOI EMAIL BREVO =====
+  function envoyerEmail(dataCommande){
+    var sujetClient = 'Confirmation de commande — Froidepannagebar Glace';
+    var sujetAdmin = '🧊 Nouvelle commande — ' + dataCommande.etab;
+    var corpsClient = 'Bonjour ' + dataCommande.nom + ',\n\nVotre commande a bien été enregistrée !\n\n' + dataCommande.detail + '\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02';
+    var corpsAdmin = 'Nouvelle commande reçue !\n\nClient : ' + dataCommande.nom + '\nÉtablissement : ' + dataCommande.etab + '\nEmail : ' + dataCommande.email + '\n\n' + dataCommande.detail + '\n\nTotal TTC : ' + dataCommande.ttc;
 
+    var payload = {
+      sender: { name: 'Froidepannagebar Glace', email: 'd.depannage13@gmail.com' },
+      to: [{ email: dataCommande.email, name: dataCommande.nom }],
+      subject: sujetClient,
+      textContent: corpsClient
+    };
+    fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'api-key': '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' },
+      body: JSON.stringify(payload)
+    });
+
+    var payloadAdmin = {
+      sender: { name: 'Froidepannagebar Glace', email: 'd.depannage13@gmail.com' },
+      to: [{ email: 'd.depannage13@gmail.com', name: 'Admin' }],
+      subject: sujetAdmin,
+      textContent: corpsAdmin
+    };
+    fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'api-key': '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' },
+      body: JSON.stringify(payloadAdmin)
+    });
+  }
+```
+
+**4.** Ensuite cherchez avec **Ctrl+F** :
+```
+document.getElementById('succDetail').innerHTML=detail;
   // UPDATE POPUP
   document.getElementById('btn-update').addEventListener('click', function(){
     document.getElementById('upop').style.display='none';
