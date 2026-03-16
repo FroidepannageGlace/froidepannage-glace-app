@@ -784,7 +784,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     var etabVal = document.getElementById('etab') ? document.getElementById('etab').value : '';
     var emailVal = document.getElementById('email-input') ? document.getElementById('email-input').value : '';
     if(emailVal){
-      envoyerEmail({ nom: nomVal, etab: etabVal, email: emailVal, detail: detail.replace(/<[^>]*>/g,''), ttc: ttc.toFixed(2)+' €' }
+envoyerEmail({ nom: nomVal, etab: etabVal, email: emailVal, detail: detail.replace(/<[^>]*>/g,''), ttc: ttc.toFixed(2)+' €', tel: (document.querySelector('input[type=tel]') ? document.querySelector('input[type=tel]').value : ''), adresse: (document.querySelectorAll('.fi')[4] ? document.querySelectorAll('.fi')[4].value : '') });
     }
     document.getElementById('recapOv').classList.remove('open');
     document.getElementById('succOv').classList.add('open');
