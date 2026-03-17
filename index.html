@@ -262,7 +262,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <button class="acc-btn" id="acc-c"><span class="acc-lbl"><span class="acc-ico ai-g">📞</span>Contact</span><span class="acc-arr" id="acc-c-arr">▼</span></button>
         <div class="acc-body" id="acc-c-body">
           <div class="ci"><div class="ci-ico">🌐</div><div><div class="ci-l">Site internet</div><div class="ci-v">livraison-glacons-marseille.fr</div></div></div>
-          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="mailto:d.depannage13@gmail.com">d.depannage13@gmail.com</a></div></div></div>
+          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="/cdn-cgi/l/email-protection#30541e545540515e5e515755010370575d51595c1e535f5d"><span class="__cf_email__" data-cfemail="a9cd87cdccd9c8c7c7c8cecc989ae9cec4c8c0c587cac6c4">[email&#160;protected]</span></a></div></div></div>
           <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-l">Téléphone commandes</div><div class="ci-v">04.84.89.68.02</div></div></div>
         </div>
       </div>
@@ -461,7 +461,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 
 </div>
 
-<script type="module">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
   import { getFirestore, collection, addDoc, query, where, orderBy, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
@@ -704,22 +704,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   }
 
   function envoyerEmailBienvenue(client) {
-    var headers = {'Content-Type':'application/json','api-key':'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'};
-    fetch('https://api.brevo.com/v3/smtp/email',{method:'POST',headers:headers,body:JSON.stringify({sender:{name:'Froidepannagebar Glace',email:'d.depannage13@gmail.com'},to:[{email:client.email,name:client.nom}],subject:'Bienvenue — Froidepannagebar Glace',textContent:'Bonjour '+client.nom+',\n\nVotre compte a bien été créé !\n\nÉtablissement : '+client.etab+'\nAdresse : '+client.adresse+'\n\nVous pouvez maintenant commander vos glaçons directement depuis l\'app.\n\nÀ très bientôt,\nFroidepannagebar Glace\n04.84.89.68.02'})});
-    fetch('https://api.brevo.com/v3/smtp/email',{method:'POST',headers:headers,body:JSON.stringify({sender:{name:'Froidepannagebar Glace',email:'d.depannage13@gmail.com'},to:[{email:'d.depannage13@gmail.com',name:'Admin'}],subject:'🆕 Nouveau client — '+client.etab,textContent:'Nouveau client !\n\nNom : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse})});
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Bienvenue — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre compte a bien été créé !\n\nÉtablissement : '+client.etab+'\nAdresse : '+client.adresse+'\n\nVous pouvez maintenant commander vos glaçons directement depuis l\'app.\n\nÀ très bientôt,\nFroidepannagebar Glace\n04.84.89.68.02'})});
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'🆕 Nouveau client — '+client.etab,text:'Nouveau client !\n\nNom : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse})});
   }
 
   function envoyerEmailCommande(client, detail, ttc) {
-    var headers = {'Content-Type':'application/json','api-key':'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'};
-    fetch('https://api.brevo.com/v3/smtp/email',{method:'POST',headers:headers,body:JSON.stringify({sender:{name:'Froidepannagebar Glace',email:'d.depannage13@gmail.com'},to:[{email:client.email,name:client.nom}],subject:'Confirmation de commande — Froidepannagebar Glace',textContent:'Bonjour '+client.nom+',\n\nVotre commande a bien été enregistrée !\n\n'+detail+'\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02'})});
-    fetch('https://api.brevo.com/v3/smtp/email',{method:'POST',headers:headers,body:JSON.stringify({sender:{name:'Froidepannagebar Glace',email:'d.depannage13@gmail.com'},to:[{email:'d.depannage13@gmail.com',name:'Admin'}],subject:'🧊 Nouvelle commande — '+client.etab,textContent:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse+'\n\n'+detail})});
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Confirmation de commande — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre commande a bien été enregistrée !\n\n'+detail+'\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02'})});
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'🧊 Nouvelle commande — '+client.etab,text:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse+'\n\n'+detail})});
   }
 
   document.getElementById('btn-update').addEventListener('click', function(){ document.getElementById('upop').style.display='none'; window.location.reload(); });
-  document.getElementById('btn-later').addEventListener('click', function(){ document.getElementById('upop').style.display='none'; });
-
-  if('serviceWorker' in navigator){ window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js'); }); }
-
-</script>
-</body>
-</html>
+  document.getElementById('btn-later').add
