@@ -10,27 +10,22 @@
 <meta name="apple-mobile-web-app-title" content="Glace">
 <meta name="mobile-web-app-capable" content="yes">
 <title>Froidepannagebar "Glace"</title>
-  <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
-  <meta name="application-name" content="Glace">
-  <meta property="og:title" content="Froidepannagebar Glace — Livraison glaçons Marseille">
-  <meta property="og:description" content="Commandez vos glaçons à Marseille. Livraison sous 24h. Pros et particuliers.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://livraison-glacons-marseille.fr">
-  <meta name="twitter:card" content="summary">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
+<meta name="application-name" content="Glace">
+<meta property="og:title" content="Froidepannagebar Glace — Livraison glaçons Marseille">
+<meta property="og:description" content="Commandez vos glaçons à Marseille. Livraison sous 24h. Pros et particuliers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://livraison-glacons-marseille.fr">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-:root{
-  --deep:#0d3d5e;--blue:#1a7abf;--sky:#7ec8e3;
-  --gold:#d4a843;--gold-l:#fef7e6;--ice:#e8f6fc;
-  --off:#f5fafd;--muted:#6a8fa8;--text:#0d2133;
-  --grad-top:linear-gradient(135deg,#0d3d5e 0%,#1a5a8a 100%);
-}
+:root{--deep:#0d3d5e;--blue:#1a7abf;--sky:#7ec8e3;--gold:#d4a843;--gold-l:#fef7e6;--ice:#e8f6fc;--off:#f5fafd;--muted:#6a8fa8;--text:#0d2133;--grad-top:linear-gradient(135deg,#0d3d5e 0%,#1a5a8a 100%);}
 html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 .app{max-width:430px;margin:0 auto;height:100vh;display:flex;flex-direction:column;position:relative;background:#f0f7fb;overflow:hidden;}
 .status{background:#0d3d5e;padding:env(safe-area-inset-top,8px) 16px 4px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
@@ -225,12 +220,10 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 </head>
 <body>
 <div class="app">
-
   <div class="status">
     <span class="st-t" id="clock">9:41</span>
     <span class="st-i">●●● WiFi 🔋</span>
   </div>
-
   <div class="topnav">
     <div class="tn-logo">Froidepannage <em>"Glace"</em></div>
     <div class="tn-r">
@@ -240,13 +233,9 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       </div>
     </div>
   </div>
-
   <div class="mbg" id="menuBg">
     <div class="mpanel" id="menuPanel">
-      <div class="mp-top">
-        <span class="mp-t">Menu</span>
-        <button class="mp-x" id="menuClose">✕</button>
-      </div>
+      <div class="mp-top"><span class="mp-t">Menu</span><button class="mp-x" id="menuClose">✕</button></div>
       <div class="acc-item">
         <button class="acc-btn" id="acc-p"><span class="acc-lbl"><span class="acc-ico ai-b">🧊</span>Nos produits</span><span class="acc-arr" id="acc-p-arr">▼</span></button>
         <div class="acc-body" id="acc-p-body">
@@ -254,7 +243,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
           <div class="pline"><div class="pl-l"><span style="font-size:16px;">❄️</span><div><div class="pl-n">Glace pilée</div><div class="pl-d">Carton 12 kg · 6 sacs × 2 kg</div></div></div><span class="pl-p">1,10€/kg</span></div>
           <div class="pline"><div class="pl-l"><span style="font-size:16px;">💨</span><div><div class="pl-n">Glace carbonique CO₂</div><div class="pl-d">Sur devis volume</div></div></div><span class="pl-p">6,00€/kg</span></div>
           <div style="height:6px;"></div>
-          <div class="svline"><span>🔧</span><span>Dépannage froid & clim</span></div>
+          <div class="svline"><span>🔧</span><span>Dépannage froid &amp; clim</span></div>
           <div class="svline"><span>⚙️</span><span>Entretien équipements froid</span></div>
         </div>
       </div>
@@ -262,7 +251,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <button class="acc-btn" id="acc-c"><span class="acc-lbl"><span class="acc-ico ai-g">📞</span>Contact</span><span class="acc-arr" id="acc-c-arr">▼</span></button>
         <div class="acc-body" id="acc-c-body">
           <div class="ci"><div class="ci-ico">🌐</div><div><div class="ci-l">Site internet</div><div class="ci-v">livraison-glacons-marseille.fr</div></div></div>
-          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="/cdn-cgi/l/email-protection#30541e545540515e5e515755010370575d51595c1e535f5d"><span class="__cf_email__" data-cfemail="a9cd87cdccd9c8c7c7c8cecc989ae9cec4c8c0c587cac6c4">[email&#160;protected]</span></a></div></div></div>
+          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="mailto:contact@livraison-glacons-marseille.fr">contact@livraison-glacons-marseille.fr</a></div></div></div>
           <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-l">Téléphone commandes</div><div class="ci-v">04.84.89.68.02</div></div></div>
         </div>
       </div>
@@ -270,40 +259,38 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <button class="acc-btn" id="acc-q"><span class="acc-lbl"><span class="acc-ico ai-d">🏢</span>Qui sommes-nous</span><span class="acc-arr" id="acc-q-arr">▼</span></button>
         <div class="acc-body" id="acc-q-body">
           <div class="about-txt"><strong>Spécialistes du froid depuis des années</strong>, nous avons bâti notre réputation sur la confiance de nos clients professionnels à Marseille et dans les Bouches-du-Rhône.<br><br>Forts de cette expérience et de votre fidélité, notre activité évolue naturellement : nous sommes fiers de vous proposer désormais la vente et la livraison de glaçons — pour devenir votre <strong>partenaire 360°</strong>, toujours disponible, sur tous vos besoins.</div>
-          <div class="about-badge">🔵 Un seul interlocuteur · Froid, clim & glace</div>
+          <div class="about-badge">🔵 Un seul interlocuteur · Froid, clim &amp; glace</div>
         </div>
       </div>
       <div class="acc-item">
         <button class="acc-btn" id="acc-g"><span class="acc-lbl"><span class="acc-ico ai-d">📄</span>Conditions Générales de Vente</span><span class="acc-arr" id="acc-g-arr">▼</span></button>
         <div class="acc-body" id="acc-g-body">
-          <div class="cgv-ln"><div class="cgv-hd" id="cgv1-hd"><span class="cgv-t">Art. 1 — Objet & identification du vendeur</span><span style="font-size:10px;color:var(--muted);" id="cgv1-arr">▼</span></div><div class="cgv-b" id="cgv1">Les présentes CGV régissent les ventes de glaçons, glace pilée et glace carbonique réalisées par la société Froidepannagebar, 9 Impasse Tontini, 13012 Marseille.</div></div>
-          <div class="cgv-ln"><div class="cgv-hd" id="cgv2-hd"><span class="cgv-t">Art. 2 — Produits & tarifs</span><span style="font-size:10px;color:var(--muted);" id="cgv2-arr">▼</span></div><div class="cgv-b" id="cgv2">Les produits sont vendus aux tarifs en vigueur au moment de la commande. TVA 5,5% applicable.</div></div>
-          <div class="cgv-ln"><div class="cgv-hd" id="cgv3-hd"><span class="cgv-t">Art. 3 — Commandes & confirmation</span><span style="font-size:10px;color:var(--muted);" id="cgv3-arr">▼</span></div><div class="cgv-b" id="cgv3">Toute commande peut être passée par téléphone, email ou via l'app.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv1-hd"><span class="cgv-t">Art. 1 — Objet &amp; identification du vendeur</span><span style="font-size:10px;color:var(--muted);" id="cgv1-arr">▼</span></div><div class="cgv-b" id="cgv1">Les présentes CGV régissent les ventes de glaçons, glace pilée et glace carbonique réalisées par la société Froidepannagebar, 9 Impasse Tontini, 13012 Marseille.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv2-hd"><span class="cgv-t">Art. 2 — Produits &amp; tarifs</span><span style="font-size:10px;color:var(--muted);" id="cgv2-arr">▼</span></div><div class="cgv-b" id="cgv2">Les produits sont vendus aux tarifs en vigueur. TVA 5,5% applicable.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv3-hd"><span class="cgv-t">Art. 3 — Commandes &amp; confirmation</span><span style="font-size:10px;color:var(--muted);" id="cgv3-arr">▼</span></div><div class="cgv-b" id="cgv3">Toute commande peut être passée par téléphone, email ou via l'app.</div></div>
           <div class="cgv-ln"><div class="cgv-hd" id="cgv4-hd"><span class="cgv-t">Art. 4 — Livraison</span><span style="font-size:10px;color:var(--muted);" id="cgv4-arr">▼</span></div><div class="cgv-b" id="cgv4">La livraison est assurée dans les Bouches-du-Rhône (13).</div></div>
           <div class="cgv-ln"><div class="cgv-hd" id="cgv5-hd"><span class="cgv-t">Art. 5 — Paiement</span><span style="font-size:10px;color:var(--muted);" id="cgv5-arr">▼</span></div><div class="cgv-b" id="cgv5">Paiement à la livraison. Modes acceptés : espèces, virement, carte bancaire.</div></div>
-          <div class="cgv-ln"><div class="cgv-hd" id="cgv6-hd"><span class="cgv-t">Art. 6 — Retours & réclamations</span><span style="font-size:10px;color:var(--muted);" id="cgv6-arr">▼</span></div><div class="cgv-b" id="cgv6">Aucun retour accepté après livraison. Réclamations au moment de la livraison uniquement.</div></div>
-          <div class="cgv-ln"><div class="cgv-hd" id="cgv7-hd"><span class="cgv-t">Art. 7 — Responsabilité & conservation</span><span style="font-size:10px;color:var(--muted);" id="cgv7-arr">▼</span></div><div class="cgv-b" id="cgv7">Conservation à -18°C recommandée. Responsabilité cesse à la livraison.</div></div>
-          <div class="cgv-ln"><div class="cgv-hd" id="cgv8-hd"><span class="cgv-t">Art. 8 — Droit applicable & litiges</span><span style="font-size:10px;color:var(--muted);" id="cgv8-arr">▼</span></div><div class="cgv-b" id="cgv8">CGV soumises au droit français. Tribunaux compétents de Marseille.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv6-hd"><span class="cgv-t">Art. 6 — Retours &amp; réclamations</span><span style="font-size:10px;color:var(--muted);" id="cgv6-arr">▼</span></div><div class="cgv-b" id="cgv6">Aucun retour accepté après livraison.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv7-hd"><span class="cgv-t">Art. 7 — Responsabilité &amp; conservation</span><span style="font-size:10px;color:var(--muted);" id="cgv7-arr">▼</span></div><div class="cgv-b" id="cgv7">Conservation à -18°C recommandée. Responsabilité cesse à la livraison.</div></div>
+          <div class="cgv-ln"><div class="cgv-hd" id="cgv8-hd"><span class="cgv-t">Art. 8 — Droit applicable &amp; litiges</span><span style="font-size:10px;color:var(--muted);" id="cgv8-arr">▼</span></div><div class="cgv-b" id="cgv8">CGV soumises au droit français. Tribunaux compétents de Marseille.</div></div>
         </div>
       </div>
       <div style="padding:14px 16px;font-size:11px;color:var(--muted);">© 2025 Froidepannagebar — 9 Imp. Tontini, 13012 Marseille</div>
     </div>
   </div>
-
   <div class="bnav" style="order:99;">
     <div class="bn on" id="bn-home"><div class="bn-i">🏠</div><div class="bn-l">Accueil</div><div class="bn-dot"></div></div>
     <div class="bn" id="bn-order"><div class="bn-i">🧊</div><div class="bn-l">Commander</div></div>
     <div class="bn" id="bn-signup"><div class="bn-i">👤</div><div class="bn-l">Mon compte</div></div>
     <div class="bn" id="bn-history"><div class="bn-i">📋</div><div class="bn-l">Historique</div></div>
   </div>
-
   <div class="scr" id="s-home" style="order:2;">
     <div class="hero-bg">
       <div class="hero-tag">✦ Livraison glaçons disponible</div>
       <div class="hero-inner">
         <div class="hero-l">
-          <div class="hero-h1">Froid, <span>glace</span><br>& confiance</div>
-          <div class="hero-sub">Pros & particuliers — livraison sous 24h sur Marseille & alentours. Votre partenaire de confiance.</div>
+          <div class="hero-h1">Froid, <span>glace</span><br>&amp; confiance</div>
+          <div class="hero-sub">Pros &amp; particuliers — livraison sous 24h sur Marseille &amp; alentours. Votre partenaire de confiance.</div>
           <div class="hero-btns">
             <button class="btn-ice hbtn-main" id="btn-commander-home">🧊 Commander vos glaçons →</button>
             <button class="btn-ghost-w hbtn-urg" id="btn-urgence">📞 Urgence froid</button>
@@ -354,7 +341,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       </div>
     </div>
   </div>
-
   <div class="scr hide" id="s-acctreq" style="order:2;">
     <div class="acct-req">
       <div class="ar-ico">👤</div>
@@ -364,12 +350,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div style="margin-top:14px;font-size:12px;color:var(--muted);">Déjà un compte ? <span style="color:var(--blue);cursor:pointer;font-weight:600;" id="btn-already-account">Commander directement</span></div>
     </div>
   </div>
-
   <div class="scr hide" id="s-order" style="order:2;">
     <div class="order-h">
       <div class="oh-g">Bonjour 👋</div>
       <div class="oh-t">Commander vos glaçons</div>
-      <div class="oh-s">Livraison sous 24h · Marseille & alentours</div>
+      <div class="oh-s">Livraison sous 24h · Marseille &amp; alentours</div>
     </div>
     <div class="order-body">
       <div class="sec-lbl">Choisissez vos produits</div>
@@ -418,7 +403,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <button class="btn-ice s-back" id="btn-back-home" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">🏠 Retour à l'accueil</button>
     </div>
   </div>
-
   <div class="scr hide" id="s-signup" style="order:2;">
     <div class="sh-wrap">
       <div class="sh-tag">✦ Rejoignez-nous</div>
@@ -446,7 +430,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <button class="btn-ice sub-btn" id="btn-create-account" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">Créer mon compte →</button>
     </div>
   </div>
-
   <div class="scr hide" id="s-history" style="order:2;">
     <div class="hh">
       <div class="hh-t">Mes commandes</div>
@@ -456,11 +439,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div>
     </div>
   </div>
-
   <div class="notif" id="notif"></div>
-
 </div>
-
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
   import { getFirestore, collection, addDoc, query, where, orderBy, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
@@ -477,7 +457,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-
   var clientData = null;
 
   function showNotif(msg, isErr) {
@@ -529,7 +508,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   document.getElementById('btn-commander-home').addEventListener('click', function(){ goOrder(); });
   document.getElementById('btn-urgence').addEventListener('click', function(){ window.location.href='tel:0484896802'; });
   document.getElementById('btn-goto-signup').addEventListener('click', function(){ showScreen('signup'); });
-  document.getElementById('btn-already-account').addEventListener('click', function(){ clientData = {nom:'Client',etab:'',tel:'',email:'',adresse:''}; showScreen('order'); });
+  document.getElementById('btn-already-account').addEventListener('click', function(){ clientData={nom:'Client',etab:'',tel:'',email:'',adresse:''}; showScreen('order'); });
 
   document.getElementById('btn-create-account').addEventListener('click', async function(){
     var nom = document.getElementById('nom').value.trim();
@@ -538,26 +517,18 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     var email = document.getElementById('email-input').value.trim();
     var adresse = document.getElementById('adresse-input').value.trim();
     var tva = document.getElementById('tva-input').value.trim();
-
-    if(!nom || !etab || !tel || !email || !adresse){
-      showNotif('⚠️ Veuillez remplir tous les champs obligatoires', true);
-      return;
-    }
-
+    if(!nom || !etab || !tel || !email || !adresse){ showNotif('⚠️ Veuillez remplir tous les champs obligatoires', true); return; }
     try {
       var docRef = await addDoc(collection(db, 'clients'), {
-        nom: nom, etablissement: etab, telephone: tel, email: email,
-        adresse: adresse, tva: tva, gps: document.getElementById('geoIn').value,
-        dateCreation: serverTimestamp()
+        nom:nom, etablissement:etab, telephone:tel, email:email,
+        adresse:adresse, tva:tva, gps:document.getElementById('geoIn').value,
+        dateCreation:serverTimestamp()
       });
-      clientData = { id: docRef.id, nom: nom, etab: etab, tel: tel, email: email, adresse: adresse };
+      clientData = { id:docRef.id, nom:nom, etab:etab, tel:tel, email:email, adresse:adresse };
       showNotif('✅ Compte créé avec succès !');
       envoyerEmailBienvenue(clientData);
       setTimeout(function(){ showScreen('order'); }, 1500);
-    } catch(e) {
-      showNotif('❌ Erreur lors de la création du compte', true);
-      console.error(e);
-    }
+    } catch(e) { showNotif('❌ Erreur lors de la création du compte', true); console.error(e); }
   });
 
   document.getElementById('geoBtn').addEventListener('click', function(){
@@ -574,16 +545,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   var menuPanel = document.getElementById('menuPanel');
   document.getElementById('hamburgerBtn').addEventListener('click', function(e){ e.stopPropagation(); menuBg.classList.add('open'); });
   document.getElementById('menuClose').addEventListener('click', function(){ menuBg.classList.remove('open'); });
-  menuBg.addEventListener('click', function(e){ if(e.target === menuBg){ menuBg.classList.remove('open'); } });
+  menuBg.addEventListener('click', function(e){ if(e.target===menuBg){ menuBg.classList.remove('open'); } });
   menuPanel.addEventListener('click', function(e){ e.stopPropagation(); });
 
   function setupAccordion(btnId, bodyId, arrId){
     document.getElementById(btnId).addEventListener('click', function(){
-      var body = document.getElementById(bodyId);
-      var arr = document.getElementById(arrId);
-      var isOpen = body.classList.contains('open');
-      body.classList.toggle('open', !isOpen);
-      arr.classList.toggle('open', !isOpen);
+      var body=document.getElementById(bodyId), arr=document.getElementById(arrId);
+      var isOpen=body.classList.contains('open');
+      body.classList.toggle('open',!isOpen); arr.classList.toggle('open',!isOpen);
     });
   }
   setupAccordion('acc-p','acc-p-body','acc-p-arr');
@@ -593,12 +562,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 
   for(var n=1;n<=8;n++){
     (function(num){
-      var hd = document.getElementById('cgv'+num+'-hd');
+      var hd=document.getElementById('cgv'+num+'-hd');
       if(hd) hd.addEventListener('click', function(){
-        var b = document.getElementById('cgv'+num);
-        var a = document.getElementById('cgv'+num+'-arr');
-        var open = b.classList.toggle('open');
-        if(a) a.textContent = open?'▲':'▼';
+        var b=document.getElementById('cgv'+num), a=document.getElementById('cgv'+num+'-arr');
+        var open=b.classList.toggle('open');
+        if(a) a.textContent=open?'▲':'▼';
       });
     })(n);
   }
@@ -606,16 +574,15 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   function setupQty(plusId, minusId, spanId, pcId){
     document.getElementById(plusId).addEventListener('click', function(e){
       e.preventDefault(); e.stopPropagation();
-      var span = document.getElementById(spanId);
-      span.textContent = (parseInt(span.textContent)||0)+1;
+      var span=document.getElementById(spanId);
+      span.textContent=(parseInt(span.textContent)||0)+1;
       document.getElementById(pcId).classList.add('sel');
     });
     document.getElementById(minusId).addEventListener('click', function(e){
       e.preventDefault(); e.stopPropagation();
-      var span = document.getElementById(spanId);
-      var v = parseInt(span.textContent)||0;
+      var span=document.getElementById(spanId), v=parseInt(span.textContent)||0;
       if(v>0) v--;
-      span.textContent = v;
+      span.textContent=v;
       if(v===0) document.getElementById(pcId).classList.remove('sel');
     });
   }
@@ -655,27 +622,23 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     if(q1>0) produits.push('Glaçons × '+q1+' cartons ('+q1*12+' kg)');
     if(q2>0) produits.push('Glace pilée × '+q2+' cartons');
     if(q3>0) produits.push('Glace CO₂ × '+q3+' kg');
-    var detail = produits.join('\n') + '\n\nTotal TTC : ' + ttc.toFixed(2) + ' €';
-
+    var detail=produits.join('\n')+'\n\nTotal TTC : '+ttc.toFixed(2)+' €';
     try {
-      await addDoc(collection(db, 'commandes'), {
-        clientId: clientData ? clientData.id : 'direct',
-        clientNom: clientData ? clientData.nom : '',
-        clientEtab: clientData ? clientData.etab : '',
-        clientEmail: clientData ? clientData.email : '',
-        clientTel: clientData ? clientData.tel : '',
-        clientAdresse: clientData ? clientData.adresse : '',
-        produits: produits, htTotal: ht, tvaTotal: tva, ttcTotal: ttc,
-        statut: 'En attente', dateCommande: serverTimestamp()
+      await addDoc(collection(db,'commandes'), {
+        clientId:clientData?clientData.id:'direct',
+        clientNom:clientData?clientData.nom:'',
+        clientEtab:clientData?clientData.etab:'',
+        clientEmail:clientData?clientData.email:'',
+        clientTel:clientData?clientData.tel:'',
+        clientAdresse:clientData?clientData.adresse:'',
+        produits:produits, htTotal:ht, tvaTotal:tva, ttcTotal:ttc,
+        statut:'En attente', dateCommande:serverTimestamp()
       });
-      document.getElementById('succDetail').innerHTML = produits.join('<br>')+'<br><br><strong>Total TTC : '+ttc.toFixed(2)+' €</strong>';
+      document.getElementById('succDetail').innerHTML=produits.join('<br>')+'<br><br><strong>Total TTC : '+ttc.toFixed(2)+' €</strong>';
       document.getElementById('recapOv').classList.remove('open');
       document.getElementById('succOv').classList.add('open');
-      if(clientData && clientData.email) envoyerEmailCommande(clientData, detail, ttc.toFixed(2)+' €');
-    } catch(e) {
-      showNotif('❌ Erreur lors de l\'enregistrement', true);
-      console.error(e);
-    }
+      if(clientData&&clientData.email) envoyerEmailCommande(clientData,detail,ttc.toFixed(2)+' €');
+    } catch(e){ showNotif('❌ Erreur lors de l\'enregistrement', true); console.error(e); }
   });
 
   document.getElementById('btn-back-home').addEventListener('click', function(){
@@ -685,13 +648,13 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     showScreen('home');
   });
 
-  async function loadHistory() {
-    var body = document.getElementById('histBody');
-    if(!clientData || !clientData.email){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Connectez-vous pour voir votre historique.</div>'; return; }
+  async function loadHistory(){
+    var body=document.getElementById('histBody');
+    if(!clientData||!clientData.email){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Connectez-vous pour voir votre historique.</div>'; return; }
     body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div>';
     try {
-      var q = query(collection(db,'commandes'), where('clientEmail','==',clientData.email), orderBy('dateCommande','desc'));
-      var snap = await getDocs(q);
+      var q=query(collection(db,'commandes'),where('clientEmail','==',clientData.email),orderBy('dateCommande','desc'));
+      var snap=await getDocs(q);
       if(snap.empty){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Aucune commande pour le moment.</div>'; return; }
       var html='';
       snap.forEach(function(doc){
@@ -703,15 +666,21 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     } catch(e){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Erreur de chargement.</div>'; }
   }
 
-  function envoyerEmailBienvenue(client) {
+  function envoyerEmailBienvenue(client){
     fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Bienvenue — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre compte a bien été créé !\n\nÉtablissement : '+client.etab+'\nAdresse : '+client.adresse+'\n\nVous pouvez maintenant commander vos glaçons directement depuis l\'app.\n\nÀ très bientôt,\nFroidepannagebar Glace\n04.84.89.68.02'})});
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'🆕 Nouveau client — '+client.etab,text:'Nouveau client !\n\nNom : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse})});
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouveau client — '+client.etab,text:'Nouveau client !\n\nNom : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse})});
   }
 
-  function envoyerEmailCommande(client, detail, ttc) {
+  function envoyerEmailCommande(client,detail,ttc){
     fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Confirmation de commande — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre commande a bien été enregistrée !\n\n'+detail+'\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02'})});
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'🧊 Nouvelle commande — '+client.etab,text:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse+'\n\n'+detail})});
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouvelle commande — '+client.etab,text:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse+'\n\n'+detail})});
   }
 
   document.getElementById('btn-update').addEventListener('click', function(){ document.getElementById('upop').style.display='none'; window.location.reload(); });
-  document.getElementById('btn-later').add
+  document.getElementById('btn-later').addEventListener('click', function(){ document.getElementById('upop').style.display='none'; });
+
+  if('serviceWorker' in navigator){ window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js'); }); }
+
+</script>
+</body>
+</html>
