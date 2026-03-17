@@ -37,6 +37,10 @@
       "dest": "/sw-register.js"
     },
     {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
       "src": "/(.*)",
       "headers": {
         "X-Frame-Options": "SAMEORIGIN",
