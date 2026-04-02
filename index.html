@@ -216,6 +216,29 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 .notif{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#1a7a4a;color:#fff;padding:10px 20px;border-radius:100px;font-size:12px;font-weight:600;z-index:999;display:none;animation:slideUp .3s ease-out;white-space:nowrap;}
 .notif.show{display:block;}
 .notif.err{background:#c0392b;}
+/* NOUVEAUX STYLES */
+.type-select{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px;}
+.type-card{background:var(--off);border:2px solid rgba(126,200,227,.22);border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;}
+.type-card.sel{border-color:var(--blue);background:var(--ice);}
+.type-card-ico{font-size:26px;margin-bottom:6px;}
+.type-card-t{font-size:12px;font-weight:700;color:var(--deep);}
+.type-card-d{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.4;}
+.type-card.sel .type-card-t{color:var(--blue);}
+.login-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:30px 24px;text-align:center;background:#f0f7fb;}
+.login-ico{font-size:52px;margin-bottom:16px;animation:bob 2s ease-in-out infinite;}
+.login-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--deep);margin-bottom:6px;}
+.login-sub{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.6;}
+.login-form{width:100%;text-align:left;}
+.login-sep{text-align:center;font-size:12px;color:var(--muted);margin:14px 0;position:relative;}
+.login-sep::before,.login-sep::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:rgba(126,200,227,.25);}
+.login-sep::before{left:0;}.login-sep::after{right:0;}
+.login-btn{width:100%;padding:14px;font-size:14px;margin-bottom:10px;}
+.login-link{font-size:12px;color:var(--blue);cursor:pointer;font-weight:600;}
+.zone-select{width:100%;background:var(--off);border:1.5px solid rgba(126,200,227,.22);border-radius:13px;padding:11px 13px;font-size:13px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236a8fa8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
+.zone-select:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(126,200,227,.12);}
+.zone-info{background:var(--ice);border:1px solid rgba(126,200,227,.2);border-radius:12px;padding:10px 12px;margin-top:6px;font-size:11px;color:var(--muted);line-height:1.6;display:none;}
+.zone-info.show{display:block;}
+.zone-info strong{color:var(--deep);}
 </style>
 </head>
 <body>
@@ -251,7 +274,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <button class="acc-btn" id="acc-c"><span class="acc-lbl"><span class="acc-ico ai-g">📞</span>Contact</span><span class="acc-arr" id="acc-c-arr">▼</span></button>
         <div class="acc-body" id="acc-c-body">
           <div class="ci"><div class="ci-ico">🌐</div><div><div class="ci-l">Site internet</div><div class="ci-v">livraison-glacons-marseille.fr</div></div></div>
-          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="mailto:contact@livraison-glacons-marseille.fr">contact@livraison-glacons-marseille.fr</a></div></div></div>
+          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v">contact@livraison-glacons-marseille.fr</div></div></div>
           <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-l">Téléphone commandes</div><div class="ci-v">04.84.89.68.02</div></div></div>
         </div>
       </div>
@@ -284,6 +307,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     <div class="bn" id="bn-signup"><div class="bn-i">👤</div><div class="bn-l">Mon compte</div></div>
     <div class="bn" id="bn-history"><div class="bn-i">📋</div><div class="bn-l">Historique</div></div>
   </div>
+
+  <!-- ACCUEIL — identique mot pour mot -->
   <div class="scr" id="s-home" style="order:2;">
     <div class="hero-bg">
       <div class="hero-tag">✦ Livraison glaçons disponible</div>
@@ -341,18 +366,28 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       </div>
     </div>
   </div>
+
+  <!-- CONNEXION / COMPTE REQUIS -->
   <div class="scr hide" id="s-acctreq" style="order:2;">
-    <div class="acct-req">
-      <div class="ar-ico">👤</div>
-      <div class="ar-title">Compte requis</div>
-      <div class="ar-sub">Pour passer commande, créez votre compte client. Cela nous permet de gérer votre livraison et de vous envoyer votre confirmation.</div>
-      <button class="btn-ice ar-btn" id="btn-goto-signup">Créer mon compte →</button>
-      <div style="margin-top:14px;font-size:12px;color:var(--muted);">Déjà un compte ? <span style="color:var(--blue);cursor:pointer;font-weight:600;" id="btn-already-account">Commander directement</span></div>
+    <div class="login-wrap">
+      <div class="login-ico">🔐</div>
+      <div class="login-title">Espace client</div>
+      <div class="login-sub">Pour passer commande, créez votre compte client. Cela nous permet de gérer votre livraison et de vous envoyer votre confirmation.</div>
+      <div class="login-form">
+        <div class="fg"><label class="fl">Email <span class="req">*</span></label><input class="fi" id="login-email" type="email" placeholder="contact@lemistral.fr"></div>
+        <div class="fg"><label class="fl">Mot de passe <span class="req">*</span></label><input class="fi" id="login-password" type="password" placeholder="••••••••"></div>
+        <button class="btn-ice login-btn" id="btn-login" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">🔑 Se connecter</button>
+        <div class="login-sep">ou</div>
+        <button class="btn-ice login-btn" id="btn-goto-signup" style="background:linear-gradient(135deg,#1a7abf,#0d3d5e);color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">✨ Créer mon compte →</button>
+        <div style="text-align:center;margin-top:10px;"><span class="login-link" id="btn-forgot-pw">Mot de passe oublié ?</span></div>
+      </div>
     </div>
   </div>
+
+  <!-- COMMANDE -->
   <div class="scr hide" id="s-order" style="order:2;">
     <div class="order-h">
-      <div class="oh-g">Bonjour 👋</div>
+      <div class="oh-g" id="order-hello">Bonjour 👋</div>
       <div class="oh-t">Commander vos glaçons</div>
       <div class="oh-s">Livraison sous 24h · Marseille &amp; alentours</div>
     </div>
@@ -360,7 +395,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div class="sec-lbl">Choisissez vos produits</div>
       <div class="pcs">
         <div class="pc" id="pc1">
-          <div class="pcl"><div class="pc-ico">🧊</div><div><div class="pcn">Glaçons</div><div class="pcp">0,95 €/kg · carton 12 kg</div></div></div>
+          <div class="pcl"><div class="pc-ico">🧊</div><div><div class="pcn">Glaçons</div><div class="pcp" id="pc1-prix">0,95 €/kg · carton 12 kg</div></div></div>
           <div class="qc"><button class="qbtn" id="q1-minus">−</button><span class="qnum" id="q1">0</span><button class="qbtn" id="q1-plus">+</button></div>
         </div>
         <div class="pc" id="pc2">
@@ -370,6 +405,21 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <div class="pc" id="pc3">
           <div class="pcl"><div class="pc-ico">💨</div><div><div class="pcn">Glace CO₂</div><div class="pcp">6,00 €/kg · sur devis</div></div></div>
           <div class="qc"><button class="qbtn" id="q3-minus">−</button><span class="qnum" id="q3">0</span><button class="qbtn" id="q3-plus">+</button></div>
+        </div>
+      </div>
+      <!-- ZONE LIVRAISON — visible uniquement pour non-supérettes -->
+      <div id="zone-bloc" style="display:none;">
+        <div class="sec-lbl">Zone de livraison</div>
+        <div class="fg" style="margin-bottom:14px;">
+          <select class="zone-select" id="zone-select">
+            <option value="">-- Sélectionnez votre zone --</option>
+            <option value="marseille">Marseille — Livraison gratuite dès 100 kg</option>
+            <option value="aubagne">Aubagne &amp; environs — 14,99 €</option>
+            <option value="ciotat">La Ciotat &amp; environs — 19,50 €</option>
+            <option value="bandol">Bandol &amp; environs — 24,50 €</option>
+            <option value="devis">Autre zone — Nous contacter</option>
+          </select>
+          <div class="zone-info" id="zone-info"></div>
         </div>
       </div>
       <div class="sec-lbl">Autres besoins ?</div>
@@ -385,9 +435,10 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <div class="rs-div"></div>
         <div class="rs-row"><span class="rs-lbl">Sous-total HT</span><span class="rs-val" id="rht">—</span></div>
         <div class="rs-row"><span class="rs-lbl">TVA 5,5%</span><span class="rs-val" id="rtva">—</span></div>
+        <div class="rs-row" id="livraison-row"><span class="rs-lbl">Livraison</span><span class="rs-val" id="rlivraison">—</span></div>
         <div class="rs-div"></div>
         <div class="rs-row"><span class="rs-tl">Total TTC</span><span class="rs-tv" id="rttc">—</span></div>
-        <div class="rs-note">TVA 5,5% · Livraison sous 24h · Paiement à la livraison (CB, espèces ou virement)</div>
+        <div class="rs-note" id="recap-note">TVA 5,5% · Livraison sous 24h · Paiement à la livraison (CB, espèces ou virement)</div>
         <button class="btn-ice rs-confirm" id="btn-validate-order" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">✓ Valider ma commande</button>
         <button class="rs-cancel" id="btn-cancel-recap">← Modifier ma commande</button>
       </div>
@@ -403,6 +454,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <button class="btn-ice s-back" id="btn-back-home" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">🏠 Retour à l'accueil</button>
     </div>
   </div>
+
+  <!-- CREATION COMPTE -->
   <div class="scr hide" id="s-signup" style="order:2;">
     <div class="sh-wrap">
       <div class="sh-tag">✦ Rejoignez-nous</div>
@@ -410,10 +463,27 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div class="sh-s">Renseignez vos informations pour commander facilement à tout moment.</div>
     </div>
     <div class="sb">
+      <div class="fg">
+        <label class="fl">Type d'établissement <span class="req">*</span></label>
+        <div class="type-select">
+          <div class="type-card" id="type-superette" onclick="selectType('superette')">
+            <div class="type-card-ico">🛒</div>
+            <div class="type-card-t">Supérette</div>
+            <div class="type-card-d">Alimentation, épicerie, vival, spar...</div>
+          </div>
+          <div class="type-card" id="type-pro" onclick="selectType('pro')">
+            <div class="type-card-ico">🍸</div>
+            <div class="type-card-t">Bar / Resto / Hôtel</div>
+            <div class="type-card-d">Bar, restaurant, hôtel, événementiel...</div>
+          </div>
+        </div>
+      </div>
       <div class="fg"><label class="fl">Nom gérant / responsable <span class="req">*</span></label><input class="fi" id="nom" placeholder="Jean Dupont"></div>
       <div class="fg"><label class="fl">Nom de l'établissement <span class="req">*</span></label><input class="fi" id="etab" placeholder="Bar Le Mistral"></div>
       <div class="fg"><label class="fl">Téléphone <span class="req">*</span></label><input class="fi" id="tel-input" type="tel" placeholder="06 12 34 56 78"></div>
-      <div class="fg"><label class="fl">Email <span class="req">*</span></label><input class="fi" id="email-input" placeholder="contact@lemistral.fr"></div>
+      <div class="fg"><label class="fl">Email <span class="req">*</span></label><input class="fi" id="email-input" type="email" placeholder="contact@lemistral.fr"></div>
+      <div class="fg"><label class="fl">Mot de passe <span class="req">*</span></label><input class="fi" id="password-input" type="password" placeholder="Minimum 6 caractères"></div>
+      <div class="fg"><label class="fl">Confirmer le mot de passe <span class="req">*</span></label><input class="fi" id="password-confirm" type="password" placeholder="Répétez votre mot de passe"></div>
       <div class="fg"><label class="fl">Adresse de livraison <span class="req">*</span></label><input class="fi" id="adresse-input" placeholder="36 rue Canebière, 13001 Marseille"></div>
       <div class="fg">
         <label class="fl">Position GPS exacte</label>
@@ -428,8 +498,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <input class="fi" id="tva-input" placeholder="FR 12 345678901">
       </div>
       <button class="btn-ice sub-btn" id="btn-create-account" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">Créer mon compte →</button>
+      <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--muted);">Déjà un compte ? <span style="color:var(--blue);cursor:pointer;font-weight:600;" id="btn-goto-login">Se connecter</span></div>
     </div>
   </div>
+
+  <!-- HISTORIQUE — identique mot pour mot -->
   <div class="scr hide" id="s-history" style="order:2;">
     <div class="hh">
       <div class="hh-t">Mes commandes</div>
@@ -439,11 +512,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div>
     </div>
   </div>
+
   <div class="notif" id="notif"></div>
 </div>
+
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
   import { getFirestore, collection, addDoc, query, where, orderBy, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 
   const firebaseConfig = {
     apiKey: "AIzaSyAPuEE5-kexy5hCWTeaLJVfo6KpD9xPIP4",
@@ -457,7 +533,41 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const auth = getAuth(app);
   var clientData = null;
+
+  // ZONES DE LIVRAISON
+  var ZONES = {
+    marseille: { label: 'Marseille', frais: 0, gratuitDes: 100, villes: ['marseille','13001','13002','13003','13004','13005','13006','13007','13008','13009','13010','13011','13012','13013','13014','13015','13016'] },
+    aubagne:   { label: 'Aubagne & environs', frais: 14.99, villes: ['aubagne','gemenos','gémenos','roquevaire','la bouilladisse','bouilladisse','cuges','saint-savournin','la penne','penne sur huveaune'] },
+    ciotat:    { label: 'La Ciotat & environs', frais: 19.50, villes: ['la ciotat','ciotat','cassis','carnoux','ceyreste','roquefort-la-bedoule','roquefort la bedoule','bedoule'] },
+    bandol:    { label: 'Bandol & environs', frais: 24.50, villes: ['bandol','sanary','six-fours','six fours','le castellet','castellet','la cadiere','cadière'] },
+    devis:     { label: 'Autre zone', frais: null, villes: [] }
+  };
+
+  var ZONE_INFOS = {
+    marseille: '📍 <strong>Marseille</strong> — Livraison gratuite dès 100 kg commandés',
+    aubagne:   '📍 <strong>Aubagne, Gémenos, Roquevaire, La Bouilladisse, Cuges-les-Pins, Saint-Savournin, La Penne-sur-Huveaune</strong> — Frais de livraison : <strong>14,99 €</strong>',
+    ciotat:    '📍 <strong>La Ciotat, Cassis, Carnoux-en-Provence, Ceyreste, Roquefort-la-Bédoule</strong> — Frais de livraison : <strong>19,50 €</strong>',
+    bandol:    '📍 <strong>Bandol, Sanary-sur-Mer, Six-Fours-les-Plages, Le Castellet, La Cadière-d\'Azur</strong> — Frais de livraison : <strong>24,50 €</strong>',
+    devis:     '📞 Zone hors secteur — Contactez-nous au <strong>04.84.89.68.02</strong> pour un devis livraison personnalisé.'
+  };
+
+  function detecterZone(adresse) {
+    if(!adresse) return '';
+    var a = adresse.toLowerCase();
+    for(var z in ZONES) {
+      if(z === 'devis') continue;
+      var villes = ZONES[z].villes;
+      for(var i=0;i<villes.length;i++) {
+        if(a.indexOf(villes[i]) !== -1) return z;
+      }
+    }
+    return '';
+  }
+
+  function getPrixGlacons() { return clientData && clientData.typeEtab === 'superette' ? 0.75 : 0.95; }
+  function isSuperette() { return clientData && clientData.typeEtab === 'superette'; }
 
   function showNotif(msg, isErr) {
     var n = document.getElementById('notif');
@@ -496,11 +606,55 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       }
     }
     if(id === 'history' && clientData) loadHistory();
+    if(id === 'order' && clientData) setupOrderScreen();
+  }
+
+  function setupOrderScreen() {
+    var prix = getPrixGlacons();
+    document.getElementById('pc1-prix').textContent = prix.toFixed(2).replace('.',',') + ' €/kg · carton 12 kg';
+    document.getElementById('order-hello').textContent = 'Bonjour ' + (clientData.nom || '') + ' 👋';
+    // Zone livraison : visible seulement pour non-supérettes
+    document.getElementById('zone-bloc').style.display = isSuperette() ? 'none' : 'block';
+    // Pré-sélectionner zone selon adresse enregistrée
+    if(!isSuperette() && clientData.adresse) {
+      var z = detecterZone(clientData.adresse);
+      if(z) {
+        document.getElementById('zone-select').value = z;
+        document.getElementById('zone-info').innerHTML = ZONE_INFOS[z];
+        document.getElementById('zone-info').classList.add('show');
+      }
+    }
   }
 
   function goOrder(){ if(!clientData){ showScreen('acctreq'); } else { showScreen('order'); } }
   function goHistory(){ if(!clientData){ showScreen('acctreq'); } else { showScreen('history'); } }
 
+  // ZONE SELECT change
+  document.getElementById('zone-select').addEventListener('change', function(){
+    var z = this.value;
+    var info = document.getElementById('zone-info');
+    if(z && ZONE_INFOS[z]) {
+      info.innerHTML = ZONE_INFOS[z];
+      info.classList.add('show');
+    } else {
+      info.classList.remove('show');
+    }
+  });
+
+  // AUTH PERSISTANTE
+  onAuthStateChanged(auth, async function(user){
+    if(user){
+      try {
+        var snap = await getDocs(query(collection(db,'clients'), where('uid','==',user.uid)));
+        if(!snap.empty){
+          var d = snap.docs[0].data();
+          clientData = { id:snap.docs[0].id, nom:d.nom, etab:d.etablissement, tel:d.telephone, email:d.email, adresse:d.adresse, typeEtab:d.typeEtab||'pro' };
+        }
+      } catch(e){ console.error(e); }
+    } else { clientData = null; }
+  });
+
+  // NAVIGATION
   document.getElementById('bn-home').addEventListener('click', function(){ showScreen('home'); });
   document.getElementById('bn-order').addEventListener('click', function(){ goOrder(); });
   document.getElementById('bn-signup').addEventListener('click', function(){ showScreen('signup'); });
@@ -508,29 +662,44 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   document.getElementById('btn-commander-home').addEventListener('click', function(){ goOrder(); });
   document.getElementById('btn-urgence').addEventListener('click', function(){ window.location.href='tel:0484896802'; });
   document.getElementById('btn-goto-signup').addEventListener('click', function(){ showScreen('signup'); });
-  document.getElementById('btn-already-account').addEventListener('click', function(){ clientData={nom:'Client',etab:'',tel:'',email:'',adresse:''}; showScreen('order'); });
+  document.getElementById('btn-goto-login').addEventListener('click', function(){ showScreen('acctreq'); });
 
-  document.getElementById('btn-create-account').addEventListener('click', async function(){
-    var nom = document.getElementById('nom').value.trim();
-    var etab = document.getElementById('etab').value.trim();
-    var tel = document.getElementById('tel-input').value.trim();
-    var email = document.getElementById('email-input').value.trim();
-    var adresse = document.getElementById('adresse-input').value.trim();
-    var tva = document.getElementById('tva-input').value.trim();
-    if(!nom || !etab || !tel || !email || !adresse){ showNotif('⚠️ Veuillez remplir tous les champs obligatoires', true); return; }
+  // CONNEXION
+  document.getElementById('btn-login').addEventListener('click', async function(){
+    var email = document.getElementById('login-email').value.trim();
+    var password = document.getElementById('login-password').value;
+    if(!email||!password){ showNotif('⚠️ Veuillez remplir tous les champs obligatoires', true); return; }
     try {
-      var docRef = await addDoc(collection(db, 'clients'), {
-        nom:nom, etablissement:etab, telephone:tel, email:email,
-        adresse:adresse, tva:tva, gps:document.getElementById('geoIn').value,
-        dateCreation:serverTimestamp()
-      });
-      clientData = { id:docRef.id, nom:nom, etab:etab, tel:tel, email:email, adresse:adresse };
-      showNotif('✅ Compte créé avec succès !');
-      envoyerEmailBienvenue(clientData);
-      setTimeout(function(){ showScreen('order'); }, 1500);
-    } catch(e) { showNotif('❌ Erreur lors de la création du compte', true); console.error(e); }
+      var cred = await signInWithEmailAndPassword(auth, email, password);
+      var snap = await getDocs(query(collection(db,'clients'), where('uid','==',cred.user.uid)));
+      if(!snap.empty){
+        var d = snap.docs[0].data();
+        clientData = { id:snap.docs[0].id, nom:d.nom, etab:d.etablissement, tel:d.telephone, email:d.email, adresse:d.adresse, typeEtab:d.typeEtab||'pro' };
+      }
+      showNotif('✅ Connecté ! Bienvenue ' + (clientData?clientData.nom:'') + ' 👋');
+      setTimeout(function(){ showScreen('order'); }, 1200);
+    } catch(e){
+      showNotif('❌ Email ou mot de passe incorrect', true);
+    }
   });
 
+  // MOT DE PASSE OUBLIÉ
+  document.getElementById('btn-forgot-pw').addEventListener('click', async function(){
+    var email = document.getElementById('login-email').value.trim();
+    if(!email){ showNotif('⚠️ Entrez votre email d\'abord', true); return; }
+    try { await sendPasswordResetEmail(auth, email); showNotif('📧 Email de réinitialisation envoyé !'); }
+    catch(e){ showNotif('❌ Email introuvable', true); }
+  });
+
+  // TYPE ETABLISSEMENT
+  var selectedType = null;
+  window.selectType = function(type){
+    selectedType = type;
+    document.getElementById('type-superette').classList.toggle('sel', type==='superette');
+    document.getElementById('type-pro').classList.toggle('sel', type==='pro');
+  };
+
+  // GEOLOCALISATION
   document.getElementById('geoBtn').addEventListener('click', function(){
     var btn = this; btn.textContent = '...';
     if(navigator.geolocation){
@@ -541,6 +710,38 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     } else { document.getElementById('geoIn').value='43.2965, 5.3698'; btn.textContent='✓ Ok'; }
   });
 
+  // CREATION COMPTE
+  document.getElementById('btn-create-account').addEventListener('click', async function(){
+    if(!selectedType){ showNotif('⚠️ Choisissez le type d\'établissement', true); return; }
+    var nom = document.getElementById('nom').value.trim();
+    var etab = document.getElementById('etab').value.trim();
+    var tel = document.getElementById('tel-input').value.trim();
+    var email = document.getElementById('email-input').value.trim();
+    var password = document.getElementById('password-input').value;
+    var passwordConfirm = document.getElementById('password-confirm').value;
+    var adresse = document.getElementById('adresse-input').value.trim();
+    var tva = document.getElementById('tva-input').value.trim();
+    if(!nom||!etab||!tel||!email||!password||!adresse){ showNotif('⚠️ Veuillez remplir tous les champs obligatoires', true); return; }
+    if(password.length < 6){ showNotif('⚠️ Mot de passe minimum 6 caractères', true); return; }
+    if(password !== passwordConfirm){ showNotif('⚠️ Les mots de passe ne correspondent pas', true); return; }
+    try {
+      var cred = await createUserWithEmailAndPassword(auth, email, password);
+      var docRef = await addDoc(collection(db, 'clients'), {
+        uid:cred.user.uid, nom:nom, etablissement:etab, telephone:tel, email:email,
+        adresse:adresse, tva:tva, typeEtab:selectedType,
+        gps:document.getElementById('geoIn').value, dateCreation:serverTimestamp()
+      });
+      clientData = { id:docRef.id, nom:nom, etab:etab, tel:tel, email:email, adresse:adresse, typeEtab:selectedType };
+      showNotif('✅ Compte créé avec succès !');
+      envoyerEmailBienvenue(clientData);
+      setTimeout(function(){ showScreen('order'); }, 1500);
+    } catch(e){
+      if(e.code==='auth/email-already-in-use'){ showNotif('❌ Cet email est déjà utilisé', true); }
+      else { showNotif('❌ Erreur lors de la création du compte', true); console.error(e); }
+    }
+  });
+
+  // MENU
   var menuBg = document.getElementById('menuBg');
   var menuPanel = document.getElementById('menuPanel');
   document.getElementById('hamburgerBtn').addEventListener('click', function(e){ e.stopPropagation(); menuBg.classList.add('open'); });
@@ -548,6 +749,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   menuBg.addEventListener('click', function(e){ if(e.target===menuBg){ menuBg.classList.remove('open'); } });
   menuPanel.addEventListener('click', function(e){ e.stopPropagation(); });
 
+  // ACCORDEONS
   function setupAccordion(btnId, bodyId, arrId){
     document.getElementById(btnId).addEventListener('click', function(){
       var body=document.getElementById(bodyId), arr=document.getElementById(arrId);
@@ -571,6 +773,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     })(n);
   }
 
+  // QUANTITES
   function setupQty(plusId, minusId, spanId, pcId){
     document.getElementById(plusId).addEventListener('click', function(e){
       e.preventDefault(); e.stopPropagation();
@@ -590,39 +793,80 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   setupQty('q2-plus','q2-minus','q2','pc2');
   setupQty('q3-plus','q3-minus','q3','pc3');
 
+  // CONFIRMER COMMANDE
   document.getElementById('btn-confirm-order').addEventListener('click', function(){
     var q1=parseInt(document.getElementById('q1').textContent)||0;
     var q2=parseInt(document.getElementById('q2').textContent)||0;
     var q3=parseInt(document.getElementById('q3').textContent)||0;
     if(q1===0&&q2===0&&q3===0){ showNotif('⚠️ Sélectionnez au moins un produit', true); return; }
-    var ht=Math.round((q1*12*0.95+q2*12*1.10+q3*6)*100)/100;
-    var tva=Math.round(ht*0.055*100)/100;
-    var ttc=Math.round((ht+tva)*100)/100;
-    var html='';
-    if(q1>0) html+='<div class="rs-row"><span class="rs-lbl">Glaçons × '+q1+' carton'+(q1>1?'s':'')+' ('+q1*12+' kg)</span><span class="rs-val">'+(Math.round(q1*12*0.95*100)/100).toFixed(2)+' €</span></div>';
-    if(q2>0) html+='<div class="rs-row"><span class="rs-lbl">Glace pilée × '+q2+' carton'+(q2>1?'s':'')+' ('+q2*12+' kg)</span><span class="rs-val">'+(Math.round(q2*12*1.10*100)/100).toFixed(2)+' €</span></div>';
+
+    var superette = isSuperette();
+    var prix = getPrixGlacons();
+    var kgGlacons = q1*12;
+    var kgPilee = q2*12;
+    var totalKg = kgGlacons + kgPilee + q3;
+
+    // Calcul frais livraison
+    var fraisLivraison = 0;
+    var livraisonLabel = '✅ Gratuite';
+    if(!superette) {
+      var zone = document.getElementById('zone-select').value;
+      if(!zone){ showNotif('⚠️ Sélectionnez votre zone de livraison', true); return; }
+      if(zone === 'devis'){ showNotif('📞 Contactez-nous pour un devis livraison : 04.84.89.68.02', true); return; }
+      if(zone === 'marseille' && totalKg < 100) {
+        fraisLivraison = 9.99;
+        livraisonLabel = '9,99 € (gratuit dès 100 kg)';
+      } else if(zone === 'marseille' && totalKg >= 100) {
+        fraisLivraison = 0;
+        livraisonLabel = '✅ Gratuite';
+      } else {
+        fraisLivraison = ZONES[zone] ? ZONES[zone].frais : 0;
+        livraisonLabel = fraisLivraison.toFixed(2).replace('.',',') + ' €';
+      }
+    }
+
+    var ht = Math.round((q1*12*prix + q2*12*1.10 + q3*6)*100)/100;
+    var tva = Math.round(ht*0.055*100)/100;
+    var ttc = Math.round((ht + tva + fraisLivraison)*100)/100;
+    var html = '';
+    if(q1>0) html+='<div class="rs-row"><span class="rs-lbl">Glaçons × '+q1+' carton'+(q1>1?'s':'')+' ('+kgGlacons+' kg)</span><span class="rs-val">'+(Math.round(q1*12*prix*100)/100).toFixed(2)+' €</span></div>';
+    if(q2>0) html+='<div class="rs-row"><span class="rs-lbl">Glace pilée × '+q2+' carton'+(q2>1?'s':'')+' ('+kgPilee+' kg)</span><span class="rs-val">'+(Math.round(q2*12*1.10*100)/100).toFixed(2)+' €</span></div>';
     if(q3>0) html+='<div class="rs-row"><span class="rs-lbl">Glace CO₂ × '+q3+' kg</span><span class="rs-val">'+(Math.round(q3*6*100)/100).toFixed(2)+' €</span></div>';
-    document.getElementById('rsItems').innerHTML=html;
-    document.getElementById('rht').textContent=ht.toFixed(2)+' €';
-    document.getElementById('rtva').textContent=tva.toFixed(2)+' €';
-    document.getElementById('rttc').textContent=ttc.toFixed(2)+' €';
+    document.getElementById('rsItems').innerHTML = html;
+    document.getElementById('rht').textContent = ht.toFixed(2)+' €';
+    document.getElementById('rtva').textContent = tva.toFixed(2)+' €';
+    document.getElementById('rlivraison').textContent = livraisonLabel;
+    document.getElementById('rttc').textContent = ttc.toFixed(2)+' €';
+    document.getElementById('recap-note').textContent = 'TVA 5,5% · Livraison sous 24h · Paiement à la livraison (CB, espèces ou virement)';
     document.getElementById('recapOv').classList.add('open');
   });
 
   document.getElementById('btn-cancel-recap').addEventListener('click', function(){ document.getElementById('recapOv').classList.remove('open'); });
 
+  // VALIDER COMMANDE
   document.getElementById('btn-validate-order').addEventListener('click', async function(){
     var q1=parseInt(document.getElementById('q1').textContent)||0;
     var q2=parseInt(document.getElementById('q2').textContent)||0;
     var q3=parseInt(document.getElementById('q3').textContent)||0;
-    var ht=Math.round((q1*12*0.95+q2*12*1.10+q3*6)*100)/100;
-    var tva=Math.round(ht*0.055*100)/100;
-    var ttc=Math.round((ht+tva)*100)/100;
-    var produits=[];
+    var superette = isSuperette();
+    var prix = getPrixGlacons();
+    var totalKg = q1*12 + q2*12 + q3;
+    var fraisLivraison = 0;
+    var zoneLabel = 'Marseille';
+    if(!superette) {
+      var zone = document.getElementById('zone-select').value;
+      if(zone === 'marseille' && totalKg < 100) fraisLivraison = 9.99;
+      else if(zone !== 'marseille' && ZONES[zone]) fraisLivraison = ZONES[zone].frais;
+      zoneLabel = ZONES[zone] ? ZONES[zone].label : zone;
+    }
+    var ht = Math.round((q1*12*prix + q2*12*1.10 + q3*6)*100)/100;
+    var tva = Math.round(ht*0.055*100)/100;
+    var ttc = Math.round((ht + tva + fraisLivraison)*100)/100;
+    var produits = [];
     if(q1>0) produits.push('Glaçons × '+q1+' cartons ('+q1*12+' kg)');
     if(q2>0) produits.push('Glace pilée × '+q2+' cartons');
     if(q3>0) produits.push('Glace CO₂ × '+q3+' kg');
-    var detail=produits.join('\n')+'\n\nTotal TTC : '+ttc.toFixed(2)+' €';
+    var detail = produits.join('\n')+'\n\nTotal TTC : '+ttc.toFixed(2)+' €\nLivraison : '+zoneLabel+(fraisLivraison>0?' — '+fraisLivraison.toFixed(2)+' €':' — Gratuite');
     try {
       await addDoc(collection(db,'commandes'), {
         clientId:clientData?clientData.id:'direct',
@@ -631,13 +875,17 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         clientEmail:clientData?clientData.email:'',
         clientTel:clientData?clientData.tel:'',
         clientAdresse:clientData?clientData.adresse:'',
+        typeEtab:clientData?clientData.typeEtab:'pro',
+        prixGlacons:prix,
+        fraisLivraison:fraisLivraison,
+        zonelivraison:zoneLabel,
         produits:produits, htTotal:ht, tvaTotal:tva, ttcTotal:ttc,
         statut:'En attente', dateCommande:serverTimestamp()
       });
-      document.getElementById('succDetail').innerHTML=produits.join('<br>')+'<br><br><strong>Total TTC : '+ttc.toFixed(2)+' €</strong>';
+      document.getElementById('succDetail').innerHTML = produits.join('<br>')+'<br><br><strong>Total TTC : '+ttc.toFixed(2)+' €</strong>';
       document.getElementById('recapOv').classList.remove('open');
       document.getElementById('succOv').classList.add('open');
-      if(clientData&&clientData.email) envoyerEmailCommande(clientData,detail,ttc.toFixed(2)+' €');
+      if(clientData&&clientData.email) envoyerEmailCommande(clientData, detail, ttc.toFixed(2)+' €');
     } catch(e){ showNotif('❌ Erreur lors de l\'enregistrement', true); console.error(e); }
   });
 
@@ -648,6 +896,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     showScreen('home');
   });
 
+  // HISTORIQUE
   async function loadHistory(){
     var body=document.getElementById('histBody');
     if(!clientData||!clientData.email){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Connectez-vous pour voir votre historique.</div>'; return; }
@@ -666,9 +915,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     } catch(e){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Erreur de chargement.</div>'; }
   }
 
+  // EMAILS
   function envoyerEmailBienvenue(client){
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Bienvenue — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre compte a bien été créé !\n\nÉtablissement : '+client.etab+'\nAdresse : '+client.adresse+'\n\nVous pouvez maintenant commander vos glaçons directement depuis l\'app.\n\nÀ très bientôt,\nFroidepannagebar Glace\n04.84.89.68.02'})});
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouveau client — '+client.etab,text:'Nouveau client !\n\nNom : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse})});
+    var typeLabel = client.typeEtab==='superette' ? 'Supérette / Alimentation' : 'Bar / Restaurant / Hôtel';
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Bienvenue — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre compte a bien été créé !\n\nÉtablissement : '+client.etab+'\nType : '+typeLabel+'\nAdresse : '+client.adresse+'\n\nVous pouvez maintenant commander vos glaçons directement depuis l\'app.\n\nÀ très bientôt,\nFroidepannagebar Glace\n04.84.89.68.02'})});
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouveau client — '+client.etab,text:'Nouveau client !\n\nNom : '+client.nom+'\nÉtablissement : '+client.etab+'\nType : '+typeLabel+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse})});
   }
 
   function envoyerEmailCommande(client,detail,ttc){
@@ -680,7 +931,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   document.getElementById('btn-later').addEventListener('click', function(){ document.getElementById('upop').style.display='none'; });
 
   if('serviceWorker' in navigator){ window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js'); }); }
-
 </script>
 </body>
 </html>
