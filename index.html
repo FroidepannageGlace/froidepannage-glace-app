@@ -131,11 +131,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 .ic-ico{width:40px;height:40px;border-radius:12px;background:var(--ice);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
 .ic-t{font-size:13px;font-weight:600;color:var(--deep);margin-bottom:3px;}
 .ic-s{font-size:11px;color:var(--muted);line-height:1.45;}
-.acct-req{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:30px 24px;text-align:center;background:#f0f7fb;}
-.ar-ico{font-size:56px;margin-bottom:18px;animation:bob 2s ease-in-out infinite;}
-.ar-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--deep);margin-bottom:8px;}
-.ar-sub{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:24px;}
-.ar-btn{padding:13px 28px;font-size:14px;}
 .order-h{background:var(--grad-top);padding:18px 18px;}
 .oh-g{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:3px;}
 .oh-t{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff;}
@@ -166,6 +161,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 .rs-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;}
 .rs-lbl{font-size:13px;color:var(--muted);}
 .rs-val{font-size:13px;font-weight:600;color:var(--text);}
+.rs-val.green{color:#1a7a4a;}
 .rs-div{height:1px;background:#e8f0f5;margin:9px 0;}
 .rs-tl{font-size:14px;font-weight:700;color:var(--text);}
 .rs-tv{font-size:22px;font-weight:800;color:var(--blue);}
@@ -207,12 +203,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 .hc-s{font-size:10px;padding:3px 8px;border-radius:100px;background:#e8f9f0;color:#1a7a4a;font-weight:500;}
 .hc-dt{font-size:12px;color:var(--muted);}
 .hc-am{font-size:13px;font-weight:600;color:var(--blue);margin-top:4px;}
-.upop{position:absolute;bottom:90px;left:16px;right:16px;background:#fff;border-radius:20px;box-shadow:0 10px 35px rgba(0,0,0,.15);padding:16px 18px;z-index:25;border:1px solid rgba(126,200,227,.2);}
-.up-t{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
-.up-s{font-size:11px;color:var(--muted);margin-bottom:12px;line-height:1.5;}
-.up-btns{display:flex;gap:8px;}
-.up-main{flex:1;padding:9px;font-size:12px;}
-.up-later{flex:1;background:var(--off);color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:500;font-size:12px;padding:9px;border-radius:100px;border:1px solid rgba(126,200,227,.2);cursor:pointer;}
 .notif{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#1a7a4a;color:#fff;padding:10px 20px;border-radius:100px;font-size:12px;font-weight:600;z-index:999;display:none;animation:slideUp .3s ease-out;white-space:nowrap;}
 .notif.show{display:block;}
 .notif.err{background:#c0392b;}
@@ -308,14 +298,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     <div class="bn" id="bn-history"><div class="bn-i">📋</div><div class="bn-l">Historique</div></div>
   </div>
 
-  <!-- ACCUEIL — identique mot pour mot -->
+  <!-- ACCUEIL — mot pour mot original -->
   <div class="scr" id="s-home" style="order:2;">
     <div class="hero-bg">
       <div class="hero-tag">✦ Livraison glaçons disponible</div>
       <div class="hero-inner">
         <div class="hero-l">
           <div class="hero-h1">Froid, <span>glace</span><br>&amp; confiance</div>
-          <div class="hero-sub">Pros &amp; particuliers — livraison sous 24h sur Marseille &amp; alentours. Votre partenaire de confiance.</div>
+          <div class="hero-sub">Pros &amp; particuliers — livraison rapide sur Marseille &amp; alentours. Votre partenaire de confiance.</div>
           <div class="hero-btns">
             <button class="btn-ice hbtn-main" id="btn-commander-home">🧊 Commander vos glaçons →</button>
             <button class="btn-ghost-w hbtn-urg" id="btn-urgence">📞 Urgence froid</button>
@@ -345,7 +335,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     <div class="pills-row">
       <div class="pill"><span class="pdot pd-sky"></span>Dès 0,75€/kg</div>
       <div class="pill"><span class="pdot pd-gold"></span>Carton 12 kg</div>
-      <div class="pill"><span class="pdot pd-blue"></span>Livraison 24h</div>
+      <div class="pill"><span class="pdot pd-blue"></span>Livraison rapide</div>
     </div>
     <div class="home-body">
       <div class="sec-pill">🧊 Nos produits</div>
@@ -357,28 +347,20 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div class="info-card"><div class="ic-ico">🔧</div><div><div class="ic-t">Besoin d'un dépannage froid ?</div><div class="ic-s">Frigos, clim, machines à glaçons — intervention rapide sur le 13 · 04.84.89.68.02</div></div></div>
       <div class="info-card"><div class="ic-ico">🤝</div><div><div class="ic-t">Partenariat annuel</div><div class="ic-s">Tarifs préférentiels toute l'année — contactez-nous pour un devis sur mesure</div></div></div>
     </div>
-    <div class="upop" id="upop">
-      <div class="up-t">🆕 Mise à jour disponible</div>
-      <div class="up-s">Une nouvelle version de l'app est disponible.</div>
-      <div class="up-btns">
-        <button class="btn-ice up-main" id="btn-update">Mettre à jour</button>
-        <button class="up-later" id="btn-later">Plus tard</button>
-      </div>
-    </div>
   </div>
 
-  <!-- CONNEXION / COMPTE REQUIS -->
+  <!-- CONNEXION -->
   <div class="scr hide" id="s-acctreq" style="order:2;">
     <div class="login-wrap">
       <div class="login-ico">🔐</div>
-      <div class="login-title">Espace client</div>
+      <div class="login-title">Compte requis</div>
       <div class="login-sub">Pour passer commande, créez votre compte client. Cela nous permet de gérer votre livraison et de vous envoyer votre confirmation.</div>
       <div class="login-form">
         <div class="fg"><label class="fl">Email <span class="req">*</span></label><input class="fi" id="login-email" type="email" placeholder="contact@lemistral.fr"></div>
         <div class="fg"><label class="fl">Mot de passe <span class="req">*</span></label><input class="fi" id="login-password" type="password" placeholder="••••••••"></div>
         <button class="btn-ice login-btn" id="btn-login" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">🔑 Se connecter</button>
         <div class="login-sep">ou</div>
-        <button class="btn-ice login-btn" id="btn-goto-signup" style="background:linear-gradient(135deg,#1a7abf,#0d3d5e);color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">✨ Créer mon compte →</button>
+        <button class="btn-ice login-btn" id="btn-goto-signup" style="background:linear-gradient(135deg,#1a7abf,#0d3d5e);color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">Créer mon compte →</button>
         <div style="text-align:center;margin-top:10px;"><span class="login-link" id="btn-forgot-pw">Mot de passe oublié ?</span></div>
       </div>
     </div>
@@ -389,7 +371,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     <div class="order-h">
       <div class="oh-g" id="order-hello">Bonjour 👋</div>
       <div class="oh-t">Commander vos glaçons</div>
-      <div class="oh-s">Livraison sous 24h · Marseille &amp; alentours</div>
+      <div class="oh-s">Livraison rapide · Marseille &amp; alentours</div>
     </div>
     <div class="order-body">
       <div class="sec-lbl">Choisissez vos produits</div>
@@ -407,16 +389,16 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
           <div class="qc"><button class="qbtn" id="q3-minus">−</button><span class="qnum" id="q3">0</span><button class="qbtn" id="q3-plus">+</button></div>
         </div>
       </div>
-      <!-- ZONE LIVRAISON — visible uniquement pour non-supérettes -->
+      <!-- ZONE — uniquement pour non-supérettes -->
       <div id="zone-bloc" style="display:none;">
         <div class="sec-lbl">Zone de livraison</div>
         <div class="fg" style="margin-bottom:14px;">
           <select class="zone-select" id="zone-select">
             <option value="">-- Sélectionnez votre zone --</option>
             <option value="marseille">Marseille — Livraison gratuite dès 100 kg</option>
-            <option value="aubagne">Aubagne &amp; environs — 14,99 €</option>
-            <option value="ciotat">La Ciotat &amp; environs — 19,50 €</option>
-            <option value="bandol">Bandol &amp; environs — 24,50 €</option>
+            <option value="aubagne">Aubagne &amp; environs — Livraison gratuite dès 100 kg</option>
+            <option value="ciotat">La Ciotat &amp; environs — Livraison gratuite dès 100 kg</option>
+            <option value="bandol">Bandol &amp; environs — Livraison gratuite dès 100 kg</option>
             <option value="devis">Autre zone — Nous contacter</option>
           </select>
           <div class="zone-info" id="zone-info"></div>
@@ -438,7 +420,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <div class="rs-row" id="livraison-row"><span class="rs-lbl">Livraison</span><span class="rs-val" id="rlivraison">—</span></div>
         <div class="rs-div"></div>
         <div class="rs-row"><span class="rs-tl">Total TTC</span><span class="rs-tv" id="rttc">—</span></div>
-        <div class="rs-note" id="recap-note">TVA 5,5% · Livraison sous 24h · Paiement à la livraison (CB, espèces ou virement)</div>
+        <div class="rs-note">TVA 5,5% · Livraison rapide · Paiement à la livraison (CB, espèces ou virement)</div>
         <button class="btn-ice rs-confirm" id="btn-validate-order" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">✓ Valider ma commande</button>
         <button class="rs-cancel" id="btn-cancel-recap">← Modifier ma commande</button>
       </div>
@@ -502,7 +484,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     </div>
   </div>
 
-  <!-- HISTORIQUE — identique mot pour mot -->
+  <!-- HISTORIQUE — mot pour mot original -->
   <div class="scr hide" id="s-history" style="order:2;">
     <div class="hh">
       <div class="hh-t">Mes commandes</div>
@@ -519,7 +501,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
   import { getFirestore, collection, addDoc, query, where, orderBy, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, setPersistence, browserLocalPersistence } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 
   const firebaseConfig = {
     apiKey: "AIzaSyAPuEE5-kexy5hCWTeaLJVfo6KpD9xPIP4",
@@ -536,29 +518,37 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   const auth = getAuth(app);
   var clientData = null;
 
-  // ZONES DE LIVRAISON
-  var ZONES = {
-    marseille: { label: 'Marseille', frais: 0, gratuitDes: 100, villes: ['marseille','13001','13002','13003','13004','13005','13006','13007','13008','13009','13010','13011','13012','13013','13014','13015','13016'] },
-    aubagne:   { label: 'Aubagne & environs', frais: 14.99, villes: ['aubagne','gemenos','gémenos','roquevaire','la bouilladisse','bouilladisse','cuges','saint-savournin','la penne','penne sur huveaune'] },
-    ciotat:    { label: 'La Ciotat & environs', frais: 19.50, villes: ['la ciotat','ciotat','cassis','carnoux','ceyreste','roquefort-la-bedoule','roquefort la bedoule','bedoule'] },
-    bandol:    { label: 'Bandol & environs', frais: 24.50, villes: ['bandol','sanary','six-fours','six fours','le castellet','castellet','la cadiere','cadière'] },
-    devis:     { label: 'Autre zone', frais: null, villes: [] }
+  // PERSISTANCE CONNEXION — le client reste connecté
+  setPersistence(auth, browserLocalPersistence).catch(function(e){ console.error(e); });
+
+  // ZONES ET FRAIS — livraison gratuite dès 100 kg partout, frais en dessous
+  var FRAIS_ZONES = {
+    marseille: 9.99,
+    aubagne:   14.99,
+    ciotat:    19.50,
+    bandol:    24.50
+  };
+
+  var ZONE_VILLES = {
+    marseille: ['marseille','13001','13002','13003','13004','13005','13006','13007','13008','13009','13010','13011','13012','13013','13014','13015','13016'],
+    aubagne:   ['aubagne','gemenos','gémenos','roquevaire','la bouilladisse','bouilladisse','cuges','saint-savournin','la penne','penne sur huveaune'],
+    ciotat:    ['la ciotat','ciotat','cassis','carnoux','ceyreste','roquefort-la-bedoule','roquefort la bedoule','bedoule'],
+    bandol:    ['bandol','sanary','six-fours','six fours','le castellet','castellet','la cadiere','cadière']
   };
 
   var ZONE_INFOS = {
-    marseille: '📍 <strong>Marseille</strong> — Livraison gratuite dès 100 kg commandés',
-    aubagne:   '📍 <strong>Aubagne, Gémenos, Roquevaire, La Bouilladisse, Cuges-les-Pins, Saint-Savournin, La Penne-sur-Huveaune</strong> — Frais de livraison : <strong>14,99 €</strong>',
-    ciotat:    '📍 <strong>La Ciotat, Cassis, Carnoux-en-Provence, Ceyreste, Roquefort-la-Bédoule</strong> — Frais de livraison : <strong>19,50 €</strong>',
-    bandol:    '📍 <strong>Bandol, Sanary-sur-Mer, Six-Fours-les-Plages, Le Castellet, La Cadière-d\'Azur</strong> — Frais de livraison : <strong>24,50 €</strong>',
-    devis:     '📞 Zone hors secteur — Contactez-nous au <strong>04.84.89.68.02</strong> pour un devis livraison personnalisé.'
+    marseille: '📍 <strong>Marseille</strong> — Livraison gratuite dès 100 kg · En dessous : 9,99 €',
+    aubagne:   '📍 <strong>Aubagne, Gémenos, Roquevaire, La Bouilladisse, Cuges-les-Pins, Saint-Savournin, La Penne-sur-Huveaune</strong> — Livraison gratuite dès 100 kg · En dessous : 14,99 €',
+    ciotat:    '📍 <strong>La Ciotat, Cassis, Carnoux-en-Provence, Ceyreste, Roquefort-la-Bédoule</strong> — Livraison gratuite dès 100 kg · En dessous : 19,50 €',
+    bandol:    '📍 <strong>Bandol, Sanary-sur-Mer, Six-Fours-les-Plages, Le Castellet, La Cadière-d\'Azur</strong> — Livraison gratuite dès 100 kg · En dessous : 24,50 €',
+    devis:     '📞 Zone hors secteur — Contactez-nous au <strong>04.84.89.68.02</strong> pour un devis livraison.'
   };
 
   function detecterZone(adresse) {
     if(!adresse) return '';
     var a = adresse.toLowerCase();
-    for(var z in ZONES) {
-      if(z === 'devis') continue;
-      var villes = ZONES[z].villes;
+    for(var z in ZONE_VILLES) {
+      var villes = ZONE_VILLES[z];
       for(var i=0;i<villes.length;i++) {
         if(a.indexOf(villes[i]) !== -1) return z;
       }
@@ -613,9 +603,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     var prix = getPrixGlacons();
     document.getElementById('pc1-prix').textContent = prix.toFixed(2).replace('.',',') + ' €/kg · carton 12 kg';
     document.getElementById('order-hello').textContent = 'Bonjour ' + (clientData.nom || '') + ' 👋';
-    // Zone livraison : visible seulement pour non-supérettes
     document.getElementById('zone-bloc').style.display = isSuperette() ? 'none' : 'block';
-    // Pré-sélectionner zone selon adresse enregistrée
     if(!isSuperette() && clientData.adresse) {
       var z = detecterZone(clientData.adresse);
       if(z) {
@@ -629,19 +617,15 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   function goOrder(){ if(!clientData){ showScreen('acctreq'); } else { showScreen('order'); } }
   function goHistory(){ if(!clientData){ showScreen('acctreq'); } else { showScreen('history'); } }
 
-  // ZONE SELECT change
+  // ZONE SELECT
   document.getElementById('zone-select').addEventListener('change', function(){
     var z = this.value;
     var info = document.getElementById('zone-info');
-    if(z && ZONE_INFOS[z]) {
-      info.innerHTML = ZONE_INFOS[z];
-      info.classList.add('show');
-    } else {
-      info.classList.remove('show');
-    }
+    if(z && ZONE_INFOS[z]){ info.innerHTML = ZONE_INFOS[z]; info.classList.add('show'); }
+    else { info.classList.remove('show'); }
   });
 
-  // AUTH PERSISTANTE
+  // AUTH PERSISTANTE — le client reste connecté même après fermeture
   onAuthStateChanged(auth, async function(user){
     if(user){
       try {
@@ -678,9 +662,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       }
       showNotif('✅ Connecté ! Bienvenue ' + (clientData?clientData.nom:'') + ' 👋');
       setTimeout(function(){ showScreen('order'); }, 1200);
-    } catch(e){
-      showNotif('❌ Email ou mot de passe incorrect', true);
-    }
+    } catch(e){ showNotif('❌ Email ou mot de passe incorrect', true); }
   });
 
   // MOT DE PASSE OUBLIÉ
@@ -806,22 +788,25 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     var kgPilee = q2*12;
     var totalKg = kgGlacons + kgPilee + q3;
 
-    // Calcul frais livraison
+    // CALCUL LIVRAISON — gratuite dès 100 kg pour TOUTES les zones, frais seulement en dessous
     var fraisLivraison = 0;
     var livraisonLabel = '✅ Gratuite';
+    var livraisonClass = 'rs-val green';
+    var zoneLabel = '';
+
     if(!superette) {
       var zone = document.getElementById('zone-select').value;
       if(!zone){ showNotif('⚠️ Sélectionnez votre zone de livraison', true); return; }
-      if(zone === 'devis'){ showNotif('📞 Contactez-nous pour un devis livraison : 04.84.89.68.02', true); return; }
-      if(zone === 'marseille' && totalKg < 100) {
-        fraisLivraison = 9.99;
-        livraisonLabel = '9,99 € (gratuit dès 100 kg)';
-      } else if(zone === 'marseille' && totalKg >= 100) {
+      if(zone === 'devis'){ showNotif('📞 Contactez-nous pour un devis : 04.84.89.68.02', true); return; }
+      zoneLabel = zone;
+      if(totalKg >= 100) {
         fraisLivraison = 0;
         livraisonLabel = '✅ Gratuite';
+        livraisonClass = 'rs-val green';
       } else {
-        fraisLivraison = ZONES[zone] ? ZONES[zone].frais : 0;
+        fraisLivraison = FRAIS_ZONES[zone] || 0;
         livraisonLabel = fraisLivraison.toFixed(2).replace('.',',') + ' €';
+        livraisonClass = 'rs-val';
       }
     }
 
@@ -835,9 +820,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     document.getElementById('rsItems').innerHTML = html;
     document.getElementById('rht').textContent = ht.toFixed(2)+' €';
     document.getElementById('rtva').textContent = tva.toFixed(2)+' €';
-    document.getElementById('rlivraison').textContent = livraisonLabel;
+    var livrEl = document.getElementById('rlivraison');
+    livrEl.textContent = livraisonLabel.replace('✅ ','');
+    livrEl.className = livraisonClass;
+    if(livraisonLabel.includes('✅')) livrEl.textContent = '✅ Gratuite';
     document.getElementById('rttc').textContent = ttc.toFixed(2)+' €';
-    document.getElementById('recap-note').textContent = 'TVA 5,5% · Livraison sous 24h · Paiement à la livraison (CB, espèces ou virement)';
     document.getElementById('recapOv').classList.add('open');
   });
 
@@ -852,12 +839,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     var prix = getPrixGlacons();
     var totalKg = q1*12 + q2*12 + q3;
     var fraisLivraison = 0;
-    var zoneLabel = 'Marseille';
+    var zoneLabel = 'Supérette';
     if(!superette) {
       var zone = document.getElementById('zone-select').value;
-      if(zone === 'marseille' && totalKg < 100) fraisLivraison = 9.99;
-      else if(zone !== 'marseille' && ZONES[zone]) fraisLivraison = ZONES[zone].frais;
-      zoneLabel = ZONES[zone] ? ZONES[zone].label : zone;
+      zoneLabel = zone;
+      if(totalKg < 100 && FRAIS_ZONES[zone]) fraisLivraison = FRAIS_ZONES[zone];
     }
     var ht = Math.round((q1*12*prix + q2*12*1.10 + q3*6)*100)/100;
     var tva = Math.round(ht*0.055*100)/100;
@@ -866,7 +852,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     if(q1>0) produits.push('Glaçons × '+q1+' cartons ('+q1*12+' kg)');
     if(q2>0) produits.push('Glace pilée × '+q2+' cartons');
     if(q3>0) produits.push('Glace CO₂ × '+q3+' kg');
-    var detail = produits.join('\n')+'\n\nTotal TTC : '+ttc.toFixed(2)+' €\nLivraison : '+zoneLabel+(fraisLivraison>0?' — '+fraisLivraison.toFixed(2)+' €':' — Gratuite');
+    var livrTxt = fraisLivraison > 0 ? fraisLivraison.toFixed(2)+' €' : 'Gratuite';
+    var detail = produits.join('\n')+'\n\nTotal TTC : '+ttc.toFixed(2)+' €\nLivraison : '+livrTxt;
     try {
       await addDoc(collection(db,'commandes'), {
         clientId:clientData?clientData.id:'direct',
@@ -876,9 +863,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         clientTel:clientData?clientData.tel:'',
         clientAdresse:clientData?clientData.adresse:'',
         typeEtab:clientData?clientData.typeEtab:'pro',
-        prixGlacons:prix,
-        fraisLivraison:fraisLivraison,
-        zonelivraison:zoneLabel,
+        prixGlacons:prix, fraisLivraison:fraisLivraison, zonelivraison:zoneLabel,
         produits:produits, htTotal:ht, tvaTotal:tva, ttcTotal:ttc,
         statut:'En attente', dateCommande:serverTimestamp()
       });
@@ -896,23 +881,43 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     showScreen('home');
   });
 
-  // HISTORIQUE
+  // HISTORIQUE — correction index Firestore
   async function loadHistory(){
     var body=document.getElementById('histBody');
     if(!clientData||!clientData.email){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Connectez-vous pour voir votre historique.</div>'; return; }
     body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div>';
     try {
-      var q=query(collection(db,'commandes'),where('clientEmail','==',clientData.email),orderBy('dateCommande','desc'));
-      var snap=await getDocs(q);
+      var q = query(collection(db,'commandes'), where('clientEmail','==',clientData.email), orderBy('dateCommande','desc'));
+      var snap = await getDocs(q);
       if(snap.empty){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Aucune commande pour le moment.</div>'; return; }
       var html='';
-      snap.forEach(function(doc){
-        var d=doc.data();
+      snap.forEach(function(docSnap){
+        var d=docSnap.data();
         var date=d.dateCommande?new Date(d.dateCommande.seconds*1000).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'Date inconnue';
-        html+='<div class="hc"><div class="hc-top"><span class="hc-d">'+date+'</span><span class="hc-s">'+(d.statut||'En attente')+'</span></div><div class="hc-dt">'+(d.produits||[]).join(' · ')+'</div><div class="hc-am">'+d.htTotal.toFixed(2)+' € HT · '+d.ttcTotal.toFixed(2)+' € TTC</div></div>';
+        var ht = typeof d.htTotal === 'number' ? d.htTotal.toFixed(2) : '—';
+        var ttc = typeof d.ttcTotal === 'number' ? d.ttcTotal.toFixed(2) : '—';
+        html+='<div class="hc"><div class="hc-top"><span class="hc-d">'+date+'</span><span class="hc-s">'+(d.statut||'En attente')+'</span></div><div class="hc-dt">'+(d.produits||[]).join(' · ')+'</div><div class="hc-am">'+ht+' € HT · '+ttc+' € TTC</div></div>';
       });
       body.innerHTML=html;
-    } catch(e){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Erreur de chargement.</div>'; }
+    } catch(e){
+      // Si erreur index Firestore, essai sans tri
+      try {
+        var q2 = query(collection(db,'commandes'), where('clientEmail','==',clientData.email));
+        var snap2 = await getDocs(q2);
+        if(snap2.empty){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Aucune commande pour le moment.</div>'; return; }
+        var arr = [];
+        snap2.forEach(function(docSnap){ arr.push(docSnap.data()); });
+        arr.sort(function(a,b){ return (b.dateCommande?b.dateCommande.seconds:0)-(a.dateCommande?a.dateCommande.seconds:0); });
+        var html2='';
+        arr.forEach(function(d){
+          var date=d.dateCommande?new Date(d.dateCommande.seconds*1000).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'Date inconnue';
+          var ht = typeof d.htTotal === 'number' ? d.htTotal.toFixed(2) : '—';
+          var ttc = typeof d.ttcTotal === 'number' ? d.ttcTotal.toFixed(2) : '—';
+          html2+='<div class="hc"><div class="hc-top"><span class="hc-d">'+date+'</span><span class="hc-s">'+(d.statut||'En attente')+'</span></div><div class="hc-dt">'+(d.produits||[]).join(' · ')+'</div><div class="hc-am">'+ht+' € HT · '+ttc+' € TTC</div></div>';
+        });
+        body.innerHTML=html2;
+      } catch(e2){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Erreur de chargement.</div>'; console.error(e2); }
+    }
   }
 
   // EMAILS
@@ -926,9 +931,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Confirmation de commande — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre commande a bien été enregistrée !\n\n'+detail+'\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02'})});
     fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouvelle commande — '+client.etab,text:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse+'\n\n'+detail})});
   }
-
-  document.getElementById('btn-update').addEventListener('click', function(){ document.getElementById('upop').style.display='none'; window.location.reload(); });
-  document.getElementById('btn-later').addEventListener('click', function(){ document.getElementById('upop').style.display='none'; });
 
   if('serviceWorker' in navigator){ window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js'); }); }
 </script>
