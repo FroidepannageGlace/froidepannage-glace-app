@@ -224,7 +224,9 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 .login-sep::before{left:0;}.login-sep::after{right:0;}
 .login-btn{width:100%;padding:14px;font-size:14px;margin-bottom:10px;}
 .login-link{font-size:12px;color:var(--blue);cursor:pointer;font-weight:600;}
-.zone-select{width:100%;background:var(--off);border:1.5px solid rgba(126,200,227,.22);border-radius:13px;padding:11px 13px;font-size:13px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236a8fa8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
+.zone-wrap{position:relative;width:100%;}
+.zone-wrap::after{content:'▼';position:absolute;right:13px;top:50%;transform:translateY(-50%);font-size:9px;color:var(--muted);pointer-events:none;}
+.zone-select{width:100%;background:var(--off);border:1.5px solid rgba(126,200,227,.22);border-radius:13px;padding:11px 36px 11px 13px;font-size:13px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;cursor:pointer;}
 .zone-select:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(126,200,227,.12);}
 .zone-info{background:var(--ice);border:1px solid rgba(126,200,227,.2);border-radius:12px;padding:10px 12px;margin-top:6px;font-size:11px;color:var(--muted);line-height:1.6;display:none;}
 .zone-info.show{display:block;}
@@ -264,7 +266,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <button class="acc-btn" id="acc-c"><span class="acc-lbl"><span class="acc-ico ai-g">📞</span>Contact</span><span class="acc-arr" id="acc-c-arr">▼</span></button>
         <div class="acc-body" id="acc-c-body">
           <div class="ci"><div class="ci-ico">🌐</div><div><div class="ci-l">Site internet</div><div class="ci-v">livraison-glacons-marseille.fr</div></div></div>
-          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v">contact@livraison-glacons-marseille.fr</div></div></div>
+          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9cfff3f2e8fdffe8dcf0f5eaeefdf5eff3f2b1fbf0fdfff3f2efb1f1fdeeeff9f5f0f0f9b2faee">[email&#160;protected]</a></div></div></div>
           <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-l">Téléphone commandes</div><div class="ci-v">04.84.89.68.02</div></div></div>
         </div>
       </div>
@@ -393,14 +395,16 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div id="zone-bloc" style="display:none;">
         <div class="sec-lbl">Zone de livraison</div>
         <div class="fg" style="margin-bottom:14px;">
-          <select class="zone-select" id="zone-select">
-            <option value="">-- Sélectionnez votre zone --</option>
-            <option value="marseille">Marseille — Livraison gratuite dès 100 kg</option>
-            <option value="aubagne">Aubagne &amp; environs — Livraison gratuite dès 100 kg</option>
-            <option value="ciotat">La Ciotat &amp; environs — Livraison gratuite dès 100 kg</option>
-            <option value="bandol">Bandol &amp; environs — Livraison gratuite dès 100 kg</option>
-            <option value="devis">Autre zone — Nous contacter</option>
-          </select>
+          <div class="zone-wrap">
+            <select class="zone-select" id="zone-select">
+              <option value="">-- Sélectionnez votre zone --</option>
+              <option value="marseille">Marseille — Livraison gratuite dès 100 kg</option>
+              <option value="aubagne">Aubagne &amp; environs — Livraison gratuite dès 100 kg</option>
+              <option value="ciotat">La Ciotat &amp; environs — Livraison gratuite dès 100 kg</option>
+              <option value="bandol">Bandol &amp; environs — Livraison gratuite dès 100 kg</option>
+              <option value="devis">Autre zone — Nous contacter</option>
+            </select>
+          </div>
           <div class="zone-info" id="zone-info"></div>
         </div>
       </div>
@@ -498,9 +502,9 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
   <div class="notif" id="notif"></div>
 </div>
 
-<script type="module">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-  import { getFirestore, collection, addDoc, query, where, orderBy, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+  import { getFirestore, collection, addDoc, query, where, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, setPersistence, browserLocalPersistence } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 
   const firebaseConfig = {
@@ -788,6 +792,9 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     var kgPilee = q2*12;
     var totalKg = kgGlacons + kgPilee + q3;
 
+    // MINIMUM 40 KG pour les supérettes
+    if(superette && totalKg < 40){ showNotif('⚠️ Commande minimum 40 kg pour les supérettes (4 cartons)', true); return; }
+
     // CALCUL LIVRAISON — gratuite dès 100 kg pour TOUTES les zones, frais seulement en dessous
     var fraisLivraison = 0;
     var livraisonLabel = '✅ Gratuite';
@@ -830,8 +837,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 
   document.getElementById('btn-cancel-recap').addEventListener('click', function(){ document.getElementById('recapOv').classList.remove('open'); });
 
-  // VALIDER COMMANDE
+  // VALIDER COMMANDE — protection anti double-clic
+  var isSubmitting = false;
   document.getElementById('btn-validate-order').addEventListener('click', async function(){
+    if(isSubmitting) return;
+    isSubmitting = true;
+    var btnVal = document.getElementById('btn-validate-order');
+    btnVal.textContent = '⏳ Envoi en cours...';
+    btnVal.disabled = true;
     var q1=parseInt(document.getElementById('q1').textContent)||0;
     var q2=parseInt(document.getElementById('q2').textContent)||0;
     var q3=parseInt(document.getElementById('q3').textContent)||0;
@@ -872,6 +885,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       document.getElementById('succOv').classList.add('open');
       if(clientData&&clientData.email) envoyerEmailCommande(clientData, detail, ttc.toFixed(2)+' €');
     } catch(e){ showNotif('❌ Erreur lors de l\'enregistrement', true); console.error(e); }
+    finally {
+      isSubmitting = false;
+      btnVal.textContent = '✓ Valider ma commande';
+      btnVal.disabled = false;
+    }
   });
 
   document.getElementById('btn-back-home').addEventListener('click', function(){
@@ -881,43 +899,27 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     showScreen('home');
   });
 
-  // HISTORIQUE — correction index Firestore
+  // HISTORIQUE — compatible Android Chrome, tri JS côté client
   async function loadHistory(){
     var body=document.getElementById('histBody');
     if(!clientData||!clientData.email){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Connectez-vous pour voir votre historique.</div>'; return; }
     body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div>';
     try {
-      var q = query(collection(db,'commandes'), where('clientEmail','==',clientData.email), orderBy('dateCommande','desc'));
+      var q = query(collection(db,'commandes'), where('clientEmail','==',clientData.email));
       var snap = await getDocs(q);
       if(snap.empty){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Aucune commande pour le moment.</div>'; return; }
+      var arr = [];
+      snap.forEach(function(docSnap){ arr.push(docSnap.data()); });
+      arr.sort(function(a,b){ return (b.dateCommande?b.dateCommande.seconds:0)-(a.dateCommande?a.dateCommande.seconds:0); });
       var html='';
-      snap.forEach(function(docSnap){
-        var d=docSnap.data();
+      arr.forEach(function(d){
         var date=d.dateCommande?new Date(d.dateCommande.seconds*1000).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'Date inconnue';
         var ht = typeof d.htTotal === 'number' ? d.htTotal.toFixed(2) : '—';
         var ttc = typeof d.ttcTotal === 'number' ? d.ttcTotal.toFixed(2) : '—';
         html+='<div class="hc"><div class="hc-top"><span class="hc-d">'+date+'</span><span class="hc-s">'+(d.statut||'En attente')+'</span></div><div class="hc-dt">'+(d.produits||[]).join(' · ')+'</div><div class="hc-am">'+ht+' € HT · '+ttc+' € TTC</div></div>';
       });
       body.innerHTML=html;
-    } catch(e){
-      // Si erreur index Firestore, essai sans tri
-      try {
-        var q2 = query(collection(db,'commandes'), where('clientEmail','==',clientData.email));
-        var snap2 = await getDocs(q2);
-        if(snap2.empty){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Aucune commande pour le moment.</div>'; return; }
-        var arr = [];
-        snap2.forEach(function(docSnap){ arr.push(docSnap.data()); });
-        arr.sort(function(a,b){ return (b.dateCommande?b.dateCommande.seconds:0)-(a.dateCommande?a.dateCommande.seconds:0); });
-        var html2='';
-        arr.forEach(function(d){
-          var date=d.dateCommande?new Date(d.dateCommande.seconds*1000).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'Date inconnue';
-          var ht = typeof d.htTotal === 'number' ? d.htTotal.toFixed(2) : '—';
-          var ttc = typeof d.ttcTotal === 'number' ? d.ttcTotal.toFixed(2) : '—';
-          html2+='<div class="hc"><div class="hc-top"><span class="hc-d">'+date+'</span><span class="hc-s">'+(d.statut||'En attente')+'</span></div><div class="hc-dt">'+(d.produits||[]).join(' · ')+'</div><div class="hc-am">'+ht+' € HT · '+ttc+' € TTC</div></div>';
-        });
-        body.innerHTML=html2;
-      } catch(e2){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Erreur de chargement.</div>'; console.error(e2); }
-    }
+    } catch(e){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Erreur de chargement. Vérifiez votre connexion.</div>'; console.error(e); }
   }
 
   // EMAILS
@@ -929,10 +931,4 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 
   function envoyerEmailCommande(client,detail,ttc){
     fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Confirmation de commande — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre commande a bien été enregistrée !\n\n'+detail+'\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02'})});
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouvelle commande — '+client.etab,text:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse+'\n\n'+detail})});
-  }
-
-  if('serviceWorker' in navigator){ window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js'); }); }
-</script>
-</body>
-</html>
+    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouvelle commande — '+client.etab,text:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+clie
