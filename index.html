@@ -206,7 +206,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 .notif{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#1a7a4a;color:#fff;padding:10px 20px;border-radius:100px;font-size:12px;font-weight:600;z-index:999;display:none;animation:slideUp .3s ease-out;white-space:nowrap;}
 .notif.show{display:block;}
 .notif.err{background:#c0392b;}
-/* NOUVEAUX STYLES */
 .type-select{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px;}
 .type-card{background:var(--off);border:2px solid rgba(126,200,227,.22);border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;}
 .type-card.sel{border-color:var(--blue);background:var(--ice);}
@@ -235,17 +234,12 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
 </head>
 <body>
 <div class="app">
-  <div class="status">
-    <span class="st-t" id="clock">9:41</span>
-    <span class="st-i">●●● WiFi 🔋</span>
-  </div>
+  <div class="status"><span class="st-t" id="clock">9:41</span><span class="st-i">●●● WiFi 🔋</span></div>
   <div class="topnav">
     <div class="tn-logo">Froidepannage <em>"Glace"</em></div>
     <div class="tn-r">
       <div class="tn-bell">🔔</div>
-      <div class="hbg" id="hamburgerBtn">
-        <div class="hb"></div><div class="hb"></div><div class="hb"></div>
-      </div>
+      <div class="hbg" id="hamburgerBtn"><div class="hb"></div><div class="hb"></div><div class="hb"></div></div>
     </div>
   </div>
   <div class="mbg" id="menuBg">
@@ -266,7 +260,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
         <button class="acc-btn" id="acc-c"><span class="acc-lbl"><span class="acc-ico ai-g">📞</span>Contact</span><span class="acc-arr" id="acc-c-arr">▼</span></button>
         <div class="acc-body" id="acc-c-body">
           <div class="ci"><div class="ci-ico">🌐</div><div><div class="ci-l">Site internet</div><div class="ci-v">livraison-glacons-marseille.fr</div></div></div>
-          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1b7874756f7a786f5b77726d697a72687475367c777a7874756836767a69687e7277777e357d69">[email&#160;protected]</a></div></div></div>
+          <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v">contact@livraison-glacons-marseille.fr</div></div></div>
           <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-l">Téléphone commandes</div><div class="ci-v">04.84.89.68.02</div></div></div>
         </div>
       </div>
@@ -299,8 +293,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     <div class="bn" id="bn-signup"><div class="bn-i">👤</div><div class="bn-l">Mon compte</div></div>
     <div class="bn" id="bn-history"><div class="bn-i">📋</div><div class="bn-l">Historique</div></div>
   </div>
-
-  <!-- ACCUEIL — mot pour mot original -->
   <div class="scr" id="s-home" style="order:2;">
     <div class="hero-bg">
       <div class="hero-tag">✦ Livraison glaçons disponible</div>
@@ -350,8 +342,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div class="info-card"><div class="ic-ico">🤝</div><div><div class="ic-t">Partenariat annuel</div><div class="ic-s">Tarifs préférentiels toute l'année — contactez-nous pour un devis sur mesure</div></div></div>
     </div>
   </div>
-
-  <!-- CONNEXION -->
   <div class="scr hide" id="s-acctreq" style="order:2;">
     <div class="login-wrap">
       <div class="login-ico">🔐</div>
@@ -367,8 +357,6 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       </div>
     </div>
   </div>
-
-  <!-- COMMANDE -->
   <div class="scr hide" id="s-order" style="order:2;">
     <div class="order-h">
       <div class="oh-g" id="order-hello">Bonjour 👋</div>
@@ -378,20 +366,10 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
     <div class="order-body">
       <div class="sec-lbl">Choisissez vos produits</div>
       <div class="pcs">
-        <div class="pc" id="pc1">
-          <div class="pcl"><div class="pc-ico">🧊</div><div><div class="pcn">Glaçons</div><div class="pcp" id="pc1-prix">0,95 €/kg · carton 12 kg</div></div></div>
-          <div class="qc"><button class="qbtn" id="q1-minus">−</button><span class="qnum" id="q1">0</span><button class="qbtn" id="q1-plus">+</button></div>
-        </div>
-        <div class="pc" id="pc2">
-          <div class="pcl"><div class="pc-ico">❄️</div><div><div class="pcn">Glace pilée</div><div class="pcp">1,10 €/kg · carton 12 kg</div></div></div>
-          <div class="qc"><button class="qbtn" id="q2-minus">−</button><span class="qnum" id="q2">0</span><button class="qbtn" id="q2-plus">+</button></div>
-        </div>
-        <div class="pc" id="pc3">
-          <div class="pcl"><div class="pc-ico">💨</div><div><div class="pcn">Glace CO₂</div><div class="pcp">6,00 €/kg · sur devis</div></div></div>
-          <div class="qc"><button class="qbtn" id="q3-minus">−</button><span class="qnum" id="q3">0</span><button class="qbtn" id="q3-plus">+</button></div>
-        </div>
+        <div class="pc" id="pc1"><div class="pcl"><div class="pc-ico">🧊</div><div><div class="pcn">Glaçons</div><div class="pcp" id="pc1-prix">0,95 €/kg · carton 12 kg</div></div></div><div class="qc"><button class="qbtn" id="q1-minus">−</button><span class="qnum" id="q1">0</span><button class="qbtn" id="q1-plus">+</button></div></div>
+        <div class="pc" id="pc2"><div class="pcl"><div class="pc-ico">❄️</div><div><div class="pcn">Glace pilée</div><div class="pcp">1,10 €/kg · carton 12 kg</div></div></div><div class="qc"><button class="qbtn" id="q2-minus">−</button><span class="qnum" id="q2">0</span><button class="qbtn" id="q2-plus">+</button></div></div>
+        <div class="pc" id="pc3"><div class="pcl"><div class="pc-ico">💨</div><div><div class="pcn">Glace CO₂</div><div class="pcp">6,00 €/kg · sur devis</div></div></div><div class="qc"><button class="qbtn" id="q3-minus">−</button><span class="qnum" id="q3">0</span><button class="qbtn" id="q3-plus">+</button></div></div>
       </div>
-      <!-- ZONE — uniquement pour non-supérettes -->
       <div id="zone-bloc" style="display:none;">
         <div class="sec-lbl">Zone de livraison</div>
         <div class="fg" style="margin-bottom:14px;">
@@ -433,15 +411,10 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div class="s-ico">🧊</div>
       <div class="s-title">Commande confirmée !</div>
       <div class="s-sub">Merci pour votre confiance.<br>Livraison sous 24h · Notre équipe prend en charge votre commande.</div>
-      <div class="s-email">
-        <div class="se-l">📧 Récapitulatif de votre commande</div>
-        <div class="se-v" id="succDetail"></div>
-      </div>
+      <div class="s-email"><div class="se-l">📧 Récapitulatif de votre commande</div><div class="se-v" id="succDetail"></div></div>
       <button class="btn-ice s-back" id="btn-back-home" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">🏠 Retour à l'accueil</button>
     </div>
   </div>
-
-  <!-- CREATION COMPTE -->
   <div class="scr hide" id="s-signup" style="order:2;">
     <div class="sh-wrap">
       <div class="sh-tag">✦ Rejoignez-nous</div>
@@ -452,16 +425,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div class="fg">
         <label class="fl">Type d'établissement <span class="req">*</span></label>
         <div class="type-select">
-          <div class="type-card" id="type-superette" onclick="selectType('superette')">
-            <div class="type-card-ico">🛒</div>
-            <div class="type-card-t">Supérette</div>
-            <div class="type-card-d">Alimentation, épicerie, vival, spar...</div>
-          </div>
-          <div class="type-card" id="type-pro" onclick="selectType('pro')">
-            <div class="type-card-ico">🍸</div>
-            <div class="type-card-t">Bar / Resto / Hôtel</div>
-            <div class="type-card-d">Bar, restaurant, hôtel, événementiel...</div>
-          </div>
+          <div class="type-card" id="type-superette" onclick="selectType('superette')"><div class="type-card-ico">🛒</div><div class="type-card-t">Supérette</div><div class="type-card-d">Alimentation, épicerie, vival, spar...</div></div>
+          <div class="type-card" id="type-pro" onclick="selectType('pro')"><div class="type-card-ico">🍸</div><div class="type-card-t">Bar / Resto / Hôtel</div><div class="type-card-d">Bar, restaurant, hôtel, événementiel...</div></div>
         </div>
       </div>
       <div class="fg"><label class="fl">Nom gérant / responsable <span class="req">*</span></label><input class="fi" id="nom" placeholder="Jean Dupont"></div>
@@ -473,10 +438,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div class="fg"><label class="fl">Adresse de livraison <span class="req">*</span></label><input class="fi" id="adresse-input" placeholder="36 rue Canebière, 13001 Marseille"></div>
       <div class="fg">
         <label class="fl">Position GPS exacte</label>
-        <div class="gr">
-          <input class="gi" id="geoIn" placeholder="Appuyez pour me localiser" readonly>
-          <button class="btn-ice" id="geoBtn" style="padding:11px 14px;font-size:12px;border-radius:13px;color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">📍 Me localiser</button>
-        </div>
+        <div class="gr"><input class="gi" id="geoIn" placeholder="Appuyez pour me localiser" readonly><button class="btn-ice" id="geoBtn" style="padding:11px 14px;font-size:12px;border-radius:13px;color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;">📍 Me localiser</button></div>
       </div>
       <div class="fg">
         <label class="fl">N° TVA intracommunautaire <span class="opt">(optionnel)</span></label>
@@ -487,448 +449,70 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0d3d5e;}
       <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--muted);">Déjà un compte ? <span style="color:var(--blue);cursor:pointer;font-weight:600;" id="btn-goto-login">Se connecter</span></div>
     </div>
   </div>
-
-  <!-- HISTORIQUE — mot pour mot original -->
   <div class="scr hide" id="s-history" style="order:2;">
-    <div class="hh">
-      <div class="hh-t">Mes commandes</div>
-      <div class="hh-s">Historique de vos livraisons</div>
-    </div>
-    <div class="hist-body" id="histBody">
-      <div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div>
-    </div>
+    <div class="hh"><div class="hh-t">Mes commandes</div><div class="hh-s">Historique de vos livraisons</div></div>
+    <div class="hist-body" id="histBody"><div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div></div>
   </div>
-
   <div class="notif" id="notif"></div>
 </div>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
+<script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
   import { getFirestore, collection, addDoc, query, where, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, setPersistence, browserLocalPersistence } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAPuEE5-kexy5hCWTeaLJVfo6KpD9xPIP4",
-    authDomain: "froidepannageglace.firebaseapp.com",
-    projectId: "froidepannageglace",
-    storageBucket: "froidepannageglace.firebasestorage.app",
-    messagingSenderId: "1079224113581",
-    appId: "1:1079224113581:web:fa3b0109de0fbfe0d8e924",
-    measurementId: "G-H9J4L1B8HT"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const auth = getAuth(app);
-  var clientData = null;
-
-  // PERSISTANCE CONNEXION — le client reste connecté
-  setPersistence(auth, browserLocalPersistence).catch(function(e){ console.error(e); });
-
-  // ZONES ET FRAIS — livraison gratuite dès 100 kg partout, frais en dessous
-  var FRAIS_ZONES = {
-    marseille: 9.99,
-    aubagne:   14.99,
-    ciotat:    19.50,
-    bandol:    24.50
-  };
-
-  var ZONE_VILLES = {
-    marseille: ['marseille','13001','13002','13003','13004','13005','13006','13007','13008','13009','13010','13011','13012','13013','13014','13015','13016'],
-    aubagne:   ['aubagne','gemenos','gémenos','roquevaire','la bouilladisse','bouilladisse','cuges','saint-savournin','la penne','penne sur huveaune'],
-    ciotat:    ['la ciotat','ciotat','cassis','carnoux','ceyreste','roquefort-la-bedoule','roquefort la bedoule','bedoule'],
-    bandol:    ['bandol','sanary','six-fours','six fours','le castellet','castellet','la cadiere','cadière']
-  };
-
-  var ZONE_INFOS = {
-    marseille: '📍 <strong>Marseille</strong> — Livraison gratuite dès 100 kg · En dessous : 9,99 €',
-    aubagne:   '📍 <strong>Aubagne, Gémenos, Roquevaire, La Bouilladisse, Cuges-les-Pins, Saint-Savournin, La Penne-sur-Huveaune</strong> — Livraison gratuite dès 100 kg · En dessous : 14,99 €',
-    ciotat:    '📍 <strong>La Ciotat, Cassis, Carnoux-en-Provence, Ceyreste, Roquefort-la-Bédoule</strong> — Livraison gratuite dès 100 kg · En dessous : 19,50 €',
-    bandol:    '📍 <strong>Bandol, Sanary-sur-Mer, Six-Fours-les-Plages, Le Castellet, La Cadière-d\'Azur</strong> — Livraison gratuite dès 100 kg · En dessous : 24,50 €',
-    devis:     '📞 Zone hors secteur — Contactez-nous au <strong>04.84.89.68.02</strong> pour un devis livraison.'
-  };
-
-  function detecterZone(adresse) {
-    if(!adresse) return '';
-    var a = adresse.toLowerCase();
-    for(var z in ZONE_VILLES) {
-      var villes = ZONE_VILLES[z];
-      for(var i=0;i<villes.length;i++) {
-        if(a.indexOf(villes[i]) !== -1) return z;
-      }
-    }
-    return '';
-  }
-
-  function getPrixGlacons() { return clientData && clientData.typeEtab === 'superette' ? 0.75 : 0.95; }
-  function isSuperette() { return clientData && clientData.typeEtab === 'superette'; }
-
-  function showNotif(msg, isErr) {
-    var n = document.getElementById('notif');
-    n.textContent = msg;
-    n.className = 'notif show' + (isErr ? ' err' : '');
-    setTimeout(function(){ n.className = 'notif'; }, 3000);
-  }
-
-  function updateClock(){
-    var now = new Date();
-    var h = now.getHours().toString().padStart(2,'0');
-    var m = now.getMinutes().toString().padStart(2,'0');
-    var el = document.getElementById('clock');
-    if(el) el.textContent = h+':'+m;
-  }
-  updateClock();
-  setInterval(updateClock, 30000);
-
-  function showScreen(id){
-    var all = ['home','order','signup','history','acctreq'];
-    for(var i=0;i<all.length;i++){
-      var el = document.getElementById('s-'+all[i]);
-      if(el){ el.classList.toggle('hide', all[i]!==id); }
-    }
-    var navMap = ['home','order','signup','history'];
-    for(var j=0;j<navMap.length;j++){
-      var bn = document.getElementById('bn-'+navMap[j]);
-      if(!bn) continue;
-      bn.classList.toggle('on', navMap[j]===id);
-      var dot = bn.querySelector('.bn-dot');
-      if(dot) dot.parentNode.removeChild(dot);
-      if(navMap[j]===id){
-        var d = document.createElement('div');
-        d.className = 'bn-dot';
-        bn.appendChild(d);
-      }
-    }
-    if(id === 'history' && clientData) loadHistory();
-    if(id === 'order' && clientData) setupOrderScreen();
-  }
-
-  function setupOrderScreen() {
-    var prix = getPrixGlacons();
-    document.getElementById('pc1-prix').textContent = prix.toFixed(2).replace('.',',') + ' €/kg · carton 12 kg';
-    document.getElementById('order-hello').textContent = 'Bonjour ' + (clientData.nom || '') + ' 👋';
-    document.getElementById('zone-bloc').style.display = isSuperette() ? 'none' : 'block';
-    if(!isSuperette() && clientData.adresse) {
-      var z = detecterZone(clientData.adresse);
-      if(z) {
-        document.getElementById('zone-select').value = z;
-        document.getElementById('zone-info').innerHTML = ZONE_INFOS[z];
-        document.getElementById('zone-info').classList.add('show');
-      }
-    }
-  }
-
-  function goOrder(){ if(!clientData){ showScreen('acctreq'); } else { showScreen('order'); } }
-  function goHistory(){ if(!clientData){ showScreen('acctreq'); } else { showScreen('history'); } }
-
-  // ZONE SELECT
-  document.getElementById('zone-select').addEventListener('change', function(){
-    var z = this.value;
-    var info = document.getElementById('zone-info');
-    if(z && ZONE_INFOS[z]){ info.innerHTML = ZONE_INFOS[z]; info.classList.add('show'); }
-    else { info.classList.remove('show'); }
-  });
-
-  // AUTH PERSISTANTE — le client reste connecté même après fermeture
-  onAuthStateChanged(auth, async function(user){
-    if(user){
-      try {
-        var snap = await getDocs(query(collection(db,'clients'), where('uid','==',user.uid)));
-        if(!snap.empty){
-          var d = snap.docs[0].data();
-          clientData = { id:snap.docs[0].id, nom:d.nom, etab:d.etablissement, tel:d.telephone, email:d.email, adresse:d.adresse, typeEtab:d.typeEtab||'pro' };
-        }
-      } catch(e){ console.error(e); }
-    } else { clientData = null; }
-  });
-
-  // NAVIGATION
-  document.getElementById('bn-home').addEventListener('click', function(){ showScreen('home'); });
-  document.getElementById('bn-order').addEventListener('click', function(){ goOrder(); });
-  document.getElementById('bn-signup').addEventListener('click', function(){ showScreen('signup'); });
-  document.getElementById('bn-history').addEventListener('click', function(){ goHistory(); });
-  document.getElementById('btn-commander-home').addEventListener('click', function(){ goOrder(); });
-  document.getElementById('btn-urgence').addEventListener('click', function(){ window.location.href='tel:0484896802'; });
-  document.getElementById('btn-goto-signup').addEventListener('click', function(){ showScreen('signup'); });
-  document.getElementById('btn-goto-login').addEventListener('click', function(){ showScreen('acctreq'); });
-
-  // CONNEXION
-  document.getElementById('btn-login').addEventListener('click', async function(){
-    var email = document.getElementById('login-email').value.trim();
-    var password = document.getElementById('login-password').value;
-    if(!email||!password){ showNotif('⚠️ Veuillez remplir tous les champs obligatoires', true); return; }
-    try {
-      var cred = await signInWithEmailAndPassword(auth, email, password);
-      var snap = await getDocs(query(collection(db,'clients'), where('uid','==',cred.user.uid)));
-      if(!snap.empty){
-        var d = snap.docs[0].data();
-        clientData = { id:snap.docs[0].id, nom:d.nom, etab:d.etablissement, tel:d.telephone, email:d.email, adresse:d.adresse, typeEtab:d.typeEtab||'pro' };
-      }
-      showNotif('✅ Connecté ! Bienvenue ' + (clientData?clientData.nom:'') + ' 👋');
-      setTimeout(function(){ showScreen('order'); }, 1200);
-    } catch(e){ showNotif('❌ Email ou mot de passe incorrect', true); }
-  });
-
-  // MOT DE PASSE OUBLIÉ
-  document.getElementById('btn-forgot-pw').addEventListener('click', async function(){
-    var email = document.getElementById('login-email').value.trim();
-    if(!email){ showNotif('⚠️ Entrez votre email d\'abord', true); return; }
-    try { await sendPasswordResetEmail(auth, email); showNotif('📧 Email de réinitialisation envoyé !'); }
-    catch(e){ showNotif('❌ Email introuvable', true); }
-  });
-
-  // TYPE ETABLISSEMENT
-  var selectedType = null;
-  window.selectType = function(type){
-    selectedType = type;
-    document.getElementById('type-superette').classList.toggle('sel', type==='superette');
-    document.getElementById('type-pro').classList.toggle('sel', type==='pro');
-  };
-
-  // GEOLOCALISATION
-  document.getElementById('geoBtn').addEventListener('click', function(){
-    var btn = this; btn.textContent = '...';
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(
-        function(pos){ document.getElementById('geoIn').value = pos.coords.latitude.toFixed(4)+', '+pos.coords.longitude.toFixed(4); btn.textContent='✓ Localisé'; },
-        function(){ document.getElementById('geoIn').value='43.2965, 5.3698'; btn.textContent='✓ Ok'; }
-      );
-    } else { document.getElementById('geoIn').value='43.2965, 5.3698'; btn.textContent='✓ Ok'; }
-  });
-
-  // CREATION COMPTE
-  document.getElementById('btn-create-account').addEventListener('click', async function(){
-    if(!selectedType){ showNotif('⚠️ Choisissez le type d\'établissement', true); return; }
-    var nom = document.getElementById('nom').value.trim();
-    var etab = document.getElementById('etab').value.trim();
-    var tel = document.getElementById('tel-input').value.trim();
-    var email = document.getElementById('email-input').value.trim();
-    var password = document.getElementById('password-input').value;
-    var passwordConfirm = document.getElementById('password-confirm').value;
-    var adresse = document.getElementById('adresse-input').value.trim();
-    var tva = document.getElementById('tva-input').value.trim();
-    if(!nom||!etab||!tel||!email||!password||!adresse){ showNotif('⚠️ Veuillez remplir tous les champs obligatoires', true); return; }
-    if(password.length < 6){ showNotif('⚠️ Mot de passe minimum 6 caractères', true); return; }
-    if(password !== passwordConfirm){ showNotif('⚠️ Les mots de passe ne correspondent pas', true); return; }
-    try {
-      var cred = await createUserWithEmailAndPassword(auth, email, password);
-      var docRef = await addDoc(collection(db, 'clients'), {
-        uid:cred.user.uid, nom:nom, etablissement:etab, telephone:tel, email:email,
-        adresse:adresse, tva:tva, typeEtab:selectedType,
-        gps:document.getElementById('geoIn').value, dateCreation:serverTimestamp()
-      });
-      clientData = { id:docRef.id, nom:nom, etab:etab, tel:tel, email:email, adresse:adresse, typeEtab:selectedType };
-      showNotif('✅ Compte créé avec succès !');
-      envoyerEmailBienvenue(clientData);
-      setTimeout(function(){ showScreen('order'); }, 1500);
-    } catch(e){
-      if(e.code==='auth/email-already-in-use'){ showNotif('❌ Cet email est déjà utilisé', true); }
-      else { showNotif('❌ Erreur lors de la création du compte', true); console.error(e); }
-    }
-  });
-
-  // MENU
-  var menuBg = document.getElementById('menuBg');
-  var menuPanel = document.getElementById('menuPanel');
-  document.getElementById('hamburgerBtn').addEventListener('click', function(e){ e.stopPropagation(); menuBg.classList.add('open'); });
-  document.getElementById('menuClose').addEventListener('click', function(){ menuBg.classList.remove('open'); });
-  menuBg.addEventListener('click', function(e){ if(e.target===menuBg){ menuBg.classList.remove('open'); } });
-  menuPanel.addEventListener('click', function(e){ e.stopPropagation(); });
-
-  // ACCORDEONS
-  function setupAccordion(btnId, bodyId, arrId){
-    document.getElementById(btnId).addEventListener('click', function(){
-      var body=document.getElementById(bodyId), arr=document.getElementById(arrId);
-      var isOpen=body.classList.contains('open');
-      body.classList.toggle('open',!isOpen); arr.classList.toggle('open',!isOpen);
-    });
-  }
-  setupAccordion('acc-p','acc-p-body','acc-p-arr');
-  setupAccordion('acc-c','acc-c-body','acc-c-arr');
-  setupAccordion('acc-q','acc-q-body','acc-q-arr');
-  setupAccordion('acc-g','acc-g-body','acc-g-arr');
-
-  for(var n=1;n<=8;n++){
-    (function(num){
-      var hd=document.getElementById('cgv'+num+'-hd');
-      if(hd) hd.addEventListener('click', function(){
-        var b=document.getElementById('cgv'+num), a=document.getElementById('cgv'+num+'-arr');
-        var open=b.classList.toggle('open');
-        if(a) a.textContent=open?'▲':'▼';
-      });
-    })(n);
-  }
-
-  // QUANTITES
-  function setupQty(plusId, minusId, spanId, pcId){
-    document.getElementById(plusId).addEventListener('click', function(e){
-      e.preventDefault(); e.stopPropagation();
-      var span=document.getElementById(spanId);
-      span.textContent=(parseInt(span.textContent)||0)+1;
-      document.getElementById(pcId).classList.add('sel');
-    });
-    document.getElementById(minusId).addEventListener('click', function(e){
-      e.preventDefault(); e.stopPropagation();
-      var span=document.getElementById(spanId), v=parseInt(span.textContent)||0;
-      if(v>0) v--;
-      span.textContent=v;
-      if(v===0) document.getElementById(pcId).classList.remove('sel');
-    });
-  }
-  setupQty('q1-plus','q1-minus','q1','pc1');
-  setupQty('q2-plus','q2-minus','q2','pc2');
-  setupQty('q3-plus','q3-minus','q3','pc3');
-
-  // CONFIRMER COMMANDE
-  document.getElementById('btn-confirm-order').addEventListener('click', function(){
-    var q1=parseInt(document.getElementById('q1').textContent)||0;
-    var q2=parseInt(document.getElementById('q2').textContent)||0;
-    var q3=parseInt(document.getElementById('q3').textContent)||0;
-    if(q1===0&&q2===0&&q3===0){ showNotif('⚠️ Sélectionnez au moins un produit', true); return; }
-
-    var superette = isSuperette();
-    var prix = getPrixGlacons();
-    var kgGlacons = q1*12;
-    var kgPilee = q2*12;
-    var totalKg = kgGlacons + kgPilee + q3;
-
-    // MINIMUM 40 KG pour les supérettes
-    if(superette && totalKg < 40){ showNotif('⚠️ Commande minimum 40 kg pour les supérettes (4 cartons)', true); return; }
-
-    // CALCUL LIVRAISON — gratuite dès 100 kg pour TOUTES les zones, frais seulement en dessous
-    var fraisLivraison = 0;
-    var livraisonLabel = '✅ Gratuite';
-    var livraisonClass = 'rs-val green';
-    var zoneLabel = '';
-
-    if(!superette) {
-      var zone = document.getElementById('zone-select').value;
-      if(!zone){ showNotif('⚠️ Sélectionnez votre zone de livraison', true); return; }
-      if(zone === 'devis'){ showNotif('📞 Contactez-nous pour un devis : 04.84.89.68.02', true); return; }
-      zoneLabel = zone;
-      if(totalKg >= 100) {
-        fraisLivraison = 0;
-        livraisonLabel = '✅ Gratuite';
-        livraisonClass = 'rs-val green';
-      } else {
-        fraisLivraison = FRAIS_ZONES[zone] || 0;
-        livraisonLabel = fraisLivraison.toFixed(2).replace('.',',') + ' €';
-        livraisonClass = 'rs-val';
-      }
-    }
-
-    var ht = Math.round((q1*12*prix + q2*12*1.10 + q3*6)*100)/100;
-    var tva = Math.round(ht*0.055*100)/100;
-    var ttc = Math.round((ht + tva + fraisLivraison)*100)/100;
-    var html = '';
-    if(q1>0) html+='<div class="rs-row"><span class="rs-lbl">Glaçons × '+q1+' carton'+(q1>1?'s':'')+' ('+kgGlacons+' kg)</span><span class="rs-val">'+(Math.round(q1*12*prix*100)/100).toFixed(2)+' €</span></div>';
-    if(q2>0) html+='<div class="rs-row"><span class="rs-lbl">Glace pilée × '+q2+' carton'+(q2>1?'s':'')+' ('+kgPilee+' kg)</span><span class="rs-val">'+(Math.round(q2*12*1.10*100)/100).toFixed(2)+' €</span></div>';
-    if(q3>0) html+='<div class="rs-row"><span class="rs-lbl">Glace CO₂ × '+q3+' kg</span><span class="rs-val">'+(Math.round(q3*6*100)/100).toFixed(2)+' €</span></div>';
-    document.getElementById('rsItems').innerHTML = html;
-    document.getElementById('rht').textContent = ht.toFixed(2)+' €';
-    document.getElementById('rtva').textContent = tva.toFixed(2)+' €';
-    var livrEl = document.getElementById('rlivraison');
-    livrEl.textContent = livraisonLabel.replace('✅ ','');
-    livrEl.className = livraisonClass;
-    if(livraisonLabel.includes('✅')) livrEl.textContent = '✅ Gratuite';
-    document.getElementById('rttc').textContent = ttc.toFixed(2)+' €';
-    document.getElementById('recapOv').classList.add('open');
-  });
-
-  document.getElementById('btn-cancel-recap').addEventListener('click', function(){ document.getElementById('recapOv').classList.remove('open'); });
-
-  // VALIDER COMMANDE — protection anti double-clic
-  var isSubmitting = false;
-  document.getElementById('btn-validate-order').addEventListener('click', async function(){
-    if(isSubmitting) return;
-    isSubmitting = true;
-    var btnVal = document.getElementById('btn-validate-order');
-    btnVal.textContent = '⏳ Envoi en cours...';
-    btnVal.disabled = true;
-    var q1=parseInt(document.getElementById('q1').textContent)||0;
-    var q2=parseInt(document.getElementById('q2').textContent)||0;
-    var q3=parseInt(document.getElementById('q3').textContent)||0;
-    var superette = isSuperette();
-    var prix = getPrixGlacons();
-    var totalKg = q1*12 + q2*12 + q3;
-    var fraisLivraison = 0;
-    var zoneLabel = 'Supérette';
-    if(!superette) {
-      var zone = document.getElementById('zone-select').value;
-      zoneLabel = zone;
-      if(totalKg < 100 && FRAIS_ZONES[zone]) fraisLivraison = FRAIS_ZONES[zone];
-    }
-    var ht = Math.round((q1*12*prix + q2*12*1.10 + q3*6)*100)/100;
-    var tva = Math.round(ht*0.055*100)/100;
-    var ttc = Math.round((ht + tva + fraisLivraison)*100)/100;
-    var produits = [];
-    if(q1>0) produits.push('Glaçons × '+q1+' cartons ('+q1*12+' kg)');
-    if(q2>0) produits.push('Glace pilée × '+q2+' cartons');
-    if(q3>0) produits.push('Glace CO₂ × '+q3+' kg');
-    var livrTxt = fraisLivraison > 0 ? fraisLivraison.toFixed(2)+' €' : 'Gratuite';
-    var detail = produits.join('\n')+'\n\nTotal TTC : '+ttc.toFixed(2)+' €\nLivraison : '+livrTxt;
-    try {
-      await addDoc(collection(db,'commandes'), {
-        clientId:clientData?clientData.id:'direct',
-        clientNom:clientData?clientData.nom:'',
-        clientEtab:clientData?clientData.etab:'',
-        clientEmail:clientData?clientData.email:'',
-        clientTel:clientData?clientData.tel:'',
-        clientAdresse:clientData?clientData.adresse:'',
-        typeEtab:clientData?clientData.typeEtab:'pro',
-        prixGlacons:prix, fraisLivraison:fraisLivraison, zonelivraison:zoneLabel,
-        produits:produits, htTotal:ht, tvaTotal:tva, ttcTotal:ttc,
-        statut:'En attente', dateCommande:serverTimestamp()
-      });
-      document.getElementById('succDetail').innerHTML = produits.join('<br>')+'<br><br><strong>Total TTC : '+ttc.toFixed(2)+' €</strong>';
-      document.getElementById('recapOv').classList.remove('open');
-      document.getElementById('succOv').classList.add('open');
-      if(clientData&&clientData.email) envoyerEmailCommande(clientData, detail, ttc.toFixed(2)+' €');
-    } catch(e){ showNotif('❌ Erreur lors de l\'enregistrement', true); console.error(e); }
-    finally {
-      isSubmitting = false;
-      btnVal.textContent = '✓ Valider ma commande';
-      btnVal.disabled = false;
-    }
-  });
-
-  document.getElementById('btn-back-home').addEventListener('click', function(){
-    document.getElementById('succOv').classList.remove('open');
-    ['q1','q2','q3'].forEach(function(id){ document.getElementById(id).textContent='0'; });
-    ['pc1','pc2','pc3'].forEach(function(id){ document.getElementById(id).classList.remove('sel'); });
-    showScreen('home');
-  });
-
-  // HISTORIQUE — compatible Android Chrome, tri JS côté client
-  async function loadHistory(){
-    var body=document.getElementById('histBody');
-    if(!clientData||!clientData.email){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Connectez-vous pour voir votre historique.</div>'; return; }
-    body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div>';
-    try {
-      var q = query(collection(db,'commandes'), where('clientEmail','==',clientData.email));
-      var snap = await getDocs(q);
-      if(snap.empty){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Aucune commande pour le moment.</div>'; return; }
-      var arr = [];
-      snap.forEach(function(docSnap){ arr.push(docSnap.data()); });
-      arr.sort(function(a,b){ return (b.dateCommande?b.dateCommande.seconds:0)-(a.dateCommande?a.dateCommande.seconds:0); });
-      var html='';
-      arr.forEach(function(d){
-        var date=d.dateCommande?new Date(d.dateCommande.seconds*1000).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'Date inconnue';
-        var ht = typeof d.htTotal === 'number' ? d.htTotal.toFixed(2) : '—';
-        var ttc = typeof d.ttcTotal === 'number' ? d.ttcTotal.toFixed(2) : '—';
-        html+='<div class="hc"><div class="hc-top"><span class="hc-d">'+date+'</span><span class="hc-s">'+(d.statut||'En attente')+'</span></div><div class="hc-dt">'+(d.produits||[]).join(' · ')+'</div><div class="hc-am">'+ht+' € HT · '+ttc+' € TTC</div></div>';
-      });
-      body.innerHTML=html;
-    } catch(e){ body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Erreur de chargement. Vérifiez votre connexion.</div>'; console.error(e); }
-  }
-
-  // EMAILS
-  function envoyerEmailBienvenue(client){
-    var typeLabel = client.typeEtab==='superette' ? 'Supérette / Alimentation' : 'Bar / Restaurant / Hôtel';
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Bienvenue — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre compte a bien été créé !\n\nÉtablissement : '+client.etab+'\nType : '+typeLabel+'\nAdresse : '+client.adresse+'\n\nVous pouvez maintenant commander vos glaçons directement depuis l\'app.\n\nÀ très bientôt,\nFroidepannagebar Glace\n04.84.89.68.02'})});
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouveau client — '+client.etab,text:'Nouveau client !\n\nNom : '+client.nom+'\nÉtablissement : '+client.etab+'\nType : '+typeLabel+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse})});
-  }
-
-  function envoyerEmailCommande(client,detail,ttc){
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Confirmation de commande — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre commande a bien été enregistrée !\n\n'+detail+'\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02'})});
-    fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouvelle commande — '+client.etab,text:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+clie
+  const firebaseConfig={apiKey:"AIzaSyAPuEE5-kexy5hCWTeaLJVfo6KpD9xPIP4",authDomain:"froidepannageglace.firebaseapp.com",projectId:"froidepannageglace",storageBucket:"froidepannageglace.firebasestorage.app",messagingSenderId:"1079224113581",appId:"1:1079224113581:web:fa3b0109de0fbfe0d8e924",measurementId:"G-H9J4L1B8HT"};
+  const app=initializeApp(firebaseConfig);
+  const db=getFirestore(app);
+  const auth=getAuth(app);
+  var clientData=null;
+  setPersistence(auth,browserLocalPersistence).catch(function(e){console.error(e);});
+  var FRAIS_ZONES={marseille:9.99,aubagne:14.99,ciotat:19.50,bandol:24.50};
+  var ZONE_VILLES={marseille:['marseille','13001','13002','13003','13004','13005','13006','13007','13008','13009','13010','13011','13012','13013','13014','13015','13016'],aubagne:['aubagne','gemenos','gémenos','roquevaire','la bouilladisse','bouilladisse','cuges','saint-savournin','la penne','penne sur huveaune'],ciotat:['la ciotat','ciotat','cassis','carnoux','ceyreste','roquefort-la-bedoule','roquefort la bedoule','bedoule'],bandol:['bandol','sanary','six-fours','six fours','le castellet','castellet','la cadiere','cadière']};
+  var ZONE_INFOS={marseille:'📍 <strong>Marseille</strong> — Livraison gratuite dès 100 kg · En dessous : 9,99 €',aubagne:'📍 <strong>Aubagne, Gémenos, Roquevaire, La Bouilladisse, Cuges-les-Pins, Saint-Savournin, La Penne-sur-Huveaune</strong> — Livraison gratuite dès 100 kg · En dessous : 14,99 €',ciotat:'📍 <strong>La Ciotat, Cassis, Carnoux-en-Provence, Ceyreste, Roquefort-la-Bédoule</strong> — Livraison gratuite dès 100 kg · En dessous : 19,50 €',bandol:'📍 <strong>Bandol, Sanary-sur-Mer, Six-Fours-les-Plages, Le Castellet, La Cadière-d\'Azur</strong> — Livraison gratuite dès 100 kg · En dessous : 24,50 €',devis:'📞 Zone hors secteur — Contactez-nous au <strong>04.84.89.68.02</strong> pour un devis livraison.'};
+  function detecterZone(adresse){if(!adresse)return '';var a=adresse.toLowerCase();for(var z in ZONE_VILLES){var villes=ZONE_VILLES[z];for(var i=0;i<villes.length;i++){if(a.indexOf(villes[i])!==-1)return z;}}return '';}
+  function getPrixGlacons(){return clientData&&clientData.typeEtab==='superette'?0.75:0.95;}
+  function isSuperette(){return clientData&&clientData.typeEtab==='superette';}
+  function showNotif(msg,isErr){var n=document.getElementById('notif');n.textContent=msg;n.className='notif show'+(isErr?' err':'');setTimeout(function(){n.className='notif';},3000);}
+  function updateClock(){var now=new Date();var h=now.getHours().toString().padStart(2,'0');var m=now.getMinutes().toString().padStart(2,'0');var el=document.getElementById('clock');if(el)el.textContent=h+':'+m;}
+  updateClock();setInterval(updateClock,30000);
+  function showScreen(id){var all=['home','order','signup','history','acctreq'];for(var i=0;i<all.length;i++){var el=document.getElementById('s-'+all[i]);if(el){el.classList.toggle('hide',all[i]!==id);}}var navMap=['home','order','signup','history'];for(var j=0;j<navMap.length;j++){var bn=document.getElementById('bn-'+navMap[j]);if(!bn)continue;bn.classList.toggle('on',navMap[j]===id);var dot=bn.querySelector('.bn-dot');if(dot)dot.parentNode.removeChild(dot);if(navMap[j]===id){var d=document.createElement('div');d.className='bn-dot';bn.appendChild(d);}}if(id==='history'&&clientData)loadHistory();if(id==='order'&&clientData)setupOrderScreen();}
+  function setupOrderScreen(){var prix=getPrixGlacons();document.getElementById('pc1-prix').textContent=prix.toFixed(2).replace('.',',')+' €/kg · carton 12 kg';document.getElementById('order-hello').textContent='Bonjour '+(clientData.nom||'')+' 👋';document.getElementById('zone-bloc').style.display=isSuperette()?'none':'block';if(!isSuperette()&&clientData.adresse){var z=detecterZone(clientData.adresse);if(z){document.getElementById('zone-select').value=z;document.getElementById('zone-info').innerHTML=ZONE_INFOS[z];document.getElementById('zone-info').classList.add('show');}}}
+  function goOrder(){if(!clientData){showScreen('acctreq');}else{showScreen('order');}}
+  function goHistory(){if(!clientData){showScreen('acctreq');}else{showScreen('history');}}
+  document.getElementById('zone-select').addEventListener('change',function(){var z=this.value;var info=document.getElementById('zone-info');if(z&&ZONE_INFOS[z]){info.innerHTML=ZONE_INFOS[z];info.classList.add('show');}else{info.classList.remove('show');}});
+  onAuthStateChanged(auth,async function(user){if(user){try{var snap=await getDocs(query(collection(db,'clients'),where('uid','==',user.uid)));if(!snap.empty){var d=snap.docs[0].data();clientData={id:snap.docs[0].id,nom:d.nom,etab:d.etablissement,tel:d.telephone,email:d.email,adresse:d.adresse,typeEtab:d.typeEtab||'pro'};}}catch(e){console.error(e);}}else{clientData=null;}});
+  document.getElementById('bn-home').addEventListener('click',function(){showScreen('home');});
+  document.getElementById('bn-order').addEventListener('click',function(){goOrder();});
+  document.getElementById('bn-signup').addEventListener('click',function(){showScreen('signup');});
+  document.getElementById('bn-history').addEventListener('click',function(){goHistory();});
+  document.getElementById('btn-commander-home').addEventListener('click',function(){goOrder();});
+  document.getElementById('btn-urgence').addEventListener('click',function(){window.location.href='tel:0484896802';});
+  document.getElementById('btn-goto-signup').addEventListener('click',function(){showScreen('signup');});
+  document.getElementById('btn-goto-login').addEventListener('click',function(){showScreen('acctreq');});
+  document.getElementById('btn-login').addEventListener('click',async function(){var email=document.getElementById('login-email').value.trim();var password=document.getElementById('login-password').value;if(!email||!password){showNotif('⚠️ Veuillez remplir tous les champs obligatoires',true);return;}try{var cred=await signInWithEmailAndPassword(auth,email,password);var snap=await getDocs(query(collection(db,'clients'),where('uid','==',cred.user.uid)));if(!snap.empty){var d=snap.docs[0].data();clientData={id:snap.docs[0].id,nom:d.nom,etab:d.etablissement,tel:d.telephone,email:d.email,adresse:d.adresse,typeEtab:d.typeEtab||'pro'};}showNotif('✅ Connecté ! Bienvenue '+(clientData?clientData.nom:'')+' 👋');setTimeout(function(){showScreen('order');},1200);}catch(e){showNotif('❌ Email ou mot de passe incorrect',true);}});
+  document.getElementById('btn-forgot-pw').addEventListener('click',async function(){var email=document.getElementById('login-email').value.trim();if(!email){showNotif('⚠️ Entrez votre email d\'abord',true);return;}try{await sendPasswordResetEmail(auth,email);showNotif('📧 Email de réinitialisation envoyé !');}catch(e){showNotif('❌ Email introuvable',true);}});
+  var selectedType=null;
+  window.selectType=function(type){selectedType=type;document.getElementById('type-superette').classList.toggle('sel',type==='superette');document.getElementById('type-pro').classList.toggle('sel',type==='pro');};
+  document.getElementById('geoBtn').addEventListener('click',function(){var btn=this;btn.textContent='...';if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(pos){document.getElementById('geoIn').value=pos.coords.latitude.toFixed(4)+', '+pos.coords.longitude.toFixed(4);btn.textContent='✓ Localisé';},function(){document.getElementById('geoIn').value='43.2965, 5.3698';btn.textContent='✓ Ok';});}else{document.getElementById('geoIn').value='43.2965, 5.3698';btn.textContent='✓ Ok';}});
+  document.getElementById('btn-create-account').addEventListener('click',async function(){if(!selectedType){showNotif('⚠️ Choisissez le type d\'établissement',true);return;}var nom=document.getElementById('nom').value.trim();var etab=document.getElementById('etab').value.trim();var tel=document.getElementById('tel-input').value.trim();var email=document.getElementById('email-input').value.trim();var password=document.getElementById('password-input').value;var passwordConfirm=document.getElementById('password-confirm').value;var adresse=document.getElementById('adresse-input').value.trim();var tva=document.getElementById('tva-input').value.trim();if(!nom||!etab||!tel||!email||!password||!adresse){showNotif('⚠️ Veuillez remplir tous les champs obligatoires',true);return;}if(password.length<6){showNotif('⚠️ Mot de passe minimum 6 caractères',true);return;}if(password!==passwordConfirm){showNotif('⚠️ Les mots de passe ne correspondent pas',true);return;}try{var cred=await createUserWithEmailAndPassword(auth,email,password);var docRef=await addDoc(collection(db,'clients'),{uid:cred.user.uid,nom:nom,etablissement:etab,telephone:tel,email:email,adresse:adresse,tva:tva,typeEtab:selectedType,gps:document.getElementById('geoIn').value,dateCreation:serverTimestamp()});clientData={id:docRef.id,nom:nom,etab:etab,tel:tel,email:email,adresse:adresse,typeEtab:selectedType};showNotif('✅ Compte créé avec succès !');envoyerEmailBienvenue(clientData);setTimeout(function(){showScreen('order');},1500);}catch(e){if(e.code==='auth/email-already-in-use'){showNotif('❌ Cet email est déjà utilisé',true);}else{showNotif('❌ Erreur lors de la création du compte',true);console.error(e);}}});
+  var menuBg=document.getElementById('menuBg');var menuPanel=document.getElementById('menuPanel');
+  document.getElementById('hamburgerBtn').addEventListener('click',function(e){e.stopPropagation();menuBg.classList.add('open');});
+  document.getElementById('menuClose').addEventListener('click',function(){menuBg.classList.remove('open');});
+  menuBg.addEventListener('click',function(e){if(e.target===menuBg){menuBg.classList.remove('open');}});
+  menuPanel.addEventListener('click',function(e){e.stopPropagation();});
+  function setupAccordion(btnId,bodyId,arrId){document.getElementById(btnId).addEventListener('click',function(){var body=document.getElementById(bodyId),arr=document.getElementById(arrId);var isOpen=body.classList.contains('open');body.classList.toggle('open',!isOpen);arr.classList.toggle('open',!isOpen);});}
+  setupAccordion('acc-p','acc-p-body','acc-p-arr');setupAccordion('acc-c','acc-c-body','acc-c-arr');setupAccordion('acc-q','acc-q-body','acc-q-arr');setupAccordion('acc-g','acc-g-body','acc-g-arr');
+  for(var n=1;n<=8;n++){(function(num){var hd=document.getElementById('cgv'+num+'-hd');if(hd)hd.addEventListener('click',function(){var b=document.getElementById('cgv'+num),a=document.getElementById('cgv'+num+'-arr');var open=b.classList.toggle('open');if(a)a.textContent=open?'▲':'▼';});})(n);}
+  function setupQty(plusId,minusId,spanId,pcId){document.getElementById(plusId).addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var span=document.getElementById(spanId);span.textContent=(parseInt(span.textContent)||0)+1;document.getElementById(pcId).classList.add('sel');});document.getElementById(minusId).addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var span=document.getElementById(spanId),v=parseInt(span.textContent)||0;if(v>0)v--;span.textContent=v;if(v===0)document.getElementById(pcId).classList.remove('sel');});}
+  setupQty('q1-plus','q1-minus','q1','pc1');setupQty('q2-plus','q2-minus','q2','pc2');setupQty('q3-plus','q3-minus','q3','pc3');
+  document.getElementById('btn-confirm-order').addEventListener('click',function(){var q1=parseInt(document.getElementById('q1').textContent)||0;var q2=parseInt(document.getElementById('q2').textContent)||0;var q3=parseInt(document.getElementById('q3').textContent)||0;if(q1===0&&q2===0&&q3===0){showNotif('⚠️ Sélectionnez au moins un produit',true);return;}var superette=isSuperette();var prix=getPrixGlacons();var kgGlacons=q1*12;var kgPilee=q2*12;var totalKg=kgGlacons+kgPilee+q3;if(superette&&totalKg<40){showNotif('⚠️ Commande minimum 40 kg pour les supérettes (4 cartons)',true);return;}var fraisLivraison=0;var livraisonLabel='✅ Gratuite';var livraisonClass='rs-val green';var zoneLabel='';if(!superette){var zone=document.getElementById('zone-select').value;if(!zone){showNotif('⚠️ Sélectionnez votre zone de livraison',true);return;}if(zone==='devis'){showNotif('📞 Contactez-nous pour un devis : 04.84.89.68.02',true);return;}zoneLabel=zone;if(totalKg>=100){fraisLivraison=0;livraisonLabel='✅ Gratuite';livraisonClass='rs-val green';}else{fraisLivraison=FRAIS_ZONES[zone]||0;livraisonLabel=fraisLivraison.toFixed(2).replace('.',',')+' €';livraisonClass='rs-val';}}var ht=Math.round((q1*12*prix+q2*12*1.10+q3*6)*100)/100;var tva=Math.round(ht*0.055*100)/100;var ttc=Math.round((ht+tva+fraisLivraison)*100)/100;var html='';if(q1>0)html+='<div class="rs-row"><span class="rs-lbl">Glaçons × '+q1+' carton'+(q1>1?'s':'')+' ('+kgGlacons+' kg)</span><span class="rs-val">'+(Math.round(q1*12*prix*100)/100).toFixed(2)+' €</span></div>';if(q2>0)html+='<div class="rs-row"><span class="rs-lbl">Glace pilée × '+q2+' carton'+(q2>1?'s':'')+' ('+kgPilee+' kg)</span><span class="rs-val">'+(Math.round(q2*12*1.10*100)/100).toFixed(2)+' €</span></div>';if(q3>0)html+='<div class="rs-row"><span class="rs-lbl">Glace CO₂ × '+q3+' kg</span><span class="rs-val">'+(Math.round(q3*6*100)/100).toFixed(2)+' €</span></div>';document.getElementById('rsItems').innerHTML=html;document.getElementById('rht').textContent=ht.toFixed(2)+' €';document.getElementById('rtva').textContent=tva.toFixed(2)+' €';var livrEl=document.getElementById('rlivraison');livrEl.textContent=livraisonLabel.replace('✅ ','');livrEl.className=livraisonClass;if(livraisonLabel.includes('✅'))livrEl.textContent='✅ Gratuite';document.getElementById('rttc').textContent=ttc.toFixed(2)+' €';document.getElementById('recapOv').classList.add('open');});
+  document.getElementById('btn-cancel-recap').addEventListener('click',function(){document.getElementById('recapOv').classList.remove('open');});
+  var isSubmitting=false;
+  document.getElementById('btn-validate-order').addEventListener('click',async function(){if(isSubmitting)return;isSubmitting=true;var btnVal=document.getElementById('btn-validate-order');btnVal.textContent='⏳ Envoi en cours...';btnVal.disabled=true;var q1=parseInt(document.getElementById('q1').textContent)||0;var q2=parseInt(document.getElementById('q2').textContent)||0;var q3=parseInt(document.getElementById('q3').textContent)||0;var superette=isSuperette();var prix=getPrixGlacons();var totalKg=q1*12+q2*12+q3;var fraisLivraison=0;var zoneLabel='Supérette';if(!superette){var zone=document.getElementById('zone-select').value;zoneLabel=zone;if(totalKg<100&&FRAIS_ZONES[zone])fraisLivraison=FRAIS_ZONES[zone];}var ht=Math.round((q1*12*prix+q2*12*1.10+q3*6)*100)/100;var tva=Math.round(ht*0.055*100)/100;var ttc=Math.round((ht+tva+fraisLivraison)*100)/100;var produits=[];if(q1>0)produits.push('Glaçons × '+q1+' cartons ('+q1*12+' kg)');if(q2>0)produits.push('Glace pilée × '+q2+' cartons');if(q3>0)produits.push('Glace CO₂ × '+q3+' kg');var livrTxt=fraisLivraison>0?fraisLivraison.toFixed(2)+' €':'Gratuite';var detail=produits.join('\n')+'\n\nTotal TTC : '+ttc.toFixed(2)+' €\nLivraison : '+livrTxt;try{await addDoc(collection(db,'commandes'),{clientId:clientData?clientData.id:'direct',clientNom:clientData?clientData.nom:'',clientEtab:clientData?clientData.etab:'',clientEmail:clientData?clientData.email:'',clientTel:clientData?clientData.tel:'',clientAdresse:clientData?clientData.adresse:'',typeEtab:clientData?clientData.typeEtab:'pro',prixGlacons:prix,fraisLivraison:fraisLivraison,zonelivraison:zoneLabel,produits:produits,htTotal:ht,tvaTotal:tva,ttcTotal:ttc,statut:'En attente',dateCommande:serverTimestamp()});document.getElementById('succDetail').innerHTML=produits.join('<br>')+'<br><br><strong>Total TTC : '+ttc.toFixed(2)+' €</strong>';document.getElementById('recapOv').classList.remove('open');document.getElementById('succOv').classList.add('open');if(clientData&&clientData.email)envoyerEmailCommande(clientData,detail,ttc.toFixed(2)+' €');}catch(e){showNotif('❌ Erreur lors de l\'enregistrement',true);console.error(e);}finally{isSubmitting=false;btnVal.textContent='✓ Valider ma commande';btnVal.disabled=false;}});
+  document.getElementById('btn-back-home').addEventListener('click',function(){document.getElementById('succOv').classList.remove('open');['q1','q2','q3'].forEach(function(id){document.getElementById(id).textContent='0';});['pc1','pc2','pc3'].forEach(function(id){document.getElementById(id).classList.remove('sel');});showScreen('home');});
+  async function loadHistory(){var body=document.getElementById('histBody');if(!clientData||!clientData.email){body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Connectez-vous pour voir votre historique.</div>';return;}body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Chargement...</div>';try{var q=query(collection(db,'commandes'),where('clientEmail','==',clientData.email));var snap=await getDocs(q);if(snap.empty){body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Aucune commande pour le moment.</div>';return;}var arr=[];snap.forEach(function(docSnap){arr.push(docSnap.data());});arr.sort(function(a,b){return(b.dateCommande?b.dateCommande.seconds:0)-(a.dateCommande?a.dateCommande.seconds:0);});var html='';arr.forEach(function(d){var date=d.dateCommande?new Date(d.dateCommande.seconds*1000).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'Date inconnue';var ht=typeof d.htTotal==='number'?d.htTotal.toFixed(2):'—';var ttc=typeof d.ttcTotal==='number'?d.ttcTotal.toFixed(2):'—';html+='<div class="hc"><div class="hc-top"><span class="hc-d">'+date+'</span><span class="hc-s">'+(d.statut||'En attente')+'</span></div><div class="hc-dt">'+(d.produits||[]).join(' · ')+'</div><div class="hc-am">'+ht+' € HT · '+ttc+' € TTC</div></div>';});body.innerHTML=html;}catch(e){body.innerHTML='<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;">Erreur de chargement. Vérifiez votre connexion.</div>';console.error(e);}}
+  function envoyerEmailBienvenue(client){var typeLabel=client.typeEtab==='superette'?'Supérette / Alimentation':'Bar / Restaurant / Hôtel';fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Bienvenue — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre compte a bien été créé !\n\nÉtablissement : '+client.etab+'\nType : '+typeLabel+'\nAdresse : '+client.adresse+'\n\nVous pouvez maintenant commander vos glaçons directement depuis l\'app.\n\nÀ très bientôt,\nFroidepannagebar Glace\n04.84.89.68.02'})});fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouveau client — '+client.etab,text:'Nouveau client !\n\nNom : '+client.nom+'\nÉtablissement : '+client.etab+'\nType : '+typeLabel+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse})});}
+  function envoyerEmailCommande(client,detail,ttc){fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:client.email,toName:client.nom,subject:'Confirmation de commande — Froidepannagebar Glace',text:'Bonjour '+client.nom+',\n\nVotre commande a bien été enregistrée !\n\n'+detail+'\n\nLivraison sous 24h · Paiement à la livraison.\n\nMerci pour votre confiance,\nFroidepannagebar Glace\n04.84.89.68.02'})});fetch('/api/send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({to:'contact@livraison-glacons-marseille.fr',toName:'Admin',subject:'Nouvelle commande — '+client.etab,text:'Nouvelle commande !\n\nClient : '+client.nom+'\nÉtablissement : '+client.etab+'\nEmail : '+client.email+'\nTéléphone : '+client.tel+'\nAdresse : '+client.adresse+'\n\n'+detail})});}
+  if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js');});}
+</script>
+</body>
+</html>
